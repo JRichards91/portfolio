@@ -1,0 +1,5 @@
+# _config.yml
+title: "Justin Richards Portfolio"
+baseurl: ""       # no subdirectory
+url: "https://your-user.github.io/portfolio"
+markdown: kramdown
