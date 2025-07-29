@@ -8,7 +8,7 @@ permalink: /resume/
   <h2>My Resume</h2>
   <div class="resume-container">
     <iframe
-      src="{{ '/assets/files/resume.pdf' | relative_url }}#zoom=75"
+      src="{{ '/assets/files/Justin Richards Résumé.pdf' | relative_url }}#zoom=75"
       width="800"
       height="600"
       style="border: none; max-width: 100%;"
