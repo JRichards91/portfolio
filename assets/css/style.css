@@ -1,11 +1,11 @@
 /* assets/css/style.css */
 
-/* Logo‑Matching Bright Blue & Gold Palette */
+/* Bright Blue Background & Black Links */
 :root {
   --bg:      #00AEEF;    /* bright azure background */
   --text:    #FFFFFF;    /* white text */
   --accent:  #FFFFFF;    /* white accents */
-  --link:    #FFD700;    /* ⚪ gold, easy to read on blue */
+  --link:    #000000;    /* black links */
   --nav-bg:  #008FC5;    /* navbar tint */
   --nav-tx:  #FFFFFF;    /* white nav text */
 }
