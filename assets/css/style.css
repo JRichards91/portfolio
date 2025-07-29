@@ -11,12 +11,12 @@
   --font-header:  "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body:    "Open Sans", Arial, sans-serif;
 
-  --fs-h1:   2.5rem;
-  --fs-h2:   2rem;
-  --fs-h3:   1.5rem;
-  --fs-base: 1rem;
-  --fs-lg:   1.2rem;
-  --fs-sm:   0.9rem;
+  --fs-h1:     2.5rem;
+  --fs-h2:     2rem;
+  --fs-h3:     1.5rem;
+  --fs-base:   1rem;
+  --fs-lg:     1.2rem;
+  --fs-sm:     0.9rem;
 }
 
 /* 2. Reset & Base */
@@ -34,9 +34,9 @@ body {
   line-height: 1.6;
 }
 .container {
-  max-width: 1200px;     /* wider content area */
+  max-width: 1200px;   /* wider content area */
   margin: 0 auto;
-  padding: 0 20px;       /* reduced side padding */
+  padding: 0 20px;     /* reduced side padding */
 }
 
 /* 3. Links */
@@ -67,10 +67,6 @@ header {
   color: var(--nav-tx);
   font-family: var(--font-header);
   font-size: var(--fs-lg);
-  text-decoration: none;
-}
-.nav-list a:hover {
-  color: var(--link);
 }
 
 /* 5. Footer (Sticky) */
@@ -105,7 +101,7 @@ h3 {
 /* 7. Hero Section */
 .hero {
   text-align: center;
-  padding: 40px 20px;    /* reduced vertical padding */
+  padding: 40px 20px;    /* tighter vertical padding */
 }
 .hero h1 {
   margin-bottom: 10px;
@@ -116,13 +112,20 @@ h3 {
   margin: 0 auto;
 }
 
-/* 8. Timeline Section (Vertical Only) */
+/* 8. About Text (match hero) */
+.about-text p {
+  font-size: var(--fs-lg);
+  max-width: 700px;
+  margin: 0 auto 1em;
+}
+
+/* 9. Timeline Section (always vertical) */
 .timeline-section {
-  padding: 40px 0;        /* reduced vertical padding */
+  padding: 40px 0;        /* tighter vertical padding */
 }
 .timeline {
   display: flex;
-  flex-direction: column; /* always vertical */
+  flex-direction: column;
   gap: 20px;
 }
 .timeline-item {
@@ -136,11 +139,13 @@ h3 {
 .timeline-icon {
   background: var(--text);
   color: var(--nav-bg);
-  width: 50px; height: 50px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: var(--fs-h2);
-  flex-shrink: 0;
 }
 .timeline-content a {
   font-size: var(--fs-lg);
@@ -153,42 +158,33 @@ h3 {
   color: var(--text);
 }
 
-/* 9. Projects Grid */
+/* 10. Projects Grid */
 .projects-list {
-  padding: 40px 0;        /* reduced vertical padding */
+  padding: 40px 0;
 }
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
 }
-@media (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-}
 .project-card {
   background: rgba(255,255,255,0.1);
   border-radius: 8px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .project-card img {
-  width: 100%; height: 160px;
+  width: 100%;
+  height: 160px;
   object-fit: cover;
 }
 .project-card h3 {
-  margin: 15px 15px 0;
+  margin: 15px;
   font-size: var(--fs-h3);
 }
 .project-card p {
-  margin: 10px 15px;
+  margin: 0 15px 15px;
   flex-grow: 1;
 }
 .project-card a {
@@ -196,9 +192,9 @@ h3 {
   color: var(--link);
 }
 
-/* 10. Contact Form */
+/* 11. Contact Form */
 .contact-form {
-  padding: 40px 0;        /* reduced vertical padding */
+  padding: 40px 0;
 }
 .contact-form form {
   max-width: 600px;

@@ -4,10 +4,10 @@ title: Home
 ---
 <section class="hero">
   <h1>
-    Engineering Tomorrow,<br/>
+    Engineering Tomorrow,<br>
     One Innovation at a Time
   </h1>
-  <p>Hi, I’m Justin Richards—an Electrical & Computer Engineer blending embedded systems, 3D printing, and robotics into real‑world solutions. Dive into my timeline below to explore hands‑on projects that range from hydroponic farms to autonomous robots.</p>
+  <p>Hi, I’m Justin Richards, an Electrical & Computer Engineer who brings embedded systems, 3D-printed devices, and robotics to life. Explore my timeline below to see projects ranging from smart gardens to autonomous robots.</p>
 </section>
 
 <section class="timeline-section">
