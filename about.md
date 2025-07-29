@@ -68,7 +68,7 @@ permalink: /about/
     </div>
     <div class="about-text">
       <h2>Looking Ahead</h2>
-      <p>Beyond the lab, I love live music, travel, and discovering Central Oregon’s scenic wonders. Professionally, I’m exploring a master’s degree and dreaming up my next big build: a custom 3D‑printed enclosure and PCB for a wireless HomeKit‑compatible soil moisture sensor. My goal is to blend elegance and engineering to create smart gardens that practically care for themselves. If that spark resonates, let’s connect on <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>!</p>
+      <p>Beyond the lab, I love live music, travel, and discovering Central Oregon’s scenic wonders. Professionally, I’m exploring a master’s degree and dreaming up my next big build: a custom 3D‑printed enclosure and PCB for a wireless HomeKit‑compatible soil moisture sensor. My goal is to blend elegance and engineering to create smart gardens that practically care for themselves. If that spark resonates, let’s connect on <a href="https://www.linkedin.com/in/jrichards91" target="_blank">LinkedIn</a>!</p>
     </div>
   </div>
 
