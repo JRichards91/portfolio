@@ -1,16 +1,51 @@
 [
   {
-    "title": "Project One",
-    "date": "2025-07-01",
-    "image": "/assets/img/project1.jpg",
-    "blurb": "Short description of project one.",
-    "url": "/projects/project-one/"
+    "title": "ROS2 Robot with 3D Camera & Arm",
+    "date": "2025-07-28",
+    "image": "/assets/img/ros2-camera-arm.jpg",
+    "blurb": "A mobile manipulator featuring ROS2, depth sensing, and pick‑and‑place capabilities.",
+    "url": "/projects/ros2-camera-arm/"
   },
   {
-    "title": "Capacitive Soil Moisture PCB",
-    "date": "2025-07-23",
-    "image": "/assets/img/pcb.jpg",
-    "blurb": "Designed a PCB with RP2040, ESP‑Now, and HomeKit integration.",
-    "url": "/projects/soil-moisture-pcb/"
+    "title": "ROS2 Mobile Rover",
+    "date": "2025-04-07",
+    "image": "/assets/img/ros2-rover.jpg",
+    "blurb": "An autonomous rover running ROS2 for navigation and SLAM.",
+    "url": "/projects/ros2-rover/"
+  },
+  {
+    "title": "Hydroponics Proof‑of‑Concept",
+    "date": "2025-03-12",
+    "image": "/assets/img/hydro-poc.jpg",
+    "blurb": "A compact, sensor‑driven hydroponic system demo.",
+    "url": "/projects/hydroponics-poc/"
+  },
+  {
+    "title": "Smart Countertop Hydroponics",
+    "date": "2025-01-13",
+    "image": "/assets/img/smart-hydro.jpg",
+    "blurb": "Wi‑Fi enabled countertop garden with automated nutrient dosing.",
+    "url": "/projects/smart-hydro/"
+  },
+  {
+    "title": "Multiple Traveling Salesmen Solver",
+    "date": "2024-06-05",
+    "image": "/assets/img/traveling-salesmen.jpg",
+    "blurb": "An optimized algorithm for multiple‑agent route planning.",
+    "url": "/projects/multiple-salesmen/"
+  },
+  {
+    "title": "Gas Density Measurement",
+    "date": "2023-03-21",
+    "image": "/assets/img/gas-density.jpg",
+    "blurb": "A custom gas density sensor with onboard data logging.",
+    "url": "/projects/gas-density/"
+  },
+  {
+    "title": "Sound‑Activated LED Display",
+    "date": "2021-12-02",
+    "image": "/assets/img/sound-leds.jpg",
+    "blurb": "An LED array that dances to live audio input.",
+    "url": "/projects/sound-leds/"
   }
 ]

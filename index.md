@@ -3,8 +3,8 @@ layout: default
 title: Home
 ---
 <section class="hero">
-  <h1>Welcome to My Portfolio</h1>
-  <p>I’m Justin Richards, an Electrical & Computer Engineer passionate about embedded systems, 3D printing, and automation. Browse the timeline below to see my latest work.</p>
+  <h1>Engineering Tomorrow, One Innovation at a Time</h1>
+  <p>Hi, I’m Justin Richards—an Electrical & Computer Engineer blending embedded systems, 3D printing, and robotics into real‑world solutions. Dive into my timeline below to explore hands‑on projects that range from hydroponic farms to autonomous robots.</p>
 </section>
 
 <section class="timeline-section">
