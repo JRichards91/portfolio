@@ -1,43 +1,67 @@
 /* assets/css/style.css */
 
-/* Bright Blue Background & Black Links */
+/* 1. Color & Typography Variables */
 :root {
-  --bg:      #00AEEF;    /* bright azure background */
-  --text:    #FFFFFF;    /* white text */
-  --accent:  #FFFFFF;    /* white accents */
-  --link:    #000000;    /* black links */
-  --nav-bg:  #008FC5;    /* navbar tint */
-  --nav-tx:  #FFFFFF;    /* white nav text */
+  --bg:        #00AEEF;    /* bright azure */
+  --text:      #FFFFFF;    /* white text */
+  --accent:    #FFFFFF;    /* white accents */
+  --link:      #000000;    /* black links */
+  --nav-bg:    #008FC5;    /* navbar tint */
+  --nav-tx:    #FFFFFF;    /* white nav text */
+
+  /* Font families */
+  --font-header:  "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:    "Open Sans", Arial, sans-serif;
+
+  /* Font sizes */
+  --fs-h1:     2.5rem;
+  --fs-h2:     2rem;
+  --fs-h3:     1.5rem;
+  --fs-base:   1rem;
+  --fs-lg:     1.2rem;
+  --fs-sm:     0.9rem;
 }
 
-/* Base */
+/* 2. Reset & Base */
+* {
+  box-sizing: border-box;
+}
 body {
-  background-color: var(--bg) !important;
   background: var(--bg) !important;
   color: var(--text);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding-top: 80px;    /* account for sticky header */
+  padding-bottom: 60px; /* account for sticky footer */
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
   line-height: 1.6;
 }
 .container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px;
 }
 
-/* Links */
+/* 3. Links */
 a {
   color: var(--link);
   text-decoration: none;
+  font-weight: 600;
+  font-size: var(--fs-base);
 }
 a:hover {
   text-decoration: underline;
 }
 
-/* Header/Nav */
+/* 4. Header (Sticky) */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: var(--nav-bg);
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
 .nav-list {
   display: flex;
@@ -48,29 +72,54 @@ header {
 }
 .nav-list a {
   color: var(--nav-tx);
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-.nav-list a:hover {
-  color: var(--link);
+  font-family: var(--font-header);
+  font-size: var(--fs-lg);
 }
 
-/* Hero */
+/* 5. Footer (Sticky) */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--nav-bg);
+  padding: 15px 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  z-index: 1000;
+}
+
+/* 6. Headings */
+h1 {
+  font-family: var(--font-header);
+  font-size: var(--fs-h1);
+  margin-bottom: 10px;
+}
+h2 {
+  font-family: var(--font-header);
+  font-size: var(--fs-h2);
+  margin-bottom: 20px;
+}
+h3 {
+  font-family: var(--font-header);
+  font-size: var(--fs-h3);
+  margin-bottom: 15px;
+}
+
+/* 7. Hero */
 .hero {
   text-align: center;
   padding: 80px 20px;
 }
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
+.hero h1 { margin-bottom: 10px; }
 .hero p {
-  font-size: 1.2rem;
+  font-size: var(--fs-lg);
   max-width: 700px;
   margin: 0 auto;
 }
 
-/* Timeline (vertical only) */
+/* 8. Timeline */
 .timeline-section {
   padding: 60px 0;
 }
@@ -90,27 +139,22 @@ header {
 .timeline-icon {
   background: var(--accent);
   color: var(--nav-bg);
-  width: 50px;
-  height: 50px;
+  width: 50px; height: 50px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--fs-h3);
 }
 .timeline-content a {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: var(--fs-lg);
   color: var(--link);
 }
 .timeline-date {
   margin-left: auto;
-  font-size: 0.9rem;
+  font-size: var(--fs-sm);
   color: var(--accent);
 }
 
-/* Projects Grid */
+/* 9. Projects Grid */
 .projects-list {
   padding: 60px 0;
 }
@@ -122,30 +166,28 @@ header {
 .project-card {
   background: rgba(255,255,255,0.1);
   border-radius: 8px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .project-card img {
-  width: 100%;
-  height: 160px;
+  width: 100%; height: 160px;
   object-fit: cover;
 }
 .project-card h3 {
-  margin: 15px;
-  font-size: 1.3rem;
+  margin: 15px 15px 0;
+  font-size: var(--fs-h3);
 }
 .project-card p {
-  margin: 0 15px 15px;
+  margin: 10px 15px;
   flex-grow: 1;
 }
 .project-card a {
   margin: 0 15px 15px;
   color: var(--link);
-  font-weight: 600;
 }
 
-/* Contact */
+/* 10. Contact Form */
 .contact-form {
   padding: 60px 0;
 }
@@ -158,30 +200,21 @@ header {
 .contact-form label {
   display: flex;
   flex-direction: column;
-  font-weight: 600;
+  font-size: var(--fs-base);
 }
 .contact-form input,
 .contact-form textarea {
   padding: 10px;
   border: none;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: var(--fs-base);
 }
 .contact-form button {
-  width: fit-content;
   background: var(--link);
   color: var(--nav-bg);
   border: none;
   padding: 12px 20px;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: var(--fs-base);
   cursor: pointer;
-}
-
-/* Footer */
-footer {
-  background: var(--nav-bg);
-  text-align: center;
-  padding: 30px 0;
-  font-size: 0.9rem;
 }
