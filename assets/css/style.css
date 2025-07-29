@@ -2,15 +2,23 @@
 
 /* 1. Color & Typography Variables */
 :root {
-  --bg:        #00AEEF;    /* bright azure background */
-  --text:      #FFFFFF;    /* white text */
-  --link:      #000000;    /* black links */
-  --nav-bg:    #008FC5;    /* navbar tint */
-  --nav-tx:    #FFFFFF;    /* white nav text */
+  --bg:         #00AEEF;    /* Bright azure background */
+  --text:       #FFFFFF;    /* White text */
+  --link:       #000000;    /* Black links */
+  --nav-bg:     #008FC5;    /* Navbar tint */
+  --nav-tx:     #FFFFFF;    /* White nav text */
 
-  --font:      "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
-  --fs:        1rem;       /* unified font size */
-  --lh:        1.6;        /* line‐height */
+  --font:       "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Unified font sizes */
+  --fs-base:    1.125rem;   /* ≈18px */
+  --fs-lg:      1.25rem;    /* ≈20px */
+  --fs-sm:      1rem;       /* ≈16px */
+  --fs-h1:      3rem;       /* ≈48px */
+  --fs-h2:      2rem;       /* ≈32px */
+  --fs-h3:      1.5rem;     /* ≈24px */
+
+  --lh:         1.6;
 }
 
 /* 2. Reset & Base */
@@ -18,13 +26,13 @@
   box-sizing: border-box;
 }
 body {
-  background: var(--bg) !important;
+  background: var(--bg);
   color: var(--text);
   margin: 0;
   padding-top: 80px;    /* for sticky header */
   padding-bottom: 60px; /* for sticky footer */
   font-family: var(--font);
-  font-size: var(--fs);
+  font-size: var(--fs-base);
   line-height: var(--lh);
 }
 .container {
@@ -37,7 +45,8 @@ body {
 a {
   color: var(--link);
   text-decoration: none;
-  font-size: var(--fs);
+  font-weight: bold;
+  font-size: var(--fs-lg);
 }
 a:hover {
   text-decoration: underline;
@@ -58,7 +67,7 @@ header {
 }
 .nav-list a {
   color: var(--nav-tx);
-  font-size: var(--fs);
+  font-size: var(--fs-base);
 }
 
 /* 5. Footer (Sticky) */
@@ -67,15 +76,22 @@ footer {
   background: var(--nav-bg);
   padding: 15px 0;
   text-align: center;
-  font-size: var(--fs);
+  font-size: var(--fs-sm);
   z-index: 1000;
 }
 
-/* 6. Headings (all same size) */
-h1, h2, h3 {
-  font-family: var(--font);
-  font-size: var(--fs);
+/* 6. Headings */
+h1 {
+  font-size: var(--fs-h1);
   margin: 0.5em 0;
+}
+h2 {
+  font-size: var(--fs-h2);
+  margin: 0.75em 0;
+}
+h3 {
+  font-size: var(--fs-h3);
+  margin: 0.75em 0;
 }
 
 /* 7. Hero Section */
@@ -87,19 +103,35 @@ h1, h2, h3 {
   margin-bottom: 10px;
 }
 .hero p {
-  margin: 0 auto;
+  font-size: var(--fs-lg);
   max-width: 700px;
+  margin: 0 auto;
 }
 
-/* 8. About Section Images */
-.about-me img {
-  display: block;
-  margin: 20px auto;
-  max-width: 100%;
+/* 8. About Page Layout */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+.about-section .about-img,
+.about-section .about-text {
+  flex: 1 1 50%;
+}
+.about-section .about-img img {
+  width: 100%;
   border-radius: 8px;
 }
+@media (max-width: 768px) {
+  .about-section .about-img,
+  .about-section .about-text {
+    flex: 1 1 100%;
+  }
+}
 
-/* 9. Timeline Section (vertical only) */
+/* 9. Timeline Section (Vertical Only) */
 .timeline-section {
   padding: 40px 0;
 }
@@ -124,14 +156,12 @@ h1, h2, h3 {
   display: flex; align-items: center; justify-content: center;
 }
 .timeline-content a {
-  font-size: var(--fs);
+  font-size: var(--fs-lg);
   color: var(--link);
-  font-weight: bold;
 }
 .timeline-date {
   margin-left: auto;
-  font-size: var(--fs);
-  color: var(--text);
+  font-size: var(--fs-sm);
 }
 
 /* 10. Projects Grid */
@@ -154,10 +184,12 @@ h1, h2, h3 {
 .project-card h3,
 .project-card p,
 .project-card a {
-  font-size: var(--fs);
+  font-size: var(--fs-base);
   margin: 15px;
 }
-.project-card p { margin-top: 0; }
+.project-card p {
+  margin-top: 0;
+}
 
 /* 11. Contact Form */
 .contact-form {
@@ -173,13 +205,11 @@ h1, h2, h3 {
 .contact-form input,
 .contact-form textarea,
 .contact-form button {
-  font-size: var(--fs);
+  font-size: var(--fs-base);
 }
 .contact-form input,
 .contact-form textarea {
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
+  padding: 10px; border: none; border-radius: 4px;
 }
 .contact-form button {
   background: var(--link);
