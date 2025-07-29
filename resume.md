@@ -9,9 +9,6 @@ permalink: /resume/
   <div class="resume-container">
     <iframe
       src="{{ '/assets/files/Justin Richards Résumé v1.pdf' | relative_url }}#zoom=75"
-      width="800"
-      height="600"
-      style="border: none; max-width: 100%;"
     ></iframe>
   </div>
 </section>

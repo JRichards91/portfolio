@@ -225,3 +225,9 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   justify-content: center;
   margin: 20px auto 60px;
 }
+/* ← NEW: make the embedded PDF fill width and almost full viewport height */
+.resume-embed .resume-container iframe {
+  width: 100%;
+  height: 90vh;
+  border: none;
+}
