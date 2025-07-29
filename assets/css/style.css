@@ -1,26 +1,25 @@
-/* ---------------------------------------
-   1. Color & Typography (unchanged)
---------------------------------------- */
+/* assets/css/style.css */
+
+/* 1. Color & Typography Variables */
 :root {
-  --bg:      #00AEEF;
-  --text:    #FFFFFF;
-  --link:    #000000;
-  --nav-bg:  #008FC5;
-  --nav-tx:  #FFFFFF;
+  --bg:        #00AEEF;    /* bright azure background */
+  --text:      #FFFFFF;    /* white text */
+  --link:      #000000;    /* black links */
+  --nav-bg:    #008FC5;    /* navbar tint */
+  --nav-tx:    #FFFFFF;    /* white nav text */
 
   --font-header:  "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body:    "Open Sans", Arial, sans-serif;
 
   --fs-h1:   2.5rem;
   --fs-h2:   2rem;
+  --fs-h3:   1.5rem;
   --fs-base: 1rem;
   --fs-lg:   1.2rem;
   --fs-sm:   0.9rem;
 }
 
-/* ---------------------------------------
-   2. Reset & Base
---------------------------------------- */
+/* 2. Reset & Base */
 * {
   box-sizing: border-box;
 }
@@ -28,21 +27,28 @@ body {
   background: var(--bg) !important;
   color: var(--text);
   margin: 0;
-  padding-top: 80px;
-  padding-bottom: 60px;
+  padding-top: 80px;    /* account for sticky header */
+  padding-bottom: 60px; /* account for sticky footer */
   font-family: var(--font-body);
   font-size: var(--fs-base);
   line-height: 1.6;
 }
 .container {
-  max-width: 960px;
+  max-width: 1200px;     /* wider content area */
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px;       /* narrower side padding */
 }
 
-/* ---------------------------------------
-   3. Sticky Header & Footer
---------------------------------------- */
+/* 3. Links */
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* 4. Header (Sticky) */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -67,28 +73,43 @@ header {
   color: var(--link);
 }
 
+/* 5. Footer (Sticky) */
 footer {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   background: var(--nav-bg);
-  text-align: center;
   padding: 15px 0;
+  text-align: center;
+  font-family: var(--font-body);
   font-size: var(--fs-sm);
   z-index: 1000;
 }
 
-/* ---------------------------------------
-   4. Hero (Prevent orphan & responsive)
---------------------------------------- */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-}
-.hero h1 {
+/* 6. Headings */
+h1 {
   font-family: var(--font-header);
   font-size: var(--fs-h1);
   margin-bottom: 10px;
-  white-space: nowrap;    /* keep “a Time” together on desktop */
+}
+h2 {
+  font-family: var(--font-header);
+  font-size: var(--fs-h2);
+  margin-bottom: 20px;
+}
+h3 {
+  font-family: var(--font-header);
+  font-size: var(--fs-h3);
+  margin-bottom: 15px;
+}
+
+/* 7. Hero Section */
+.hero {
+  text-align: center;
+  padding: 40px 20px;    /* reduced vertical padding */
+}
+.hero h1 {
+  margin-bottom: 10px;
+  white-space: nowrap;    /* keep lines together on desktop */
 }
 .hero p {
   font-size: var(--fs-lg);
@@ -97,21 +118,18 @@ footer {
 }
 @media (max-width: 768px) {
   .hero h1 {
-    white-space: normal;  /* allow wrap on phones */
+    white-space: normal;  /* allow wrap on mobile */
     font-size: var(--fs-h2);
   }
 }
 
-/* ---------------------------------------
-   5. Timeline (horizontal on desktop,
-      vertical on mobile)
---------------------------------------- */
+/* 8. Timeline Section */
 .timeline-section {
-  padding: 60px 0;
+  padding: 40px 0;        /* reduced vertical padding */
 }
 .timeline {
   display: flex;
-  flex-direction: row;
+  flex-direction: row;    /* horizontal on desktop */
   gap: 20px;
   overflow-x: auto;
 }
@@ -134,9 +152,7 @@ footer {
   color: var(--nav-bg);
   width: 50px; height: 50px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   font-size: var(--fs-h2);
   flex-shrink: 0;
 }
@@ -151,14 +167,13 @@ footer {
   color: var(--text);
 }
 
-/* ---------------------------------------
-   6. Project Grid (3 cols desktop,
-      1 col mobile)
---------------------------------------- */
-.projects-list { padding: 60px 0; }
+/* 9. Projects Grid */
+.projects-list {
+  padding: 40px 0;        /* reduced vertical padding */
+}
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
 }
 @media (max-width: 1024px) {
@@ -179,51 +194,34 @@ footer {
   flex-direction: column;
 }
 .project-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
+  width: 100%; height: 160px; object-fit: cover;
 }
 .project-card h3 {
-  margin: 15px;
-  font-size: var(--fs-h3);
+  margin: 15px 15px 0; font-size: var(--fs-h3);
 }
 .project-card p {
-  margin: 0 15px 15px;
-  flex-grow: 1;
+  margin: 10px 15px; flex-grow: 1;
 }
 .project-card a {
-  margin: 0 15px 15px;
-  color: var(--link);
+  margin: 0 15px 15px; color: var(--link);
 }
 
-/* ---------------------------------------
-   7. Contact Form (responsive)
---------------------------------------- */
-.contact-form { padding: 60px 0; }
+/* 10. Contact Form */
+.contact-form {
+  padding: 40px 0;        /* reduced vertical padding */
+}
 .contact-form form {
-  max-width: 600px;
-  margin: 0 auto;
-  display: grid;
-  gap: 20px;
+  max-width: 600px; margin: 0 auto; display: grid; gap: 20px;
 }
 .contact-form label {
-  display: flex;
-  flex-direction: column;
-  font-size: var(--fs-base);
+  display: flex; flex-direction: column; font-size: var(--fs-base);
 }
 .contact-form input,
 .contact-form textarea {
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  font-size: var(--fs-base);
+  padding: 10px; border: none; border-radius: 4px; font-size: var(--fs-base);
 }
 .contact-form button {
-  background: var(--link);
-  color: var(--nav-bg);
-  border: none;
-  padding: 12px 20px;
-  border-radius: 4px;
-  font-size: var(--fs-base);
+  background: var(--link); color: var(--nav-bg); border: none;
+  padding: 12px 20px; border-radius: 4px; font-size: var(--fs-base);
   cursor: pointer;
 }
