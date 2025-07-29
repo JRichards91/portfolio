@@ -218,3 +218,10 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   font-size: var(--fs-base);
   cursor: pointer;
 }
+
+/* 12. Resume Embed Styling */
+.resume-embed .resume-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto 60px;
+}

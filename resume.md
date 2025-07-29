@@ -4,12 +4,14 @@ title: Resume
 permalink: /resume/
 ---
 
-<section class="resume-embed" style="padding: 40px 0;">
+<section class="resume-embed container">
   <h2>My Resume</h2>
-  <iframe 
-    src="{{ '/assets/files/Justin Richards Résumé v1.pdf' | relative_url }}#view=FitH" 
-    width="100%" 
-    height="800" 
-    style="border: none;">
-  </iframe>
+  <div class="resume-container">
+    <iframe
+      src="{{ '/assets/files/resume.pdf' | relative_url }}#zoom=75"
+      width="800"
+      height="600"
+      style="border: none; max-width: 100%;"
+    ></iframe>
+  </div>
 </section>
