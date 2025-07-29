@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Project One",
+    "date": "2025-07-01",
+    "image": "/assets/img/project1.jpg",
+    "blurb": "Short description of project one.",
+    "url": "/projects/project-one/"
+  },
+  {
+    "title": "Capacitive Soil Moisture PCB",
+    "date": "2025-07-23",
+    "image": "/assets/img/pcb.jpg",
+    "blurb": "Designed a PCB with RP2040, ESP‑Now, and HomeKit integration.",
+    "url": "/projects/soil-moisture-pcb/"
+  }
+]
