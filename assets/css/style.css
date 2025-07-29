@@ -1,11 +1,11 @@
 /* assets/css/style.css */
 
-/* Logo‑Matching Orange Palette */
+/* Logo‑Matching Bright Blue & Gold Palette */
 :root {
   --bg:      #00AEEF;    /* bright azure background */
   --text:    #FFFFFF;    /* white text */
   --accent:  #FFFFFF;    /* white accents */
-  --link:    #FFA500;    /* 🔶 logo orange */
+  --link:    #FFD700;    /* ⚪ gold, easy to read on blue */
   --nav-bg:  #008FC5;    /* navbar tint */
   --nav-tx:  #FFFFFF;    /* white nav text */
 }
