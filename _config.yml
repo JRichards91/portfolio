@@ -1,5 +1,5 @@
 title: "Justin Richards Portfolio"
 baseurl: ""               # if you host under /portfolio/, leave blank
-url: "https://your-user.github.io/portfolio"
+url: "https://jrichards91.github.io/portfolio"
 markdown: kramdown
 permalink: pretty
