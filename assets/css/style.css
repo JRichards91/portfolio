@@ -1,11 +1,11 @@
-/* Neutral Color Palette */
+/* Neutral (but dark) Color Palette */
 :root {
-  --bg:      #F8F8F8;
-  --text:    #333;
-  --accent:  #666;
-  --link:    #0056B3;
-  --nav-bg:  #FFF;
-  --nav-tx:  #333;
+  --bg:      #305CDE;    /* Royal Blue */
+  --text:    #FFFFFF;    /* White */
+  --accent:  #FFFFFF;    /* White accents */
+  --link:    #FFD700;    /* Gold for links */
+  --nav-bg:  #2746A4;    /* Darker nav */
+  --nav-tx:  #FFFFFF;
 }
 
 /* Base */
@@ -27,23 +27,26 @@ a {
   color: var(--link);
   text-decoration: none;
 }
-a:hover { text-decoration: underline; }
+a:hover {
+  text-decoration: underline;
+}
 
 /* Header/Nav */
 header {
   background: var(--nav-bg);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 .nav-list {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   margin: 0;
-  padding: 15px 30px;
+  padding: 20px 40px;
   list-style: none;
 }
 .nav-list a {
   color: var(--nav-tx);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 .nav-list a:hover {
   color: var(--link);
@@ -52,123 +55,123 @@ header {
 /* Hero */
 .hero {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
-.profile-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-}
-
-/* Timeline */
-.timeline-section {
-  padding: 40px 0;
-}
-.timeline-toggle {
-  text-align: right;
+.hero h1 {
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
-.timeline-toggle button {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 4px;
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Timeline (vertical only) */
+.timeline-section {
+  padding: 60px 0;
 }
 .timeline {
   display: flex;
-  gap: 20px;
-  overflow-x: auto;
-}
-.timeline.vertical {
   flex-direction: column;
-  overflow-x: hidden;
+  gap: 20px;
 }
 .timeline-item {
-  background: #fff;
+  background: rgba(255,255,255,0.1);
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  padding: 15px;
-  min-width: 200px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 .timeline-icon {
   background: var(--accent);
-  color: #fff;
-  width: 40px;
-  height: 40px;
+  color: var(--nav-bg);
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.timeline-content a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--link);
 }
 .timeline-date {
-  font-size: 0.85rem;
+  margin-left: auto;
+  font-size: 0.9rem;
   color: var(--accent);
-  margin-top: 5px;
 }
 
 /* Projects Grid */
-.projects-list { padding: 40px 0; }
+.projects-list {
+  padding: 60px 0;
+}
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
 }
 .project-card {
-  background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .project-card img {
   width: 100%;
-  height: 140px;
+  height: 160px;
   object-fit: cover;
 }
 .project-card h3 {
-  margin: 10px;
-  font-size: 1.1rem;
+  margin: 15px;
+  font-size: 1.3rem;
 }
 .project-card p {
-  margin: 0 10px 10px;
+  margin: 0 15px 15px;
+  flex-grow: 1;
 }
 .project-card a {
-  display: block;
-  margin: 0 10px 10px;
+  margin: 0 15px 15px;
   color: var(--link);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* Contact */
-.contact-form { padding: 40px 0; }
+.contact-form {
+  padding: 60px 0;
+}
 .contact-form form {
   max-width: 600px;
   margin: 0 auto;
   display: grid;
-  gap: 15px;
+  gap: 20px;
 }
 .contact-form label {
   display: flex;
   flex-direction: column;
-  font-weight: 500;
+  font-weight: 600;
 }
 .contact-form input,
 .contact-form textarea {
-  padding: 8px;
-  border: 1px solid #ccc;
+  padding: 10px;
+  border: none;
   border-radius: 4px;
+  font-size: 1rem;
 }
 .contact-form button {
   width: fit-content;
-  background: var(--accent);
-  color: #fff;
+  background: var(--link);
+  color: var(--nav-bg);
   border: none;
-  padding: 10px 16px;
+  padding: 12px 20px;
   border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -176,6 +179,6 @@ header {
 footer {
   background: var(--nav-bg);
   text-align: center;
-  padding: 20px 0;
-  font-size: 0.85rem;
+  padding: 30px 0;
+  font-size: 0.9rem;
 }

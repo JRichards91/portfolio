@@ -3,16 +3,12 @@ layout: default
 title: Home
 ---
 <section class="hero">
-  <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="Justin Richards" class="profile-img" />
   <h1>Welcome to My Portfolio</h1>
-  <p>I’m an Electrical & Computer Engineer with a passion for designing embedded systems, custom PCBs, and automated robotics. Explore my dynamic timeline below.</p>
+  <p>I’m Justin Richards, an Electrical & Computer Engineer passionate about embedded systems, 3D printing, and automation. Browse the timeline below to see my latest work.</p>
 </section>
 
 <section class="timeline-section">
   <h2>Timeline</h2>
-  <div class="timeline-toggle">
-    <button id="toggle-orientation">Vertical ↔ Horizontal</button>
-  </div>
   <ul class="timeline">
     {% assign data = site.data.projects | sort: 'date' | reverse %}
     {% for project in data %}
@@ -20,8 +16,8 @@ title: Home
         <div class="timeline-icon">{{ project.title | slice: 0, 1 }}</div>
         <div class="timeline-content">
           <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
-          <span class="timeline-date">{{ project.date | date: "%B %-d, %Y" }}</span>
         </div>
+        <span class="timeline-date">{{ project.date | date: "%b %-d, %Y" }}</span>
       </li>
     {% endfor %}
   </ul>
