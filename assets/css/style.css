@@ -1,19 +1,22 @@
-/* Neutral (but dark) Color Palette */
+/* assets/css/style.css */
+
+/* Logo-Inspired Blue Palette */
 :root {
-  --bg:      #305CDE;    /* Royal Blue */
-  --text:    #FFFFFF;    /* White */
-  --accent:  #FFFFFF;    /* White accents */
-  --link:    #FFD700;    /* Gold for links */
-  --nav-bg:  #2746A4;    /* Darker nav */
-  --nav-tx:  #FFFFFF;
+  --bg:      #00AEEF;    /* bright azure from your logo */
+  --text:    #FFFFFF;    /* white text */
+  --accent:  #FFFFFF;    /* white accents */
+  --link:    #FFD700;    /* gold links */
+  --nav-bg:  #008FC5;    /* slightly darker for navbar */
+  --nav-tx:  #FFFFFF;    /* white nav text */
 }
 
 /* Base */
 body {
+  background-color: var(--bg) !important;
+  background: var(--bg) !important;
+  color: var(--text);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: var(--bg);
-  color: var(--text);
   line-height: 1.6;
 }
 .container {
