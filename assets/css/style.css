@@ -1,12 +1,12 @@
 /* assets/css/style.css */
 
-/* Logo-Inspired Blue Palette */
+/* Logo‑Matching Orange Palette */
 :root {
-  --bg:      #00AEEF;    /* bright azure from your logo */
+  --bg:      #00AEEF;    /* bright azure background */
   --text:    #FFFFFF;    /* white text */
   --accent:  #FFFFFF;    /* white accents */
-  --link:    #FFD700;    /* gold links */
-  --nav-bg:  #008FC5;    /* slightly darker for navbar */
+  --link:    #FFA500;    /* 🔶 logo orange */
+  --nav-bg:  #008FC5;    /* navbar tint */
   --nav-tx:  #FFFFFF;    /* white nav text */
 }
 
