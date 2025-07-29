@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Contact
+permalink: /contact/
 ---
 <section class="contact-form">
   <h2>Contact Me</h2>

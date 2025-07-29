@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Projects
+permalink: /projects/
 ---
 <section class="projects-list">
   <h2>Projects</h2>
