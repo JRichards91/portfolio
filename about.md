@@ -1,4 +1,3 @@
-<!-- about.md -->
 ---
 layout: default
 title: About
