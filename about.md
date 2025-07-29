@@ -21,6 +21,6 @@ permalink: /about/
 
     <p>Outside of engineering, you might catch me tinkering with home‑brew coffee recipes or sketching concept art for my next invention. Life’s an adventure, and I’m building the future one project at a time.</p>
 
-    <p>Connect with me on <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>, or head to the <a href="{{ '/resume/' | relative_url }}">Resume</a> page for my full background.</p>
+    <p>Connect with me on <a href="https://www.linkedin.com/in/jrichards91" target="_blank">LinkedIn</a>, or head to the <a href="{{ '/resume/' | relative_url }}">Resume</a> page for my full background.</p>
   </div>
 </section>
