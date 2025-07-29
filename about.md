@@ -13,7 +13,7 @@ permalink: /about/
     </div>
     <div class="about-text">
       <h2>Where It All Began</h2>
-      <p>Growing up between Scappoose, Oregon and Black Diamond, Washington, I was the kid who couldn’t resist taking apart gadgets just to see how they worked. My grandfather, a civil engineer, inspired me to follow in his footsteps—only I gravitated toward electrical systems. By the time I graduated with a BS in Electrical & Computer Engineering from Eastern Washington University, I had already interned as an electrical engineering tech and drafter while juggling full‑time coursework. Those early experiences laid the foundation for turning curiosity into practical solutions.</p>
+      <p>Growing up in Oregon, Connecticut, and Washington, I was the kid who couldn’t resist taking apart gadgets just to see how they worked. My grandfather, a civil engineer, inspired me to follow in his footsteps—only I gravitated toward electrical systems. By the time I graduated with a BS in Electrical & Computer Engineering from Eastern Washington University, I had already interned as an electrical engineering tech and drafter while juggling full‑time coursework. Those early experiences laid the foundation for turning curiosity into practical solutions.</p>
     </div>
   </div>
 
