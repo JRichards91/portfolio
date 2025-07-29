@@ -4,6 +4,8 @@ title: About
 permalink: /about/
 ---
 
+{% include banner.html %}
+
 <section class="about-me container">
 
   <!-- 1. Origins & Education -->

@@ -2,6 +2,9 @@
 layout: default
 title: Home
 ---
+
+{% include banner.html %}
+
 <section class="hero">
   <h1>
     Engineering Tomorrow,<br>

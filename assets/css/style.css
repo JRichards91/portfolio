@@ -234,3 +234,15 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   height: 100%;
   border: none;
 }
+
+/* 14. Page Banner */
+.page-banner {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 60px 20px 30px;
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+.page-banner h1 {
+  font-size: var(--fs-h1);
+  margin: 0;
+}

@@ -4,6 +4,8 @@ title: Contact
 permalink: /contact/
 ---
 
+{% include banner.html %}
+
 <section class="contact-form container">
   <h2>Get in Touch</h2>
   <form action="https://formspree.io/f/xpwlrobv" method="POST">
