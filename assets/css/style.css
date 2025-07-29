@@ -221,9 +221,9 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 
 /* 12. Resume Embed Styling */
 .resume-embed .resume-container {
-  width: 100%;
-  height: calc(100vh - 40px - 60px); /* viewport minus header (40px) and footer (60px) */
-  margin: 0 auto;
+  max-width: 816px;
+  height: calc(100vh - 40px - 60px);
+  margin: 0 auto 60px;
 }
 .resume-embed .resume-container iframe {
   width: 100%;
