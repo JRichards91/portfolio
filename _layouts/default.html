@@ -4,7 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ page.title }} | {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+
+  <!-- 1) Explicitly use baseurl so the CSS is fetched from the right place -->
+  <link
+    rel="stylesheet"
+    href="{{ site.baseurl }}/assets/css/style.css"
+  />
+
+  <!-- 2) Quick inline fallback so you can see the new background immediately -->
+  <style>
+    body {
+      background-color: #00AEEF !important;
+      background: #00AEEF !important;
+    }
+  </style>
 </head>
 <body>
   {% include header.html %}
@@ -12,6 +25,6 @@
     {{ content }}
   </main>
   {% include footer.html %}
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ site.baseurl }}/assets/js/main.js"></script>
 </body>
 </html>
