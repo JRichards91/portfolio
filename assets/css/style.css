@@ -29,8 +29,7 @@ body {
   background: var(--bg);
   color: var(--text);
   margin: 0;
-  padding-top: 80px;    /* for sticky header */
-  padding-bottom: 60px; /* for sticky footer */
+  padding: 0;
   font-family: var(--font);
   font-size: var(--fs-base);
   line-height: var(--lh);
@@ -52,17 +51,16 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 4. Header (Sticky) */
+/* 4. Header (Static) */
 header {
-  position: fixed; top: 0; left: 0; right: 0;
   background: var(--nav-bg);
-  z-index: 1000;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 .nav-list {
   display: flex;
   gap: 30px;
-  margin: 0; padding: 20px 40px;
+  margin: 0; 
+  padding: 20px 40px;
   list-style: none;
 }
 .nav-list a {
@@ -70,14 +68,12 @@ header {
   font-size: var(--fs-base);
 }
 
-/* 5. Footer (Sticky) */
+/* 5. Footer (Static) */
 footer {
-  position: fixed; bottom: 0; left: 0; right: 0;
   background: var(--nav-bg);
   padding: 15px 0;
   text-align: center;
   font-size: var(--fs-sm);
-  z-index: 1000;
 }
 
 /* 6. Headings */
@@ -178,7 +174,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 .project-card p { margin-top: 0; }
 
-/* 11. Contact Form (NEW Card Layout) */
+/* 11. Contact Form (Card Layout) */
 .contact-form {
   padding: 60px 0;
 }
