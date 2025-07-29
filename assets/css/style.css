@@ -81,27 +81,16 @@ footer {
 }
 
 /* 6. Headings */
-h1 {
-  font-size: var(--fs-h1);
-  margin: 0.5em 0;
-}
-h2 {
-  font-size: var(--fs-h2);
-  margin: 0.75em 0;
-}
-h3 {
-  font-size: var(--fs-h3);
-  margin: 0.75em 0;
-}
+h1 { font-size: var(--fs-h1); margin: 0.5em 0; }
+h2 { font-size: var(--fs-h2); margin: 0.75em 0; }
+h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 
 /* 7. Hero Section */
 .hero {
   text-align: center;
   padding: 40px 20px;
 }
-.hero h1 {
-  margin-bottom: 10px;
-}
+.hero h1 { margin-bottom: 10px; }
 .hero p {
   font-size: var(--fs-lg);
   max-width: 700px;
@@ -187,35 +176,49 @@ h3 {
   font-size: var(--fs-base);
   margin: 15px;
 }
-.project-card p {
-  margin-top: 0;
-}
+.project-card p { margin-top: 0; }
 
-/* 11. Contact Form */
+/* 11. Contact Form (NEW Card Layout) */
 .contact-form {
-  padding: 40px 0;
+  padding: 60px 0;
 }
 .contact-form form {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
-  display: grid;
+  background: rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
-.contact-form label,
-.contact-form input,
-.contact-form textarea,
-.contact-form button {
+.contact-form label {
+  display: flex;
+  flex-direction: column;
   font-size: var(--fs-base);
 }
 .contact-form input,
 .contact-form textarea {
-  padding: 10px; border: none; border-radius: 4px;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  background: #f9f9f9;
+  color: #333;
+  font-size: var(--fs-base);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--link);
 }
 .contact-form button {
+  align-self: flex-start;
   background: var(--link);
   color: var(--nav-bg);
+  padding: 12px 24px;
   border: none;
-  padding: 12px 20px;
   border-radius: 4px;
+  font-size: var(--fs-base);
   cursor: pointer;
 }
