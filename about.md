@@ -1,3 +1,4 @@
+<!-- about.md -->
 ---
 layout: default
 title: About
@@ -5,16 +6,21 @@ permalink: /about/
 ---
 
 <section class="about-me">
-  <img src="{{ '/assets/img/pi-and-me.jpg' | relative_url }}" alt="Justin and Pi" class="profile-img">
-  <div class="about-text">
-    <p>Hello, I’m Justin Richards, an Electrical & Computer Engineer and Eastern Washington University graduate. I discovered my passion for robotics, embedded systems, and circuit design while developing a fully automated hydroponics system—see it on the <a href="{{ '/projects/smart-hydro/' | relative_url }}">Projects page</a>.</p>
+  <img src="{{ '/assets/img/capstone-hydroponics.jpg' | relative_url }}" alt="Smart hydroponics system">
+  <p>Hello, I’m Justin Richards, an Electrical & Computer Engineer. I graduated from Eastern Washington University, where I discovered a passion for robotics, embedded systems, and circuit design. For my senior capstone, I designed, built, and programmed a fully automated hydroponics system—take a look on the <a href="{{ '/projects/smart-hydro/' | relative_url }}">Projects page</a>.</p>
 
-    <p>I thrive on turning ideas into functioning devices, whether I'm programming microcontrollers or designing custom 3D-printed parts. 3D printing lets me solve problems faster and iterate on my projects in real time.</p>
+  <img src="{{ '/assets/img/3d-printing-workshop.jpg' | relative_url }}" alt="3D printing workstation">
+  <p>Embedded systems are my playground—I love diving into firmware, crafting custom PCBs, and solving real‑world problems in code. When hardware and software merge smoothly, that’s when projects truly come alive. I’m also an avid 3D printing enthusiast, creating custom parts that improve everything from robotics to home gadgets.</p>
 
-    <p>When I’m not building or coding, you’ll find me exploring the Pacific Northwest with my dog, Pi. We find new trails and nature spots—those adventures always inspire my next project.</p>
+  <img src="{{ '/assets/img/justin-pi-hiking.jpg' | relative_url }}" alt="Justin and Pi hiking">
+  <p>When I’m not in the lab, I’m out exploring the Pacific Northwest with my dog, Pi. We hunt down the best trails and “SniffSpots,” and each new adventure sparks ideas for my next automation project. Those long hikes are as much about fresh air as they are about fresh inspiration.</p>
 
-    <p>My latest project is a ROS2 robot with a 3D camera and arm, powered by a Jetson Orin Nano—check it out in the <a href="{{ '/projects/ros2-camera-arm/' | relative_url }}">Projects section</a>. Next up: a wireless smart soil moisture sensor that works with Apple HomeKit to keep indoor gardens thriving.</p>
+  <img src="{{ '/assets/img/ros2-camera-arm.jpg' | relative_url }}" alt="ROS2 robot with camera and arm">
+  <p>My latest creation is a ROS2 robot equipped with a 3D camera and robotic arm, powered by a Jetson Orin Nano. It navigates, senses, and manipulates objects, showcasing the power of open‑source robotics frameworks. Check it out on the <a href="{{ '/projects/ros2-camera-arm/' | relative_url }}">Projects page</a>.</p>
 
-    <p>Connect with me on <a href="https://www.linkedin.com/in/jrichards91" target="_blank">LinkedIn</a> or visit my <a href="{{ '/resume/' | relative_url }}">Resume</a> page for more details.</p>
-  </div>
+  <img src="{{ '/assets/img/homekit-moisture-sensor.jpg' | relative_url }}" alt="HomeKit moisture sensor prototype">
+  <p>Up next: I’m developing a wireless moisture sensor that integrates with Apple HomeKit, so indoor plants stay hydrated automatically—even when I’m away. Growing smart gardens is the perfect blend of engineering and nature, and I can’t wait to share the final design.</p>
+
+  <img src="{{ '/assets/img/linkedin-profile.jpg' | relative_url }}" alt="LinkedIn link">
+  <p>Ready to connect? Find me on <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>, or view my <a href="{{ '/resume/' | relative_url }}">Resume</a> for a detailed look at my background and skills.</p>
 </section>
