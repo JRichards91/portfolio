@@ -1,5 +1,6 @@
+# _config.yml
 title: "Justin Richards Portfolio"
-baseurl: ""               # if you host under /portfolio/, leave blank
-url: "https://jrichards91.github.io/portfolio"
+url:   "https://jrichards91.github.io"  # your actual username here
+baseurl: "/portfolio"                    # the repo name
 markdown: kramdown
 permalink: pretty
