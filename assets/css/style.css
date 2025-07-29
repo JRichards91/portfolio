@@ -34,13 +34,16 @@ body {
   font-size: var(--fs-base);
   line-height: var(--lh);
 }
+
+/* 3. Main container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px 20px; /* 40px top gap under header */
+  /* ↓ removed top padding so first heading sits as in Resume */
+  padding: 0 20px 20px;
 }
 
-/* 3. Links */
+/* 4. Links */
 a {
   color: var(--link);
   text-decoration: none;
@@ -51,7 +54,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 4. Header (Static) */
+/* 5. Header (Static) */
 header {
   background: var(--nav-bg);
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
@@ -59,7 +62,7 @@ header {
 .nav-list {
   display: flex;
   gap: 30px;
-  margin: 0; 
+  margin: 0;
   padding: 20px 40px;
   list-style: none;
 }
@@ -68,7 +71,7 @@ header {
   font-size: var(--fs-base);
 }
 
-/* 5. Footer (Static) */
+/* 6. Footer (Static) */
 footer {
   background: var(--nav-bg);
   padding: 15px 0;
@@ -76,14 +79,15 @@ footer {
   font-size: var(--fs-sm);
 }
 
-/* 6. Headings */
+/* 7. Headings */
 h1 { font-size: var(--fs-h1); margin: 0.5em 0; }
 h2 { font-size: var(--fs-h2); margin: 0.75em 0; }
 h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 
-/* 7. Hero Section */
+/* 8. Hero Section */
 .hero {
   text-align: center;
+  /* hero keeps its own top padding */
   padding: 40px 20px;
 }
 .hero h1 { margin-bottom: 10px; }
@@ -93,7 +97,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   margin: 0 auto;
 }
 
-/* 8. About Page Layout */
+/* 9. About Page Layout */
 .about-section {
   display: flex;
   flex-wrap: wrap;
@@ -116,7 +120,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   }
 }
 
-/* 9. Timeline Section (Vertical Only) */
+/* 10. Timeline Section (Vertical Only) */
 .timeline-section {
   padding: 40px 0;
 }
@@ -149,7 +153,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   font-size: var(--fs-sm);
 }
 
-/* 10. Projects Grid */
+/* 11. Projects Grid */
 .projects-list {
   padding: 40px 0;
 }
@@ -174,7 +178,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 .project-card p { margin-top: 0; }
 
-/* 11. Contact Form (Card Layout) */
+/* 12. Contact Form (Card Layout) */
 .contact-form {
   padding: 60px 0;
 }
@@ -219,11 +223,11 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   cursor: pointer;
 }
 
-/* 12. Resume Embed Styling */
+/* 13. Resume Embed Styling */
 .resume-embed .resume-container {
-  max-width: 816px;
+  max-width: 832px;
   height: calc(100vh - 40px - 60px);
-  margin: 0 auto 60px;
+  margin: 20px auto 60px;
 }
 .resume-embed .resume-container iframe {
   width: 100%;
