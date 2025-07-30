@@ -246,9 +246,9 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 
 .resume-embed .resume-container {
-  width: 80vw;
+  width: fit-content;
   max-width: fit-content;
-  height: 120vh;
+  height: fit-content;
   max-height: fit-content;
   margin: 0 auto 60px;
   display: flex;
