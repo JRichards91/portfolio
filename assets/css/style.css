@@ -52,22 +52,20 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 5. Header (Responsive) */
+/* 5. Header (Top-left nav) */
 header {
   background: var(--nav-bg);
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 .nav-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   gap: 30px;
   margin: 0;
   padding: 20px 40px;
   list-style: none;
-}
-.nav-list li {
-  margin-bottom: 10px;
 }
 .nav-list a {
   color: var(--nav-tx);
@@ -133,7 +131,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   }
 }
 
-/* 10. Timeline Section */
+/* 10. Timeline Section (Vertical Layout) */
 .timeline-section {
   padding: 40px 0;
 }
@@ -291,36 +289,4 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   .timeline-date {
     margin-left: 0;
   }
-}
-
-/* 16. Horizontal Timeline Enhancements */
-.horizontal-scroll {
-  overflow-x: auto;
-  padding-bottom: 20px;
-}
-.timeline-container {
-  overflow-x: auto;
-  white-space: nowrap;
-}
-.horizontal-timeline {
-  display: inline-flex;
-  gap: 30px;
-  padding: 20px;
-}
-.horizontal-timeline .timeline-item {
-  flex: 0 0 auto;
-  width: 250px;
-  height: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: rgba(255,255,255,0.1);
-  border-radius: 8px;
-  padding: 20px;
-}
-.horizontal-timeline .timeline-icon {
-  align-self: center;
-}
-.horizontal-timeline .timeline-date {
-  text-align: right;
 }
