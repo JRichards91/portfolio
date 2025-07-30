@@ -238,11 +238,32 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 /* 14. Page Banner */
 .page-banner {
   background: rgba(255, 255, 255, 0.15);
-  padding: 60px 20px 30px;
+  padding: 40px 20px;
   text-align: center;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 40px;
 }
 .page-banner h1 {
   font-size: var(--fs-h1);
   margin: 0;
+}
+
+/* 15. Responsive Overrides */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+  .hero p {
+    font-size: var(--fs-base);
+  }
+  .page-banner h1 {
+    font-size: 2rem;
+  }
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .timeline-date {
+    margin-left: 0;
+  }
 }
