@@ -5,7 +5,6 @@ permalink: /contact/
 ---
 
 <section class="contact-form container">
-  <h2>Get in Touch</h2>
   <form action="https://formspree.io/f/xpwlrobv" method="POST">
     <!-- honeypot to deter spam -->
     <input type="text" name="_gotcha" style="display:none">

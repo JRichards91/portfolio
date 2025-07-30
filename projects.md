@@ -5,7 +5,6 @@ permalink: /projects/
 ---
 
 <section class="projects-list">
-  <h2>Projects</h2>
   <div class="projects-grid">
     {% assign data = site.data.projects | sort: 'date' | reverse %}
     {% for project in data %}
