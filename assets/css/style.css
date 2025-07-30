@@ -240,22 +240,24 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 
 /* 13. Resume Embed Styling */
-.resume-embed .resume-container {
-  max-width: 1000px;
-  width: 95%;
-  aspect-ratio: 8.5 / 11;
-  margin: 20px auto 60px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+.resume-embed h2 {
+  text-align: center;
 }
+
+.resume-embed .resume-container {
+  width: 80vw;
+  max-width: 1000px;
+  height: 95vh;
+  margin: 20px auto 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 .resume-embed .resume-container iframe {
   width: 100%;
   height: 100%;
   border: none;
-}
-@supports not (aspect-ratio: 1) {
-  .resume-embed .resume-container {
-    height: 135vh;
-  }
 }
 
 /* 14. Page Banner */
