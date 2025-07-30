@@ -239,13 +239,13 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   cursor: pointer;
 }
 
-/* 13. Resume Embed (Responsive) */
+/* 13. Resume Embed Styling */
 .resume-embed .resume-container {
-  max-width: 832px;
-  margin: 20px auto 60px;
+  max-width: 1000px;
+  width: 95%;
   aspect-ratio: 8.5 / 11;
-  width: 90vw;
-  height: auto;
+  margin: 20px auto 60px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 .resume-embed .resume-container iframe {
   width: 100%;
@@ -254,7 +254,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 @supports not (aspect-ratio: 1) {
   .resume-embed .resume-container {
-    height: 120vh;
+    height: 135vh;
   }
 }
 
@@ -384,5 +384,128 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   .timeline-thumb {
     width: 100%;
     height: 160px;
+  }
+}
+
+/* 17. Floating Bubble Timeline */
+.timeline-section {
+  padding: 60px 0;
+}
+.timeline-title {
+  text-align: center;
+  font-size: var(--fs-h2);
+  margin-bottom: 60px;
+}
+.timeline-centered {
+  position: relative;
+  padding: 0 20px;
+}
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: var(--text);
+  transform: translateX(-50%);
+}
+.timeline-bubbles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.timeline-bubbles .bubble {
+  position: relative;
+  width: 50%;
+  padding: 30px 40px;
+  box-sizing: border-box;
+}
+.timeline-bubbles .bubble.left {
+  left: 0;
+  text-align: right;
+}
+.timeline-bubbles .bubble.right {
+  left: 50%;
+  text-align: left;
+}
+.timeline-bubbles .bubble .dot {
+  position: absolute;
+  top: 36px;
+  width: 16px;
+  height: 16px;
+  background: var(--text);
+  border-radius: 50%;
+  z-index: 2;
+}
+.timeline-bubbles .bubble.left .dot {
+  right: -8px;
+}
+.timeline-bubbles .bubble.right .dot {
+  left: -8px;
+}
+.timeline-bubbles .bubble .content {
+  display: flex;
+  gap: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 20px;
+  align-items: flex-start;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.timeline-bubbles .bubble.left .content {
+  flex-direction: row-reverse;
+}
+.timeline-bubbles .bubble img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.timeline-bubbles .bubble .text {
+  max-width: 100%;
+}
+.timeline-bubbles .bubble .date {
+  font-size: var(--fs-sm);
+  opacity: 0.8;
+  margin: 0 0 4px;
+}
+.timeline-bubbles .bubble h3 {
+  font-size: var(--fs-lg);
+  margin: 0 0 6px;
+}
+.timeline-bubbles .bubble a {
+  color: var(--link);
+}
+.timeline-bubbles .bubble .blurb {
+  font-size: var(--fs-base);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .timeline-bubbles .bubble,
+  .timeline-bubbles .bubble.left,
+  .timeline-bubbles .bubble.right {
+    left: 0;
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+  }
+  .timeline-line {
+    left: 20px;
+  }
+  .timeline-bubbles .bubble .dot {
+    left: 12px;
+  }
+  .timeline-bubbles .bubble .content {
+    flex-direction: column;
+    margin-left: 30px;
+  }
+  .timeline-bubbles .bubble.left .content {
+    flex-direction: column;
+  }
+  .timeline-bubbles .bubble img {
+    width: 100%;
+    height: auto;
   }
 }
