@@ -19,7 +19,7 @@ title: Home
       {% assign data = site.data.projects | sort: 'date' | reverse %}
       {% for project in data %}
         <li class="bubble {% if forloop.index0 modulo 2 == 0 %}left{% else %}right{% endif %}">
-          <span class="dot"></span>
+          <div class="connector"></div>
           <div class="content">
             <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
             <div class="text">
