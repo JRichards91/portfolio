@@ -4,8 +4,6 @@ title: Resume
 permalink: /resume/
 ---
 
-{% include banner.html %}
-
 <section class="resume-embed">
   <h2>Resume</h2>
   <div class="resume-container">

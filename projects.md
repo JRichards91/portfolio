@@ -4,8 +4,6 @@ title: Projects
 permalink: /projects/
 ---
 
-{% include banner.html %}
-
 <section class="projects-list">
   <h2>Projects</h2>
   <div class="projects-grid">
