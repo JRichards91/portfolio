@@ -239,23 +239,30 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   cursor: pointer;
 }
 
-/* 13. Resume Embed (Responsive) */
-.resume-embed .resume-container {
-  max-width: 832px;
-  margin: 20px auto 60px;
-  aspect-ratio: 8.5 / 11;
-  width: auto;
-  height: auto;
+/* 13. Resume Embed Styling */
+.resume-embed h2 {
+  text-align: center;
+  margin-bottom: 30px;
 }
+
+.resume-embed .resume-container {
+  width: 80vw;
+  max-width: 900px;
+  height: 120vh; /* enough to fit full document */
+  margin: 0 auto 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
 .resume-embed .resume-container iframe {
   width: 100%;
   height: 100%;
   border: none;
-}
-@supports not (aspect-ratio: 1) {
-  .resume-embed .resume-container {
-    height: 120vh;
-  }
 }
 
 /* 14. Page Banner */
