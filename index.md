@@ -21,9 +21,14 @@ title: Home
         <li class="timeline-entry">
           <span class="timeline-dot"></span>
           <div class="timeline-bubble">
-            <div class="timeline-date">{{ project.date | date: "%b %-d, %Y" }}</div>
-            <div class="timeline-title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></div>
-            <div class="timeline-blurb">{{ project.blurb }}</div>
+            <img src="{{ project.image | relative_url }}" alt="{{ project.title }}" class="timeline-thumb" />
+            <div class="timeline-text">
+              <div class="timeline-date">{{ project.date | date: "%b %-d, %Y" }}</div>
+              <div class="timeline-title">
+                <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+              </div>
+              <div class="timeline-blurb">{{ project.blurb }}</div>
+            </div>
           </div>
         </li>
       {% endfor %}

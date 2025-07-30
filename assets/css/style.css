@@ -291,7 +291,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   }
 }
 
-/* 16. Timeline Redesign (Vertical with central line & bubbles) */
+/* 16. Timeline Redesign with Image Thumbnails */
 .timeline-title {
   text-align: center;
   font-size: var(--fs-h2);
@@ -323,7 +323,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 .timeline-dot {
   position: absolute;
   left: 23px;
-  top: 10px;
+  top: 28px;
   width: 16px;
   height: 16px;
   background: var(--text);
@@ -335,23 +335,37 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   background: rgba(255,255,255,0.1);
   border-radius: 8px;
   padding: 20px;
-  max-width: 600px;
+  display: flex;
+  gap: 20px;
+  max-width: 720px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  align-items: flex-start;
 }
-.timeline-bubble .timeline-date {
+.timeline-thumb {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.timeline-text {
+  flex: 1;
+}
+.timeline-text .timeline-date {
   font-size: var(--fs-sm);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   opacity: 0.8;
 }
-.timeline-bubble .timeline-title a {
+.timeline-text .timeline-title a {
   font-size: var(--fs-lg);
   font-weight: bold;
   color: var(--link);
 }
-.timeline-bubble .timeline-blurb {
+.timeline-text .timeline-blurb {
   font-size: var(--fs-base);
-  margin-top: 8px;
+  margin-top: 6px;
 }
+
 @media (max-width: 600px) {
   .timeline-wrapper {
     padding-left: 30px;
@@ -364,5 +378,11 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   }
   .timeline-bubble {
     margin-left: 40px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .timeline-thumb {
+    width: 100%;
+    height: 160px;
   }
 }
