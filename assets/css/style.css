@@ -241,10 +241,10 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 
 /* 13. Resume Embed (Responsive) */
 .resume-embed .resume-container {
-  max-width: 1600px;
+  max-width: 832px;
   margin: 20px auto 60px;
   aspect-ratio: 8.5 / 11;
-  width: 90vw;
+  width: auto;
   height: auto;
 }
 .resume-embed .resume-container iframe {

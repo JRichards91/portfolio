@@ -1,6 +1,6 @@
 ---
 layout: default
-title: GardenLink: Smart Soil Sensor
+title: Smart Soil Sensor
 permalink: /projects/gardenlink/
 ---
 
