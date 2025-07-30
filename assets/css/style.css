@@ -100,25 +100,38 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 /* 9. About Page Layout */
 .about-section {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 40px;
   margin-bottom: 60px;
+  text-align: left;
 }
-.about-section .about-img,
-.about-section .about-text {
-  flex: 1 1 50%;
+.about-section .about-img {
+  flex: 0 0 320px;
 }
 .about-section .about-img img {
   width: 100%;
   border-radius: 8px;
 }
+.about-section .about-text {
+  flex: 1 1 500px;
+  max-width: 600px;
+  padding-left: 20px;
+}
+
 @media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
   .about-section .about-img,
   .about-section .about-text {
     flex: 1 1 100%;
+    padding-left: 0;
   }
 }
+
 
 /* 10. Timeline Section (Vertical Only) */
 .timeline-section {
