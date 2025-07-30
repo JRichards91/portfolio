@@ -242,14 +242,15 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 /* 13. Resume Embed Styling */
 .resume-embed h2 {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .resume-embed .resume-container {
   width: 80vw;
-  max-width: 1000px;
-  height: 95vh;
-  margin: 20px auto 60px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 1100px;
+  height: 96vh;
+  margin: 0 auto 60px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;
 }
