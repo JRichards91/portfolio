@@ -2,21 +2,20 @@
 
 /* 1. Color & Typography Variables */
 :root {
-  --bg:         #00AEEF;    /* Bright azure background */
-  --text:       #FFFFFF;    /* White text */
-  --link:       #000000;    /* Black links */
-  --nav-bg:     #008FC5;    /* Navbar tint */
-  --nav-tx:     #FFFFFF;    /* White nav text */
+  --bg:         #00AEEF;
+  --text:       #FFFFFF;
+  --link:       #000000;
+  --nav-bg:     #008FC5;
+  --nav-tx:     #FFFFFF;
 
   --font:       "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Unified font sizes */
-  --fs-base:    1.125rem;   /* ≈18px */
-  --fs-lg:      1.25rem;    /* ≈20px */
-  --fs-sm:      1rem;       /* ≈16px */
-  --fs-h1:      3rem;       /* ≈48px */
-  --fs-h2:      2rem;       /* ≈32px */
-  --fs-h3:      1.5rem;     /* ≈24px */
+  --fs-base:    1.125rem;
+  --fs-lg:      1.25rem;
+  --fs-sm:      1rem;
+  --fs-h1:      3rem;
+  --fs-h2:      2rem;
+  --fs-h3:      1.5rem;
 
   --lh:         1.6;
 }
@@ -53,24 +52,29 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 5. Header (Static) */
+/* 5. Header (Responsive) */
 header {
   background: var(--nav-bg);
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 .nav-list {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 30px;
   margin: 0;
   padding: 20px 40px;
   list-style: none;
+}
+.nav-list li {
+  margin-bottom: 10px;
 }
 .nav-list a {
   color: var(--nav-tx);
   font-size: var(--fs-base);
 }
 
-/* 6. Footer (Static) */
+/* 6. Footer */
 footer {
   background: var(--nav-bg);
   padding: 15px 0;
@@ -129,7 +133,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   }
 }
 
-/* 10. Timeline Section (Vertical Only) */
+/* 10. Timeline Section */
 .timeline-section {
   padding: 40px 0;
 }
@@ -192,7 +196,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 .project-card p { margin-top: 0; }
 
-/* 12. Contact Form (Card Layout) */
+/* 12. Contact Form */
 .contact-form {
   padding: 60px 0;
 }
@@ -237,16 +241,23 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   cursor: pointer;
 }
 
-/* 13. Resume Embed Styling */
+/* 13. Resume Embed (Responsive) */
 .resume-embed .resume-container {
   max-width: 832px;
-  height: calc(100vh - 40px - 60px);
   margin: 20px auto 60px;
+  aspect-ratio: 8.5 / 11;
+  width: 90vw;
+  height: auto;
 }
 .resume-embed .resume-container iframe {
   width: 100%;
   height: 100%;
   border: none;
+}
+@supports not (aspect-ratio: 1) {
+  .resume-embed .resume-container {
+    height: 120vh;
+  }
 }
 
 /* 14. Page Banner */
@@ -262,7 +273,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   margin: 0;
 }
 
-/* 15. Responsive Overrides */
+/* 15. Responsive Tweaks */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.25rem;
