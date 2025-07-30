@@ -290,3 +290,79 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
     margin-left: 0;
   }
 }
+
+/* 16. Timeline Redesign (Vertical with central line & bubbles) */
+.timeline-title {
+  text-align: center;
+  font-size: var(--fs-h2);
+  margin-bottom: 40px;
+}
+.timeline-wrapper {
+  position: relative;
+  padding-left: 40px;
+}
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  width: 4px;
+  height: 100%;
+  background-color: var(--text);
+}
+.timeline-alt {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.timeline-entry {
+  position: relative;
+}
+.timeline-dot {
+  position: absolute;
+  left: 23px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  background: var(--text);
+  border-radius: 50%;
+  z-index: 2;
+}
+.timeline-bubble {
+  margin-left: 50px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.timeline-bubble .timeline-date {
+  font-size: var(--fs-sm);
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
+.timeline-bubble .timeline-title a {
+  font-size: var(--fs-lg);
+  font-weight: bold;
+  color: var(--link);
+}
+.timeline-bubble .timeline-blurb {
+  font-size: var(--fs-base);
+  margin-top: 8px;
+}
+@media (max-width: 600px) {
+  .timeline-wrapper {
+    padding-left: 30px;
+  }
+  .timeline-line {
+    left: 20px;
+  }
+  .timeline-dot {
+    left: 13px;
+  }
+  .timeline-bubble {
+    margin-left: 40px;
+  }
+}

@@ -12,17 +12,21 @@ title: Home
 </section>
 
 <section class="timeline-section">
-  <h2>Timeline</h2>
-  <ul class="timeline">
-    {% assign data = site.data.projects | sort: 'date' | reverse %}
-    {% for project in data %}
-      <li class="timeline-item">
-        <div class="timeline-icon">{{ project.title | slice: 0, 1 }}</div>
-        <div class="timeline-content">
-          <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
-        </div>
-        <span class="timeline-date">{{ project.date | date: "%b %-d, %Y" }}</span>
-      </li>
-    {% endfor %}
-  </ul>
+  <h2 class="timeline-title">Projects Timeline</h2>
+  <div class="timeline-wrapper">
+    <div class="timeline-line"></div>
+    <ul class="timeline-alt">
+      {% assign data = site.data.projects | sort: 'date' | reverse %}
+      {% for project in data %}
+        <li class="timeline-entry">
+          <span class="timeline-dot"></span>
+          <div class="timeline-bubble">
+            <div class="timeline-date">{{ project.date | date: "%b %-d, %Y" }}</div>
+            <div class="timeline-title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></div>
+            <div class="timeline-blurb">{{ project.blurb }}</div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </section>
