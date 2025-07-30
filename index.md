@@ -12,7 +12,7 @@ title: Home
 </section>
 
 <section class="timeline-section">
-  <h2>Timeline</h2>
+  <h2 style="text-align: center;">Projects Timeline</h2>
   <ul class="timeline">
     {% assign data = site.data.projects | sort: 'date' | reverse %}
     {% for project in data %}
@@ -21,7 +21,13 @@ title: Home
         <div class="timeline-content">
           <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
         </div>
-        <span class="timeline-date">{{ project.date | date: "%b %-d, %Y" }}</span>
+        <span class="timeline-date">
+          {% if project.date == "Coming Soon" %}
+            Coming Soon
+          {% else %}
+            {{ project.date | date: "%b %-d, %Y" }}
+          {% endif %}
+        </span>
       </li>
     {% endfor %}
   </ul>

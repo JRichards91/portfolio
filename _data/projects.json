@@ -1,5 +1,12 @@
 [
   {
+  "title": "GardenLink: Smart Soil Sensor",
+  "date": "Coming Soon",
+  "image": "/assets/img/gardenlink-sensor.jpg",
+  "blurb": "A battery-powered wireless sensor that tracks soil moisture and syncs with HomeKit.",
+  "url": "/projects/gardenlink/"
+  },
+  {
     "title": "ROS2 Robot with 3D Camera & Arm",
     "date": "2025-07-28",
     "image": "/assets/img/ros2-camera-arm.jpg",
