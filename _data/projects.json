@@ -13,6 +13,13 @@
     "blurb": "A mobile manipulator featuring ROS2, depth sensing, and pick‑and‑place capabilities.",
     "url": "/projects/ros2-camera-arm/"
   },
+    {
+    "title": "Smart Countertop Hydroponics",
+    "date": "2025-06-04",
+    "image": "/assets/img/smart-hydro.jpg",
+    "blurb": "Wi‑Fi enabled countertop garden with automated nutrient dosing.",
+    "url": "/projects/smart-hydro/"
+  },
   {
     "title": "ROS2 Mobile Rover",
     "date": "2025-04-07",
@@ -26,13 +33,6 @@
     "image": "/assets/img/hydro-poc.jpg",
     "blurb": "A compact, sensor‑driven hydroponic system demo.",
     "url": "/projects/hydroponics-poc/"
-  },
-  {
-    "title": "Smart Countertop Hydroponics",
-    "date": "2025-01-13",
-    "image": "/assets/img/smart-hydro.jpg",
-    "blurb": "Wi‑Fi enabled countertop garden with automated nutrient dosing.",
-    "url": "/projects/smart-hydro/"
   },
   {
     "title": "Multiple Traveling Salesmen Solver",
