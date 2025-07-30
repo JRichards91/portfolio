@@ -240,6 +240,14 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 
 /* 13. Resume Embed Styling */
+.resume-embed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
 .resume-embed h2 {
   text-align: center;
   margin-bottom: 30px;
