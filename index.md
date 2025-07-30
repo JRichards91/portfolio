@@ -18,7 +18,8 @@ title: Home
     <ul class="timeline-bubbles">
       {% assign data = site.data.projects | sort: 'date' | reverse %}
       {% for project in data %}
-        <li class="bubble {% if forloop.index0 modulo 2 == 0 %}left{% else %}right{% endif %}">
+        {% cycle 'left', 'right' as side %}
+        <li class="bubble {{ side }}">
           <div class="connector"></div>
           <div class="content">
             <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
