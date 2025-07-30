@@ -249,7 +249,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   width: 80vw;
   max-width: 900px;
   height: 120vh; /* enough to fit full document */
-  margin: 0 auto 100px;
+  margin: 0 auto 60px;
   display: flex;
   justify-content: center;
   align-items: center;
