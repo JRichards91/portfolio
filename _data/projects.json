@@ -2,56 +2,56 @@
   {
   "title": "TerraPing",
   "date": "Coming Soon",
-  "image": "/assets/img/TerraPing_Thumbnail.jpg",
+  "image": "/assets/img/TerraPing_Thumbnail.png",
   "blurb": "A battery-powered wireless sensor that tracks soil moisture and syncs with HomeKit.",
   "url": "/projects/gardenlink/"
   },
   {
     "title": "Gracie",
     "date": "2025-07-28",
-    "image": "/assets/img/Gracie_Thumbnail.jpg",
+    "image": "/assets/img/Gracie_Thumbnail.png",
     "blurb": "A mobile manipulator featuring ROS2, depth sensing, and pick‑and‑place capabilities.",
     "url": "/projects/ros2-camera-arm/"
   },
     {
     "title": "FloraByte",
     "date": "2025-06-04",
-    "image": "/assets/img/FloraByte_Thumbnail.jpg",
+    "image": "/assets/img/FloraByte_Thumbnail.png",
     "blurb": "Wi‑Fi enabled countertop garden with automated nutrient dosing.",
     "url": "/projects/smart-hydro/"
   },
   {
     "title": "RoboRover",
     "date": "2025-04-07",
-    "image": "/assets/img/RoboRover_Thumbnail.jpg",
+    "image": "/assets/img/RoboRover_Thumbnail.png",
     "blurb": "An autonomous rover running ROS2 for navigation and SLAM.",
     "url": "/projects/ros2-rover/"
   },
   {
     "title": "AquaCore",
     "date": "2025-03-12",
-    "image": "/assets/img/AquaCore_Thumbnail.jpg",
+    "image": "/assets/img/AquaCore_Thumbnail.png",
     "blurb": "A compact, sensor‑driven hydroponic system demo.",
     "url": "/projects/hydroponics-poc/"
   },
   {
     "title": "HiveMind",
     "date": "2024-06-05",
-    "image": "/assets/img/HiveMind_Thumbnail.jpg",
+    "image": "/assets/img/HiveMind_Thumbnail.png",
     "blurb": "An optimized algorithm for multiple‑agent route planning.",
     "url": "/projects/multiple-salesmen/"
   },
   {
     "title": "VaporIQ",
     "date": "2023-03-21",
-    "image": "/assets/img/VaporIQ_Thumbnail.jpg",
+    "image": "/assets/img/VaporIQ_Thumbnail.png",
     "blurb": "A custom gas density sensor with onboard data logging.",
     "url": "/projects/gas-density/"
   },
   {
     "title": "EchoLux",
     "date": "2021-12-02",
-    "image": "/assets/img/EchoLux_Thumbnail.jpg",
+    "image": "/assets/img/EchoLux_Thumbnail.png",
     "blurb": "An LED array that dances to live audio input.",
     "url": "/projects/sound-leds/"
   }
