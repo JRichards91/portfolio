@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
           const li = document.createElement('li');
           li.className = 'timeline-item';
           li.innerHTML = `
-            <div class="timeline-icon">${proj.title.charAt(0)}</div>
+            <div class="timeline-icon-img">
+              <img src="${proj.image}" alt="${proj.title}" />
+            </div>
             <div class="timeline-content">
               <a href="${proj.url}">${proj.title}</a>
             </div>

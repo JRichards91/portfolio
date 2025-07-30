@@ -1,57 +1,57 @@
 [
   {
-  "title": "Smart Soil Sensor",
+  "title": "TerraPing",
   "date": "Coming Soon",
-  "image": "/assets/img/gardenlink-sensor.jpg",
+  "image": "/assets/img/TerraPing_Thumbnail.jpg",
   "blurb": "A battery-powered wireless sensor that tracks soil moisture and syncs with HomeKit.",
   "url": "/projects/gardenlink/"
   },
   {
-    "title": "ROS2 Robot with 3D Camera & Arm",
+    "title": "Gracie",
     "date": "2025-07-28",
-    "image": "/assets/img/ros2-camera-arm.jpg",
+    "image": "/assets/img/Gracie_Thumbnail.jpg",
     "blurb": "A mobile manipulator featuring ROS2, depth sensing, and pick‑and‑place capabilities.",
     "url": "/projects/ros2-camera-arm/"
   },
     {
-    "title": "Smart Countertop Hydroponics",
+    "title": "FloraByte",
     "date": "2025-06-04",
-    "image": "/assets/img/smart-hydro.jpg",
+    "image": "/assets/img/FloraByte_Thumbnail.jpg",
     "blurb": "Wi‑Fi enabled countertop garden with automated nutrient dosing.",
     "url": "/projects/smart-hydro/"
   },
   {
-    "title": "ROS2 Mobile Rover",
+    "title": "RoboRover",
     "date": "2025-04-07",
-    "image": "/assets/img/ros2-rover.jpg",
+    "image": "/assets/img/RoboRover_Thumbnail.jpg",
     "blurb": "An autonomous rover running ROS2 for navigation and SLAM.",
     "url": "/projects/ros2-rover/"
   },
   {
-    "title": "Hydroponics Proof‑of‑Concept",
+    "title": "AquaCore",
     "date": "2025-03-12",
-    "image": "/assets/img/hydro-poc.jpg",
+    "image": "/assets/img/AquaCore_Thumbnail.jpg",
     "blurb": "A compact, sensor‑driven hydroponic system demo.",
     "url": "/projects/hydroponics-poc/"
   },
   {
-    "title": "Multiple Traveling Salesmen Solver",
+    "title": "HiveMind",
     "date": "2024-06-05",
-    "image": "/assets/img/traveling-salesmen.jpg",
+    "image": "/assets/img/HiveMind_Thumbnail.jpg",
     "blurb": "An optimized algorithm for multiple‑agent route planning.",
     "url": "/projects/multiple-salesmen/"
   },
   {
-    "title": "Gas Density Measurement",
+    "title": "VaporIQ",
     "date": "2023-03-21",
-    "image": "/assets/img/gas-density.jpg",
+    "image": "/assets/img/VaporIQ_Thumbnail.jpg",
     "blurb": "A custom gas density sensor with onboard data logging.",
     "url": "/projects/gas-density/"
   },
   {
-    "title": "Sound‑Activated LED Display",
+    "title": "EchoLux",
     "date": "2021-12-02",
-    "image": "/assets/img/sound-leds.jpg",
+    "image": "/assets/img/EchoLux_Thumbnail.jpg",
     "blurb": "An LED array that dances to live audio input.",
     "url": "/projects/sound-leds/"
   }
