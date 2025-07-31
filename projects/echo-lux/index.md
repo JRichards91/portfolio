@@ -29,16 +29,16 @@ This project combines analog signal conditioning, real-time data processing, and
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: flex-start;">
 
-  <!-- Project Build Photo -->
+  <!-- Schematic Image -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./EENG 163 - Final - Picture.png" alt="EchoLux Breadboard Build" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
-    <p style="text-align: center; margin-top: 10px;">Breadboard prototype of the EchoLux system</p>
+    <img src="./EENG 163 - Final - Schematic.png" alt="EchoLux schematic" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <p style="text-align: center; margin-top: 10px;">Circuit schematic showing microphone amp and LED strip wiring</p>
   </div>
 
-  <!-- Schematic PDF Embed -->
+  <!-- Project Build Photo -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <iframe src="./EENG 163 - Final - Schematic.pdf" width="100%" height="320px" style="border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"></iframe>
-    <p style="text-align: center; margin-top: 10px;">Circuit schematic showing microphone amp and LED strip wiring</p>
+    <img src="./EENG 163 - Final - Picture.jpg" alt="EchoLux Breadboard Build" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <p style="text-align: center; margin-top: 10px;">Breadboard prototype of the EchoLux system</p>
   </div>
 
 </div>
@@ -59,27 +59,25 @@ This project combines analog signal conditioning, real-time data processing, and
 
 ## 💻 Code
 
-{% raw %}
-{% highlight python %}
-{% include_relative echo-lux.py %}
-{% endhighlight %}
-{% endraw %}
+```python
+# EchoLux - Real-Time LED Audio Visualizer
+from machine import ADC, Pin
+from time import sleep
+import neopixel
 
----
+mic = ADC(Pin(26))
+np = neopixel.NeoPixel(Pin(15), 30)  # GPIO15, 30 LEDs
 
-## 🛠️ Hardware Used
+def show_level(level):
+    for i in range(30):
+        if i < level:
+            np[i] = (0, 50, 255)  # Light blue
+        else:
+            np[i] = (0, 0, 0)
+    np.write()
 
-- PyBoard Microcontroller
-- Analog Microphone Module (e.g., KY-037)
-- WS2812B NeoPixel LED Strip (30 LEDs)
-- Breadboard & jumper wires
-- 5V regulated power input
-
----
-
-## 🧠 Future Ideas
-
-- Add FFT for frequency-based visualizations
-- Implement beat/tempo detection
-- Design a 3D-printed enclosure with diffusion panel
-- Add remote control via MQTT or BLE
+while True:
+    raw = mic.read_u16()
+    level = min(int(raw / 2000), 30)
+    show_level(level)
+    sleep(0.03)
