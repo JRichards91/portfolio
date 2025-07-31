@@ -181,14 +181,14 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 .project-card {
   background: rgba(255,255,255,0.1);
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 0;            /* Ensure square layout */
+  overflow: visible;           /* Prevent clipping */
 }
 .project-card img {
   width: 100%;
   height: 160px;
   object-fit: cover;
-  border-radius: 0; /* <-- FIXED: Square corners */
+  border-radius: 0 !important; /* Force square image thumbnails */
 }
 .project-card h3,
 .project-card p,
