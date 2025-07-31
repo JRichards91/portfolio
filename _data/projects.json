@@ -5,7 +5,7 @@
   "image": "/assets/img/timeline/TerraPing_Thumbnail.png",
   "thumbnail": "/assets/img/projects/TerraPing.png",
   "blurb": "A battery-powered wireless sensor that tracks soil moisture and syncs with HomeKit.",
-  "url": "/projects/gardenlink/"
+  "url": "/projects/terraping/"
   },
   {
     "title": "Gracie",
@@ -13,7 +13,7 @@
     "image": "/assets/img/timeline/Gracie_Thumbnail.png",
     "thumbnail": "/assets/img/projects/Gracie.png",
     "blurb": "A mobile manipulator featuring ROS2, depth sensing, and pick‑and‑place capabilities.",
-    "url": "/projects/ros2-camera-arm/"
+    "url": "/projects/gracie/"
   },
     {
     "title": "FloraByte",
@@ -21,7 +21,7 @@
     "image": "/assets/img/timeline/FloraByte_Thumbnail.png",
     "thumbnail": "/assets/img/projects/FloraByte.png",
     "blurb": "Wi‑Fi enabled countertop garden with automated nutrient dosing.",
-    "url": "/projects/smart-hydro/"
+    "url": "/projects/florabyte/"
   },
   {
     "title": "RoboRover",
@@ -29,7 +29,7 @@
     "image": "/assets/img/timeline/RoboRover_Thumbnail.png",
     "thumbnail": "/assets/img/projects/RoboRover.png",
     "blurb": "An autonomous rover running ROS2 for navigation and SLAM.",
-    "url": "/projects/ros2-rover/"
+    "url": "/projects/roborover/"
   },
   {
     "title": "AquaCore",
@@ -37,7 +37,7 @@
     "image": "/assets/img/timeline/AquaCore_Thumbnail.png",
     "thumbnail": "/assets/img/projects/AquaCore.png",
     "blurb": "A compact, sensor‑driven hydroponic system demo.",
-    "url": "/projects/hydroponics-poc/"
+    "url": "/projects/aquacore/"
   },
   {
     "title": "HiveMind",
@@ -45,7 +45,7 @@
     "image": "/assets/img/timeline/HiveMind_Thumbnail.png",
     "thumbnail": "/assets/img/projects/HiveMind.png",
     "blurb": "An optimized algorithm for multiple‑agent route planning.",
-    "url": "/projects/multiple-salesmen/"
+    "url": "/projects/hivemind/"
   },
   {
     "title": "VaporIQ",
@@ -53,7 +53,7 @@
     "image": "/assets/img/timeline/VaporIQ_Thumbnail.png",
     "thumbnail": "/assets/img/projects/VaporIQ.png",
     "blurb": "A custom gas density sensor with onboard data logging.",
-    "url": "/projects/gas-density/"
+    "url": "/projects/vaporiq/"
   },
   {
     "title": "EchoLux",
@@ -61,6 +61,6 @@
     "image": "/assets/img/timeline/EchoLux_Thumbnail.png",
     "thumbnail": "/assets/img/projects/EchoLux.png",
     "blurb": "An LED array that dances to live audio input.",
-    "url": "/projects/sound-leds/"
+    "url": "/projects/echolux/"
   }
 ]
