@@ -212,9 +212,10 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   flex-grow: 1;
 }
 .project-card .read-more {
-  text-align: right;
   margin-top: auto;
   padding: 0 20px 15px 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 .project-card .read-more a {
   font-size: var(--fs-base);
