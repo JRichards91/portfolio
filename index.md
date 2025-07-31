@@ -17,7 +17,9 @@ title: Home
     {% assign data = site.data.projects | sort: 'date' | reverse %}
     {% for project in data %}
       <li class="timeline-item">
-        <div class="timeline-icon">{{ project.title | slice: 0, 1 }}</div>
+        <div class="timeline-icon-img">
+          <img src="{{ project.image | relative_url }}" alt="{{ project.title }} thumbnail">
+        </div>
         <div class="timeline-content">
           <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
         </div>
