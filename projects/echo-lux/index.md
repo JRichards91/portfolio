@@ -59,11 +59,9 @@ This project combines analog signal conditioning, real-time data processing, and
 
 ## 💻 Code
 
-{% raw %}
 {% highlight python %}
 {% include_relative echo-lux.py %}
 {% endhighlight %}
-{% endraw %}
 
 ---
 
