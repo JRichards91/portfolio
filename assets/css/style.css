@@ -21,12 +21,12 @@
 /* 2. Reset & Base */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
   background: var(--bg);
   color: var(--text);
-  margin: 0;
-  padding: 0;
   font-family: var(--font);
   font-size: var(--fs-base);
   line-height: var(--lh);
@@ -50,13 +50,16 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 5. Header */
+/* 5. Header (Top-left nav) */
 header {
   background: var(--nav-bg);
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 .nav-list {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   gap: 30px;
   margin: 0;
   padding: 20px 40px;
@@ -126,7 +129,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   }
 }
 
-/* 10. Timeline Section */
+/* 10. Timeline Section (Vertical Layout with Thumbnails) */
 .timeline-section {
   padding: 40px 0;
 }
@@ -171,8 +174,9 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
+  align-items: stretch;
 }
 .project-card {
   background: rgba(255,255,255,0.1);
@@ -181,31 +185,40 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  height: 100%;
 }
 .project-card img {
   width: 100%;
   aspect-ratio: 1.01 / 1;
   object-fit: contain;
-  background-color: #fff;
+  display: block;
+  background-color: transparent;
   padding: 0;
   margin: 0;
-  border-radius: 0 !important;
-  display: block;
+  line-height: 0;
+  border: none;
+}
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 15px;
 }
 .project-card h3,
 .project-card p {
   font-size: var(--fs-base);
-  margin: 15px;
+  margin: 0 0 10px;
   text-align: left;
 }
-.project-card a {
-  font-size: var(--fs-base);
-  margin: 10px auto 20px;
+.project-card .read-more {
+  margin-top: auto;
   text-align: center;
-  display: block;
-  width: fit-content;
 }
-.project-card p { margin-top: 0; }
+.project-card .read-more a {
+  font-size: var(--fs-base);
+  display: inline-block;
+}
 
 /* 12. Contact Form */
 .contact-form {
@@ -252,7 +265,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   cursor: pointer;
 }
 
-/* 13. Resume Embed */
+/* 13. Resume Embed Styling */
 .resume-embed {
   display: flex;
   justify-content: center;
