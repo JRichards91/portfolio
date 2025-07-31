@@ -4,15 +4,15 @@
   "date": "Coming Soon",
   "image": "/assets/img/timeline/TerraPing_Thumbnail.png",
   "thumbnail": "/assets/img/projects/TerraPing.png",
-  "blurb": "A battery-powered wireless sensor that tracks soil moisture and syncs with HomeKit.",
-  "url": "/projects/terraping/"
+  "blurb": "A wireless soil moisture sensor that communicates via ESP‑NOW and integrates with HomeKit. Built for low-power deployment and seamless garden automation.",
+  "url": "/projects/terra-ping/"
   },
   {
     "title": "Gracie",
     "date": "2025-07-28",
     "image": "/assets/img/timeline/Gracie_Thumbnail.png",
     "thumbnail": "/assets/img/projects/Gracie.png",
-    "blurb": "A mobile manipulator featuring ROS2, depth sensing, and pick‑and‑place capabilities.",
+    "blurb": "A robotic arm and camera system powered by ROS2, designed for precise manipulation tasks. Features depth sensing, object tracking, and autonomous pick-and-place routines.",
     "url": "/projects/gracie/"
   },
     {
@@ -20,47 +20,47 @@
     "date": "2025-06-04",
     "image": "/assets/img/timeline/FloraByte_Thumbnail.png",
     "thumbnail": "/assets/img/projects/FloraByte.png",
-    "blurb": "Wi‑Fi enabled countertop garden with automated nutrient dosing.",
-    "url": "/projects/florabyte/"
+    "blurb": "An intelligent countertop garden system that monitors plant health and growth. Designed for smart homes with Wi-Fi connectivity and nutrient automation.",
+    "url": "/projects/flora-byte/"
   },
   {
     "title": "RoboRover",
     "date": "2025-04-07",
     "image": "/assets/img/timeline/RoboRover_Thumbnail.png",
     "thumbnail": "/assets/img/projects/RoboRover.png",
-    "blurb": "An autonomous rover running ROS2 for navigation and SLAM.",
-    "url": "/projects/roborover/"
+    "blurb": "An autonomous mobile robot using ROS2 for navigation, SLAM, and obstacle avoidance. Ideal for autonomous exploration and mapping challenges.",
+    "url": "/projects/robo-rover/"
   },
   {
     "title": "AquaCore",
     "date": "2025-03-12",
     "image": "/assets/img/timeline/AquaCore_Thumbnail.png",
     "thumbnail": "/assets/img/projects/AquaCore.png",
-    "blurb": "A compact, sensor‑driven hydroponic system demo.",
-    "url": "/projects/aquacore/"
+    "blurb": "A proof-of-concept hydroponics system with real-time environmental sensing. Compact, efficient, and perfect for testing smart agriculture ideas.",
+    "url": "/projects/aqua-core/"
   },
   {
     "title": "HiveMind",
     "date": "2024-06-05",
     "image": "/assets/img/timeline/HiveMind_Thumbnail.png",
     "thumbnail": "/assets/img/projects/HiveMind.png",
-    "blurb": "An optimized algorithm for multiple‑agent route planning.",
-    "url": "/projects/hivemind/"
+    "blurb": "A custom solver for the multiple traveling salesmen problem (mTSP). Optimizes routing for teams of agents in delivery, robotics, and logistics scenarios.",
+    "url": "/projects/hive-mind/"
   },
   {
     "title": "VaporIQ",
     "date": "2023-03-21",
     "image": "/assets/img/timeline/VaporIQ_Thumbnail.png",
     "thumbnail": "/assets/img/projects/VaporIQ.png",
-    "blurb": "A custom gas density sensor with onboard data logging.",
-    "url": "/projects/vaporiq/"
+    "blurb": "A precision gas density sensor with onboard data logging. Developed for SF6 analysis and environmental monitoring applications.",
+    "url": "/projects/vapor-iq/"
   },
   {
     "title": "EchoLux",
     "date": "2021-12-02",
     "image": "/assets/img/timeline/EchoLux_Thumbnail.png",
     "thumbnail": "/assets/img/projects/EchoLux.png",
-    "blurb": "An LED array that dances to live audio input.",
-    "url": "/projects/echolux/"
+    "blurb": "An LED matrix that dances in real-time to live audio input. Merges sound and light for interactive installations and music-reactive displays.",
+    "url": "/projects/echo-lux/"
   }
 ]
