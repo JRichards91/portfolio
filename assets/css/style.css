@@ -52,7 +52,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 5. Header (Top-left nav) */
+/* 5. Header */
 header {
   background: var(--nav-bg);
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
@@ -97,7 +97,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   margin: 0 auto;
 }
 
-/* 9. About Page Layout */
+/* 9. About Page */
 .about-section {
   display: flex;
   justify-content: center;
@@ -131,7 +131,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   }
 }
 
-/* 10. Timeline Section (Vertical Layout with Thumbnails) */
+/* 10. Timeline Section */
 .timeline-section {
   padding: 40px 0;
 }
@@ -181,14 +181,19 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 .project-card {
   background: rgba(255,255,255,0.1);
-  border-radius: 0;            /* Ensure square layout */
-  overflow: visible;           /* Prevent clipping */
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .project-card img {
   width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 0 !important; /* Force square image thumbnails */
+  aspect-ratio: 1.01 / 1;
+  object-fit: contain;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 0 !important;
 }
 .project-card h3,
 .project-card p,
@@ -196,7 +201,9 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   font-size: var(--fs-base);
   margin: 15px;
 }
-.project-card p { margin-top: 0; }
+.project-card p {
+  margin-top: 0;
+}
 
 /* 12. Contact Form */
 .contact-form {
@@ -243,7 +250,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   cursor: pointer;
 }
 
-/* 13. Resume Embed Styling */
+/* 13. Resume Embed */
 .resume-embed {
   display: flex;
   justify-content: center;
