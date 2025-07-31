@@ -214,8 +214,8 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 .project-card .read-more {
   margin-top: auto;
   padding: 0 20px 15px 20px;
-  display: flex;
-  justify-content: flex-end;
+  text-align: center;
+  width: 100%;
 }
 .project-card .read-more a {
   font-size: var(--fs-base);
