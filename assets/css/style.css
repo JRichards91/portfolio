@@ -180,7 +180,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* ensures full width image */
+  align-items: stretch;
 }
 .project-card img {
   width: 100%;
@@ -193,10 +193,17 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   display: block;
 }
 .project-card h3,
-.project-card p,
-.project-card a {
+.project-card p {
   font-size: var(--fs-base);
   margin: 15px;
+  text-align: left;
+}
+.project-card a {
+  font-size: var(--fs-base);
+  margin: 10px auto 20px;
+  text-align: center;
+  display: block;
+  width: fit-content;
 }
 .project-card p { margin-top: 0; }
 
