@@ -31,7 +31,7 @@ This project combines analog signal conditioning, real-time data processing, and
 
   <!-- Project Build Photo -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./EENG 163 - Final - Picture.JPEG" alt="EchoLux Breadboard Build" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <img src="./EENG 163 - Final - Picture.png" alt="EchoLux Breadboard Build" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
     <p style="text-align: center; margin-top: 10px;">Breadboard prototype of the EchoLux system</p>
   </div>
 
@@ -47,15 +47,13 @@ This project combines analog signal conditioning, real-time data processing, and
 
 ## 🎥 Demo Video
 
-<div style="display: flex; justify-content: center;">
-  <iframe width="300" height="533"
-    src="https://www.youtube.com/embed/rCREi2waXuE"
-    title="EchoLux Demo Video"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
+<iframe width="100%" height="400"
+  src="https://www.youtube.com/embed/rCREi2waXuE"
+  title="EchoLux Demo Video"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
 
 ---
 
