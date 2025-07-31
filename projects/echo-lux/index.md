@@ -37,7 +37,7 @@ This project combines analog signal conditioning, real-time data processing, and
 
   <!-- Project Build Photo -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./EENG 163 - Final - Picture.jpg" alt="EchoLux Breadboard Build" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <img src="./EENG 163 - Final - Picture.png" alt="EchoLux Breadboard Build" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
     <p style="text-align: center; margin-top: 10px;">Breadboard prototype of the EchoLux system</p>
   </div>
 
