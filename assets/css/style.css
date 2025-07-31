@@ -180,40 +180,42 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 .project-card {
   background: rgba(255,255,255,0.1);
-  border-radius: 0;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   height: 100%;
 }
 .project-card img {
   width: 100%;
   aspect-ratio: 1.01 / 1;
   object-fit: contain;
-  display: block;
   background-color: transparent;
-  padding: 0;
-  margin: 0;
-  line-height: 0;
+  display: block;
   border: none;
 }
 .project-card-body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 15px;
 }
-.project-card h3,
-.project-card p {
+.project-card h3 {
   font-size: var(--fs-base);
-  margin: 0 0 10px;
+  margin-bottom: 10px;
   text-align: left;
 }
+.project-card p {
+  font-size: var(--fs-base);
+  margin-bottom: 20px;
+  text-align: left;
+  flex-grow: 1;
+}
 .project-card .read-more {
-  margin-top: auto;
   text-align: center;
+  margin-top: auto;
+  padding-top: 10px;
 }
 .project-card .read-more a {
   font-size: var(--fs-base);
