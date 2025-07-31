@@ -199,24 +199,22 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   flex-direction: column;
   flex-grow: 1;
   justify-content: flex-start;
-  padding: 15px;
 }
 .project-card h3 {
   font-size: var(--fs-base);
-  margin-bottom: 10px;
+  margin: 15px 20px 10px;
   text-align: left;
 }
 .project-card p {
   font-size: var(--fs-base);
-  margin-bottom: 20px;
+  margin: 0 20px 20px;
   text-align: left;
   flex-grow: 1;
 }
 .project-card .read-more {
   text-align: right;
   margin-top: auto;
-  padding-top: 10px;
-  padding-right: 20px;
+  padding: 0 20px 15px 20px;
 }
 .project-card .read-more a {
   font-size: var(--fs-base);
