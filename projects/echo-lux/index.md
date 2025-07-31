@@ -31,13 +31,13 @@ This project combines analog signal conditioning, real-time data processing, and
 
   <!-- Schematic Image -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./EENG 163 - Final - Schematic.png" alt="EchoLux schematic" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <img src="./EENG 163 - Final - Schematic.png" alt="EchoLux schematic" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
     <p style="text-align: center; margin-top: 10px;">Circuit schematic showing microphone amp and LED strip wiring</p>
   </div>
 
   <!-- Project Build Photo -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./EENG 163 - Final - Picture.png" alt="EchoLux Breadboard Build" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <img src="./EENG 163 - Final - Picture.png" alt="EchoLux Breadboard Build" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
     <p style="text-align: center; margin-top: 10px;">Breadboard prototype of the EchoLux system</p>
   </div>
 
@@ -59,76 +59,27 @@ This project combines analog signal conditioning, real-time data processing, and
 
 ## 💻 Code
 
-```python
-# Justin Richards - Final Project
+{% raw %}
+{% highlight python %}
+{% include_relative echo-lux.py %}
+{% endhighlight %}
+{% endraw %}
 
-# This code will allow you to set up both a sound sensor
-# and LED strip (WS2812B) on your PyBoard.
-# You will be able to get a voltage reading of sound amplitude
-# that you can then use to control the LED strip.
+---
 
-# From the github link copy the file "ws2812.py" to your PyBoard (where boot.py and RaspberryPiPico.py are located)
+## 🛠️ Hardware Used
 
-# Connect A0 from sensor to X1 on PyBoard
-# Connect D0 from sensor to X4 on PyBoard
-# Connect X8 from PyBoard to DI (data in) on LED strip (green wire)
-# Run a ground wire from the PyBoard to the sensor
-# Run a ground wire from the PyBoard to the LED strip
-# For best results power both the sensor and LEDs using a 5v power source
+- PyBoard Microcontroller
+- Analog Microphone Module (e.g., KY-037)
+- WS2812B NeoPixel LED Strip (15 LEDs)
+- Breadboard & jumper wires
+- 5V regulated power input
 
-# Import Module(s)
-import time
-from ws2812 import WS2812  # https://github.com/JanBednarik/micropython-ws2812
+---
 
-# Assign Pin(s)
-adc = pyb.ADC("X4")  # PyBoard Pin X4, Analog signal (0 - 4096)
-x1_pin = pyb.Pin("X1", pyb.Pin.IN)  # PyBoard Pin X1, Digital signal (0 or 1)
-noise_meter = WS2812(spi_bus=1, led_count=15, intensity=0.05)  # PyBoard Pin X8, Data to LED strip
+## 🧠 Future Ideas
 
-# LED Color Arrays (LED1 to LED15, NO_LED)
-LED15 = [ (3, 126, 170), (11, 152, 171), (14, 168, 132), (29, 173, 75), (118, 192, 69),
-          (190, 216, 48), (219, 222, 45), (252, 226, 40), (254, 194, 19), (249, 150, 33),
-          (243, 111, 43), (241, 69, 39), (234, 29, 44), (215, 24, 111), (162, 30, 87) ]
-LED14 = LED15[:14] + [(0, 0, 0)]
-LED13 = LED15[:13] + [(0, 0, 0)] * 2
-LED12 = LED15[:12] + [(0, 0, 0)] * 3
-LED11 = LED15[:11] + [(0, 0, 0)] * 4
-LED10 = LED15[:10] + [(0, 0, 0)] * 5
-LED9  = LED15[:9]  + [(0, 0, 0)] * 6
-LED8  = LED15[:8]  + [(0, 0, 0)] * 7
-LED7  = LED15[:7]  + [(0, 0, 0)] * 8
-LED6  = LED15[:6]  + [(0, 0, 0)] * 9
-LED5  = LED15[:5]  + [(0, 0, 0)] * 10
-LED4  = LED15[:4]  + [(0, 0, 0)] * 11
-LED3  = LED15[:3]  + [(0, 0, 0)] * 12
-LED2  = LED15[:2]  + [(0, 0, 0)] * 13
-LED1  = LED15[:1]  + [(0, 0, 0)] * 14
-NO_LED = [(0, 0, 0)] * 15
-
-# Create Function(s)
-def sound_detector():
-    while True:
-        time.sleep_ms(5)
-        if x1_pin.value() != 0:
-            print('ADC =', adc.read())
-            val = adc.read()
-            if val > 0: noise_meter.show(LED1)
-            if val >= 150: noise_meter.show(LED2)
-            if val >= 300: noise_meter.show(LED3)
-            if val >= 450: noise_meter.show(LED4)
-            if val >= 600: noise_meter.show(LED5)
-            if val >= 750: noise_meter.show(LED6)
-            if val >= 900: noise_meter.show(LED7)
-            if val >= 1050: noise_meter.show(LED8)
-            if val >= 1200: noise_meter.show(LED9)
-            if val >= 1350: noise_meter.show(LED10)
-            if val >= 1500: noise_meter.show(LED11)
-            if val >= 1650: noise_meter.show(LED12)
-            if val >= 1800: noise_meter.show(LED13)
-            if val >= 1950: noise_meter.show(LED14)
-            if val >= 2100: noise_meter.show(LED15)
-        else:
-            noise_meter.show(NO_LED)
-
-# Call Function
-sound_detector()
+- Add FFT for frequency-based visualizations
+- Implement beat/tempo detection
+- Design a 3D-printed enclosure with diffusion panel
+- Add remote control via MQTT or BLE
