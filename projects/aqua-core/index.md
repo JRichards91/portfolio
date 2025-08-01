@@ -1,7 +1,7 @@
 ---
 layout: default
 title: AquaCore
-permalink: /projects/aquacore/
+permalink: /projects/aqua-core/
 ---
 
 # AquaCore: Automated Hydroponic Control System
