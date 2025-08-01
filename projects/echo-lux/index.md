@@ -59,24 +59,55 @@ This project combines analog signal conditioning, real-time data processing, and
 
 ## 💻 Code
 
-<div style="
-  max-height: 500px;
-  overflow: auto;
-  background-color: #1e1e1e;
-  color: #d4d4d4;
-  font-size: 0.85rem;
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  border-radius: 6px;
-  padding: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  margin-top: 1em;
-">
+<div style="position: relative;">
 
-{% highlight python %}
-{% include_relative echo-lux.py %}
-{% endhighlight %}
+  <!-- Copy Button -->
+  <button onclick="copyCode(this)" style="
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #3c3c3c;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1;
+  ">Copy</button>
 
+  <!-- Code Container -->
+  <div id="codeBlock" style="
+    max-height: 500px;
+    overflow: auto;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    font-size: 0.85rem;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    border-radius: 6px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    margin-top: 1em;
+  ">
+    {% highlight python %}
+    {% include_relative echo-lux.py %}
+    {% endhighlight %}
+  </div>
 </div>
+
+<script>
+function copyCode(button) {
+  const codeBlock = button.nextElementSibling;
+  const text = codeBlock.innerText;
+
+  navigator.clipboard.writeText(text).then(() => {
+    button.innerText = "Copied!";
+    setTimeout(() => { button.innerText = "Copy"; }, 1500);
+  }).catch(() => {
+    button.innerText = "Failed!";
+  });
+}
+</script>
 
 ---
 
