@@ -59,9 +59,13 @@ This project combines analog signal conditioning, real-time data processing, and
 
 ## 💻 Code
 
+<div style="max-height: 500px; overflow: auto; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); margin-top: 1em;">
+
 {% highlight python %}
 {% include_relative echo-lux.py %}
 {% endhighlight %}
+
+</div>
 
 ---
 
