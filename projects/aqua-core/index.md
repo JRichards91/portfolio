@@ -31,7 +31,7 @@ An onboard temperature sensor tracks ambient conditions for future expansion. Sy
 
 ---
 
-## 🧩 Schematic & Build
+## 🧩 Schematic & Build Photo
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: flex-start;">
 
@@ -75,7 +75,7 @@ An onboard temperature sensor tracks ambient conditions for future expansion. Sy
 
 Want to explore or print the custom 3D enclosure?
 
-👉 [Download AquaCore 3D CAD File (.3mf)](./Base-Lid-Arrow.3mf.zip)
+👉 [Download AquaCore 3D CAD File (.3mf)](./Base-Lid-Arrow.3mf)
 
 ---
 
