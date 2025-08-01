@@ -59,7 +59,18 @@ This project combines analog signal conditioning, real-time data processing, and
 
 ## 💻 Code
 
-<div style="max-height: 500px; overflow: auto; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); margin-top: 1em;">
+<div style="
+  max-height: 500px;
+  overflow: auto;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-size: 0.85rem;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  margin-top: 1em;
+">
 
 {% highlight python %}
 {% include_relative echo-lux.py %}
