@@ -60,13 +60,13 @@ An onboard temperature sensor tracks ambient conditions for future expansion. Sy
   <!-- CAD View 1 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
     <img src="./Drawing-with-lid.png" alt="CAD model - exploded view" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
-    <p style="text-align: center; margin-top: 10px;">Exploded CAD view of enclosure and mechanical system</p>
+    <p style="text-align: center; margin-top: 10px;">CAD view of lid</p>
   </div>
 
   <!-- CAD View 2 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
     <img src="./Drawing-without-lid.png" alt="CAD model - assembled" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
-    <p style="text-align: center; margin-top: 10px;">Assembled 3D model of AquaCore enclosure</p>
+    <p style="text-align: center; margin-top: 10px;">CAD view of enclosure</p>
   </div>
 
 </div>
