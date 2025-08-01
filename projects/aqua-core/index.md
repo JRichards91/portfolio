@@ -45,7 +45,7 @@ An onboard temperature sensor tracks ambient conditions for future expansion. Sy
 
   <!-- Breadboard -->
   <div style="flex: 1 1 48%; max-width: 600px; display: flex; flex-direction: column;">
-    <img src="./IMG_1887-official.png" alt="AquaCore breadboard prototype" style="width: 100%; height: 740px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <img src="./IMG_1887.png" alt="AquaCore breadboard prototype" style="width: 100%; height: 740px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
     <p style="text-align: center; margin-top: 10px;">Prototype circuit built on breadboard</p>
   </div>
 
