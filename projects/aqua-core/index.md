@@ -6,28 +6,27 @@ permalink: /projects/aqua-core/
 
 # AquaCore: Automated Hydroponic Control System
 
-**AquaCore** is a fully automated hydroponics controller built around the TM4C123GXL microcontroller. It integrates sensor data and actuator control to maintain optimal growing conditions for plants with minimal manual input.
+**AquaCore** is a fully automated hydroponics controller built around the TM4C123GXL microcontroller. Designed as a proof of concept, it became the foundation for the more advanced FloraByte system. AquaCore integrates sensor readings and actuator control to maintain optimal growing conditions — with no manual intervention required.
 
 ---
 
 ## 🔧 About the Project
 
-Designed for precision irrigation and environmental control, AquaCore monitors plant bed water level, nutrient distance, and temperature. Based on sensor feedback, it dynamically controls a stepper motor to position a nutrient feeder and opens or closes a solenoid valve via relay.
+This system intelligently manages plant irrigation and nutrient delivery by sensing water level, optical distance to fluid, and ambient temperature. Using that input, it operates a stepper motor to position a feeder arm and toggles a solenoid valve via relay.
 
 It uses:
-- ADC for optical distance sensing
-- I2C to read ambient temperature
-- Digital GPIO for liquid level sensing and actuator control
-- SysTick and timer interrupts to coordinate system behavior
-
-The system was prototyped and tested with 3D-printed enclosures and performed successfully across all core tasks.
+- ADC for distance sensor input
+- I2C for temperature reading
+- GPIO for level sensing, relay, and motor control
+- SysTick and timer interrupts to handle tasks efficiently
 
 ### Features:
-- Automated irrigation control
-- Real-time distance + temperature sensing
-- Intelligent stepper motor logic
-- Relay-driven valve actuation
-- Fully interrupt-driven logic
+- Fully automated watering sequence
+- Real-time fluid and temperature sensing
+- Stepper-driven nutrient positioning
+- Relay-controlled solenoid valve
+- Efficient interrupt-based design
+- 3D-printed modular enclosure
 
 ---
 
@@ -37,7 +36,7 @@ The system was prototyped and tested with 3D-printed enclosures and performed su
 
   <!-- Schematic -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./Schematic v2.png" alt="AquaCore schematic" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <img src="./Schematic-v2.png" alt="AquaCore schematic" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
     <p style="text-align: center; margin-top: 10px;">Wiring schematic showing sensor/actuator pin mapping</p>
   </div>
 
@@ -57,13 +56,13 @@ The system was prototyped and tested with 3D-printed enclosures and performed su
 
   <!-- CAD View 1 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./Drawing - w: Lid.png" alt="CAD model - exploded view" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <img src="./Drawing-with-lid.png" alt="CAD model - exploded view" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
     <p style="text-align: center; margin-top: 10px;">Exploded CAD view of enclosure and mechanical system</p>
   </div>
 
   <!-- CAD View 2 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./Drawing w:out Lid.png" alt="CAD model - assembled" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <img src="./Drawing-without-lid.png" alt="CAD model - assembled" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
     <p style="text-align: center; margin-top: 10px;">Assembled 3D model of AquaCore enclosure</p>
   </div>
 
@@ -75,7 +74,7 @@ The system was prototyped and tested with 3D-printed enclosures and performed su
 
 Want to explore or print the custom 3D enclosure?
 
-👉 [Download AquaCore 3D CAD File (.3mf)](./Base, Lid, & Arrow.3mf.zip)
+👉 [Download AquaCore 3D CAD File (.3mf)](./Base-Lid-Arrow.3mf.zip)
 
 ---
 
@@ -110,9 +109,9 @@ Want to explore or print the custom 3D enclosure?
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     margin-top: 1em;
   ">
-    {% highlight c %}
-    {% include_relative main.c %}
-    {% endhighlight %}
+{% highlight c %}
+{% include_relative main.c %}
+{% endhighlight %}
   </div>
 </div>
 
