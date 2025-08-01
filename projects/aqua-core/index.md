@@ -71,6 +71,14 @@ The system was prototyped and tested with 3D-printed enclosures and performed su
 
 ---
 
+## 🧾 Download 3D Model
+
+Want to explore or print the custom 3D enclosure?
+
+👉 [Download AquaCore 3D CAD File (.3mf)](./Base, Lid, & Arrow.3mf.zip)
+
+---
+
 ## 💻 Code
 
 <div style="position: relative;">
