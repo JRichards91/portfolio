@@ -6,33 +6,28 @@ permalink: /projects/aqua-core/
 
 # AquaCore: Automated Hydroponic Control System
 
-**AquaCore** is a microcontroller-based proof-of-concept for an automated hydroponic system. Built entirely with low-level C and the TM4C123GXL LaunchPad, it integrates multiple sensors and actuators to manage water distribution and nutrient delivery with no AI or advanced logic — just efficient embedded design.
+**AquaCore** is a self-regulating hydroponics controller designed to monitor and maintain critical growing conditions for plants. Using a TM4C123GXL microcontroller, it integrates sensor data with actuator control to adjust lighting and manage water flow — helping plants thrive with minimal oversight.
 
-This project laid the foundation for its more advanced successor, **FloraByte**, which builds on AquaCore’s core concepts with greater scalability and intelligence.
+Originally developed as a proof of concept, AquaCore demonstrated reliable embedded coordination between sensors, motors, and valves, and later evolved into the more advanced FloraByte platform.
 
 ---
 
 ## 🔧 About the Project
 
-AquaCore was developed to explore how a microcontroller could coordinate real-world sensors and actuators in a hydroponic environment using nothing but hardcoded logic in C.
+AquaCore is centered around two primary control loops:
 
-It monitors:
-- **Water level** using a digital float sensor  
-- **Reservoir distance** using an optical ADC sensor  
-- **Ambient temperature** over I2C  
+- A **distance sensor** monitors the height between the grow light deck and the plant canopy. Based on this input, a **stepper motor** raises or lowers the lighting system to maintain optimal exposure as the plants grow.
 
-Based on sensor input, it:
-- **Rotates a stepper motor** to align a nutrient arm  
-- **Opens/closes a solenoid valve** via a relay  
+- A **liquid level sensor** monitors the fluid in the reservoir. When the level falls below a threshold, a **solenoid valve** is opened to refill the system. Once it reaches a target level, the valve automatically closes.
 
-System timing and decision logic are handled using **SysTick and hardware timer interrupts**, making AquaCore a great demonstration of low-level embedded systems in a real-world application.
+An onboard temperature sensor tracks ambient conditions for future expansion. System tasks are synchronized using microcontroller timers and interrupts to ensure responsive and consistent performance.
 
 ### Features:
-- No AI or machine learning — just bare-metal C  
-- Automated pump and valve control based on real-time input  
-- Stepper motor targeting with multi-step logic  
-- Structured timing with SysTick + GPIO-based actuation  
-- Modular 3D-printed design for easy deployment  
+- Light deck automatically tracks plant height  
+- Reservoir water level maintained via solenoid valve  
+- Real-time feedback from distance, level, and temperature sensors  
+- Stepper motor and relay control for actuation  
+- Custom 3D-printed housing for sensors and electronics  
 
 ---
 
@@ -42,7 +37,7 @@ System timing and decision logic are handled using **SysTick and hardware timer 
 
   <!-- Schematic -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./9. Schematic-v2.png" alt="AquaCore schematic" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <img src="./9. Schematic v2.png" alt="AquaCore schematic" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
     <p style="text-align: center; margin-top: 10px;">Wiring schematic showing sensor/actuator pin mapping</p>
   </div>
 
@@ -63,13 +58,13 @@ System timing and decision logic are handled using **SysTick and hardware timer 
   <!-- CAD View 1 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
     <img src="./Drawing-with-lid.png" alt="CAD model - exploded view" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
-    <p style="text-align: center; margin-top: 10px;">CAD view of lid</p>
+    <p style="text-align: center; margin-top: 10px;">Exploded CAD view of enclosure and mechanical system</p>
   </div>
 
   <!-- CAD View 2 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
     <img src="./Drawing-without-lid.png" alt="CAD model - assembled" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
-    <p style="text-align: center; margin-top: 10px;">CAD view of enclosure</p>
+    <p style="text-align: center; margin-top: 10px;">Assembled 3D model of AquaCore enclosure</p>
   </div>
 
 </div>
@@ -150,7 +145,7 @@ function copyCode(button) {
 
 ## 🧠 Future Ideas
 
-- Add AI/ML logic to enable adaptive watering  
-- Incorporate cloud or Wi-Fi remote control  
-- Expand sensor suite with humidity/CO₂ monitoring  
-- Design a solar/battery power system for off-grid use  
+- Add humidity and CO₂ sensing  
+- Integrate remote monitoring via Wi-Fi or cloud  
+- Solar-powered version with battery backup  
+- Upgrade to modular control with machine learning  
