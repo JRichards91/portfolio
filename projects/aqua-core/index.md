@@ -33,19 +33,19 @@ An onboard temperature sensor tracks ambient conditions for future expansion. Sy
 
 ## 🧩 Schematic & Build Photo
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: stretch;">
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: flex-start;">
 
   <!-- Schematic -->
-  <div style="flex: 1 1 48%; max-width: 600px; display: flex; flex-direction: column; align-items: center;">
-    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); padding: 10px;">
-      <img src="./9. Schematic v2.png" alt="AquaCore schematic" style="max-height: 500px; max-width: 100%; object-fit: contain;" />
+  <div style="flex: 1 1 48%; max-width: 600px;">
+    <div style="height: 650px; display: flex; align-items: center; justify-content: center; background-color: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); padding: 10px;">
+      <img src="./9. Schematic v2.png" alt="AquaCore schematic" style="max-height: 100%; max-width: 100%; object-fit: contain;" />
     </div>
     <p style="text-align: center; margin-top: 10px;">Wiring schematic showing sensor/actuator pin mapping</p>
   </div>
 
   <!-- Breadboard -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./IMG_1887.png" alt="AquaCore breadboard prototype" style="width: 100%; height: 500px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <img src="./IMG_1887.png" alt="AquaCore breadboard prototype" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
     <p style="text-align: center; margin-top: 10px;">Prototype circuit built on breadboard</p>
   </div>
 
