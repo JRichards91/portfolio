@@ -6,27 +6,33 @@ permalink: /projects/aqua-core/
 
 # AquaCore: Automated Hydroponic Control System
 
-**AquaCore** is a fully automated hydroponics controller built around the TM4C123GXL microcontroller. Designed as a proof of concept, it became the foundation for the more advanced FloraByte system. AquaCore integrates sensor readings and actuator control to maintain optimal growing conditions — with no manual intervention required.
+**AquaCore** is a microcontroller-based proof-of-concept for an automated hydroponic system. Built entirely with low-level C and the TM4C123GXL LaunchPad, it integrates multiple sensors and actuators to manage water distribution and nutrient delivery with no AI or advanced logic — just efficient embedded design.
+
+This project laid the foundation for its more advanced successor, **FloraByte**, which builds on AquaCore’s core concepts with greater scalability and intelligence.
 
 ---
 
 ## 🔧 About the Project
 
-This system intelligently manages plant irrigation and nutrient delivery by sensing water level, optical distance to fluid, and ambient temperature. Using that input, it operates a stepper motor to position a feeder arm and toggles a solenoid valve via relay.
+AquaCore was developed to explore how a microcontroller could coordinate real-world sensors and actuators in a hydroponic environment using nothing but hardcoded logic in C.
 
-It uses:
-- ADC for distance sensor input
-- I2C for temperature reading
-- GPIO for level sensing, relay, and motor control
-- SysTick and timer interrupts to handle tasks efficiently
+It monitors:
+- **Water level** using a digital float sensor  
+- **Reservoir distance** using an optical ADC sensor  
+- **Ambient temperature** over I2C  
+
+Based on sensor input, it:
+- **Rotates a stepper motor** to align a nutrient arm  
+- **Opens/closes a solenoid valve** via a relay  
+
+System timing and decision logic are handled using **SysTick and hardware timer interrupts**, making AquaCore a great demonstration of low-level embedded systems in a real-world application.
 
 ### Features:
-- Fully automated watering sequence
-- Real-time fluid and temperature sensing
-- Stepper-driven nutrient positioning
-- Relay-controlled solenoid valve
-- Efficient interrupt-based design
-- 3D-printed modular enclosure
+- No AI or machine learning — just bare-metal C  
+- Automated pump and valve control based on real-time input  
+- Stepper motor targeting with multi-step logic  
+- Structured timing with SysTick + GPIO-based actuation  
+- Modular 3D-printed design for easy deployment  
 
 ---
 
@@ -36,7 +42,7 @@ It uses:
 
   <!-- Schematic -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./Schematic-v2.png" alt="AquaCore schematic" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <img src="./9. Schematic-v2.png" alt="AquaCore schematic" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
     <p style="text-align: center; margin-top: 10px;">Wiring schematic showing sensor/actuator pin mapping</p>
   </div>
 
@@ -57,13 +63,13 @@ It uses:
   <!-- CAD View 1 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
     <img src="./Drawing-with-lid.png" alt="CAD model - exploded view" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
-    <p style="text-align: center; margin-top: 10px;">Exploded CAD view of enclosure and mechanical system</p>
+    <p style="text-align: center; margin-top: 10px;">CAD view of lid</p>
   </div>
 
   <!-- CAD View 2 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
     <img src="./Drawing-without-lid.png" alt="CAD model - assembled" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
-    <p style="text-align: center; margin-top: 10px;">Assembled 3D model of AquaCore enclosure</p>
+    <p style="text-align: center; margin-top: 10px;">CAD view of enclosure</p>
   </div>
 
 </div>
@@ -132,19 +138,19 @@ function copyCode(button) {
 
 ## 🛠️ Hardware Used
 
-- TM4C123GXL LaunchPad
-- Optical Distance Sensor (Analog → PB5)
-- Non-contact Liquid Level Sensor (PB0)
-- Temperature Sensor (I2C: PB2/SCL, PB3/SDA)
-- Stepper Motor + Easy Driver (PC4–PC7)
-- Solenoid Valve via Relay (PD2)
-- 3D-printed enclosure (Fusion 360)
+- TM4C123GXL LaunchPad  
+- Optical Distance Sensor (Analog → PB5)  
+- Non-contact Liquid Level Sensor (PB0)  
+- Temperature Sensor (I2C: PB2/SCL, PB3/SDA)  
+- Stepper Motor + Easy Driver (PC4–PC7)  
+- Solenoid Valve via Relay (PD2)  
+- 3D-printed enclosure (Fusion 360)  
 
 ---
 
 ## 🧠 Future Ideas
 
-- Add humidity and CO₂ sensors
-- Remote monitoring via Wi-Fi or cloud
-- Solar power with battery backup
-- Machine-learning driven irrigation
+- Add AI/ML logic to enable adaptive watering  
+- Incorporate cloud or Wi-Fi remote control  
+- Expand sensor suite with humidity/CO₂ monitoring  
+- Design a solar/battery power system for off-grid use  
