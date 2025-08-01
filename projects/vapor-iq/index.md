@@ -55,7 +55,7 @@ The user can switch display modes between **Density**, **Pressure**, and **Tempe
     margin-top: 1em;
   ">
     {% highlight c %}
-    {% include_relative vapor-iq.c %}
+    {% include_relative main.c %}
     {% endhighlight %}
   </div>
 </div>
