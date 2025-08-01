@@ -38,7 +38,7 @@ An onboard temperature sensor tracks ambient conditions for future expansion. Sy
   <!-- Schematic -->
   <div style="flex: 1 1 48%; max-width: 600px; display: flex; flex-direction: column; align-items: center;">
     <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); padding: 10px;">
-      <img src="./Schematic-v2.png" alt="AquaCore schematic" style="max-height: 500px; max-width: 100%; object-fit: contain;" />
+      <img src="./9. Schematic v2.png" alt="AquaCore schematic" style="max-height: 500px; max-width: 100%; object-fit: contain;" />
     </div>
     <p style="text-align: center; margin-top: 10px;">Wiring schematic showing sensor/actuator pin mapping</p>
   </div>
