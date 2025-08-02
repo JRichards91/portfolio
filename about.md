@@ -20,7 +20,7 @@ permalink: /about/
   <!-- 2. Childhood Curiosity & First “Aha” Moments -->
   <div class="about-section">
     <div class="about-img">
-      <img src="{{ '/assets/img/Justin&Mom.png' | relative_url }}" alt="Justin and Mom">
+      <img src="{{ '/assets/img/JustinMom.png' | relative_url }}" alt="Justin and Mom">
     </div>
     <div class="about-text">
       <h2>Hands-On Learning, From Trails to Tech</h2>
