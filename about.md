@@ -20,7 +20,7 @@ permalink: /about/
   <!-- 2. Childhood Curiosity & First “Aha” Moments -->
   <div class="about-section">
     <div class="about-img">
-      <img src="{{ '/assets/img/JustinMom.png' | relative_url }}" alt="Justin and Mom">
+      <img src="{{ '/assets/img/Justin&Mom.png' | relative_url }}" alt="Justin and Mom">
     </div>
     <div class="about-text">
       <h2>Hands-On Learning, From Trails to Tech</h2>
@@ -53,7 +53,7 @@ permalink: /about/
   <!-- 5. Adventures with Pi -->
   <div class="about-section">
     <div class="about-img">
-      <img src="{{ '/assets/img/Pi.png' | relative_url }}" alt="Pi playing fetch">
+      <img src="{{ '/assets/img/Pi 2.png' | relative_url }}" alt="Pi playing fetch">
     </div>
     <div class="about-text">
       <h2>Outside the Lab</h2>
@@ -64,7 +64,7 @@ permalink: /about/
   <!-- 6. Travels & Future Vision -->
   <div class="about-section">
     <div class="about-img">
-      <img src="{{ '/assets/img/PetParade.png' | relative_url }}" alt="At the beach with Pi">
+      <img src="{{ '/assets/img/Pet Parade.png' | relative_url }}" alt="At the beach with Pi">
     </div>
     <div class="about-text">
       <h2>The Road Ahead</h2>
