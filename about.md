@@ -12,8 +12,8 @@ permalink: /about/
       <img src="{{ '/assets/img/headshot.jpg' | relative_url }}" alt="Professional headshot">
     </div>
     <div class="about-text">
-      <h2>Where It All Began</h2>
-      <p>Growing up in Oregon, Connecticut, and Washington, I was the kid who couldn’t resist taking apart gadgets just to see how they worked. My grandfather, a civil engineer, inspired me to follow in his footsteps—only I gravitated toward electrical systems. By the time I graduated with a BS in Electrical & Computer Engineering from Eastern Washington University, I had already interned as an electrical engineering tech and drafter while juggling full‑time coursework. Those early experiences laid the foundation for turning curiosity into practical solutions.</p>
+      <h2>Born to Tinker, Wired to Explore</h2>
+      <p>Growing up across Oregon, Connecticut, and Washington, I was always in motion—on a soccer field, behind a lacrosse stick, or tearing down a trail on my mountain bike. My curiosity didn’t stop at the finish line. If something beeped, blinked, or flew, I had to know how it worked. While living in Connecticut, I discovered lacrosse and fell in love with the game. After moving to Washington, I earned a varsity spot by sophomore year and was recruited to a top-tier summer camp. That same competitive spirit now drives my engineering work.</p>
     </div>
   </div>
 
@@ -23,8 +23,8 @@ permalink: /about/
       <img src="{{ '/assets/img/me-with-mom.jpg' | relative_url }}" alt="Justin and Mom">
     </div>
     <div class="about-text">
-      <h2>Early Tinkering & Learning</h2>
-      <p>As a child, I was relentless—if something moved or lit up, I had to know why. My first “aha” moment came at 2½ years old when I taught myself to ride a bike in a single afternoon, determined to keep up with my older sister. Fast‑forward to 2020, I was building a closet with my mom and realized how rewarding hands‑on work could be. Each scrape and rebuild taught me that perseverance and curiosity go hand in hand.</p>
+      <h2>Hands-On Learning, From Trails to Tech</h2>
+      <p>My love for mechanics was shaped just as much on the trails as in the garage. I spent countless weekends exploring Black Diamond’s network of mountain bike paths and rode the Hiawatha Trail in Montana with my mom in 2022—a ride I’ll never forget. In 2018, I taught myself to solder while fixing micro drones, and that hands-on experience lit the fuse. Now I’m right at home with a soldering iron, prototyping new ideas with confidence and precision.</p>
     </div>
   </div>
 
@@ -34,8 +34,8 @@ permalink: /about/
       <img src="{{ '/assets/img/3d-printed-design.jpg' | relative_url }}" alt="3D printed design">
     </div>
     <div class="about-text">
-      <h2>Engineering Passions & Skills</h2>
-      <p>My go‑to tools are Python and C, especially on the Tiva C dev kit, Raspberry Pi, and Pi Pico platforms. Before ordering parts, I dive deep into research—drawing schematics, simulating circuits, and mapping workflows. Whenever possible, I prototype on breadboards to iron out wrinkles in firmware and hardware integration. That methodical approach turned proof‑of‑concept hydroponics in 2025 from a dream into reality.</p>
+      <h2>Designing with Direction</h2>
+      <p>Driven by a passion for problem-solving, I pursued a BS in Electrical & Computer Engineering at Eastern Washington University. While balancing a full course load, I interned as an electrical engineering technician and drafter—translating classroom theory into real-world insight. My go‑to tools are Python and C, especially on embedded systems like the Tiva C dev kit, Raspberry Pi, and Pico. Every project starts with research, schematics, simulations, and careful prototyping. That rigor helped bring my 2025 hydroponics concept from sketch to working system.</p>
     </div>
   </div>
 
@@ -45,8 +45,8 @@ permalink: /about/
       <img src="{{ '/assets/img/custom-robot.jpg' | relative_url }}" alt="Custom ROS2 robot">
     </div>
     <div class="about-text">
-      <h2>Bringing Robots to Life</h2>
-      <p>Robotics is where my love of software meets my passion for mechanics. I recently completed a ROS2 robot equipped with a 3D camera and arm, powered by the Jetson Orin Nano. From integrating SLAM navigation to fine‑tuning pick‑and‑place routines, every step taught me the beauty of open‑source frameworks. Seeing autonomous motion for the first time never gets old.</p>
+      <h2>Giving Robots a Purpose</h2>
+      <p>Robotics is where software meets the physical world. I recently built a ROS2-powered mobile robot with a 3D camera and robotic arm, running on the Jetson Orin Nano. From SLAM navigation to precision pick‑and‑place movements, each step deepened my appreciation for the power of open-source systems. Watching something I built make autonomous decisions never gets old—it’s pure magic backed by code.</p>
     </div>
   </div>
 
@@ -56,8 +56,8 @@ permalink: /about/
       <img src="{{ '/assets/img/pi-fetch.jpg' | relative_url }}" alt="Pi playing fetch">
     </div>
     <div class="about-text">
-      <h2>Life Outside the Lab</h2>
-      <p>When I unplug, you’ll find me outdoors with Pi, my eight‑month‑old English Cream Golden Retriever. We hit our favorite SniffSpot in Mead, WA or explore hidden trails across the Pacific Northwest. Pi’s boundless energy and curious nose remind me to stay playful and observant—qualities that feed back into my engineering projects. Every uphill climb or lakeside town adds ideas for my next build.</p>
+      <h2>Outside the Lab</h2>
+      <p>When I’m not soldering or coding, you’ll find me outside with Pi—my English Cream Golden Retriever. We hike SniffSpots near Spokane, wander through Central Oregon, or just explore hidden trails. Pi’s curiosity reminds me to stay playful, stay learning, and stay present. It’s that sense of wonder I try to bring into every prototype, every bug fix, and every new idea.</p>
     </div>
   </div>
 
@@ -67,8 +67,8 @@ permalink: /about/
       <img src="{{ '/assets/img/pi-beach.jpg' | relative_url }}" alt="At the beach with Pi">
     </div>
     <div class="about-text">
-      <h2>Looking Ahead</h2>
-      <p>Beyond the lab, I love live music, travel, and discovering Central Oregon’s scenic wonders. Professionally, I’m exploring a master’s degree and dreaming up my next big build: a custom 3D‑printed enclosure and PCB for a wireless HomeKit‑compatible soil moisture sensor. My goal is to blend elegance and engineering to create smart gardens that practically care for themselves. If that spark resonates, let’s connect on <a href="https://www.linkedin.com/in/jrichards91" target="_blank">LinkedIn</a>!</p>
+      <h2>The Road Ahead</h2>
+      <p>I’m currently designing a smart, wireless soil moisture sensor with a custom PCB and 3D‑printed enclosure—HomeKit‑compatible and built for seamless integration. It’s part of a bigger vision: blending elegant design with embedded intelligence to create tech that supports sustainability and self-sufficiency. If that spark resonates, let’s connect on <a href="https://www.linkedin.com/in/jrichards91" target="_blank">LinkedIn</a>—I’d love to share ideas.</p>
     </div>
   </div>
 
