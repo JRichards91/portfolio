@@ -96,5 +96,3 @@ function copyCode(button) {
 - Disaster response and area search
 
 ---
-
-Stay tuned as this solver grows into a more complete multi-agent coordination platform.
