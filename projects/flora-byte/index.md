@@ -1,7 +1,7 @@
 ---
 layout: default
 title: FloraByte
-permalink: /projects/florabyte/
+permalink: /projects/flora-byte/
 ---
 
 # FloraByte: IoT Hydroponics System for the Smart Countertop
