@@ -64,7 +64,7 @@ This system was developed as a foundation for exploring multi-agent coordination
     margin-top: 1em;
   ">
     {% highlight python %}
-    {% include_relative Final Project.py %}
+    {% include_relative FinalProject.py %}
     {% endhighlight %}
   </div>
 </div>
