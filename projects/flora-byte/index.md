@@ -32,14 +32,14 @@ All sensor data is logged to Home Assistant and visualized on a custom touchscre
 
   <!-- Image 1 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./FloraByte1.png" alt="FloraByte System Front View" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
-    <p style="text-align: center; margin-top: 10px;">Front view showing plants, light deck, and touchscreen UI</p>
+    <img src="./FloraByte1.png" alt="FloraByte Full System View" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <p style="text-align: center; margin-top: 10px;">Overhead view showing complete system layout and pumps</p>
   </div>
 
   <!-- Image 2 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./FloraByte2.png" alt="FloraByte Full System View" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
-    <p style="text-align: center; margin-top: 10px;">Overhead view showing complete system layout and pumps</p>
+    <img src="./FloraByte2.png" alt="FloraByte System Front View" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <p style="text-align: center; margin-top: 10px;">Front view showing plants, light deck, and touchscreen UI</p>
   </div>
 
 </div>
