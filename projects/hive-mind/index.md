@@ -26,12 +26,6 @@ This system was developed as a foundation for exploring multi-agent coordination
 
 ---
 
-## 🧩 Simulation Snapshot
-
-> *"This simulation demonstrates how cities are clustered and routes are optimized for each agent using k-means followed by 2-opt. It's a simple yet powerful framework for scalable multi-agent routing tasks."*
-
----
-
 ## 💻 Code
 
 <div style="position: relative;">
