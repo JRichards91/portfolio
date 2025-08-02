@@ -24,7 +24,7 @@ The platform was designed from the ground up with modularity and customization i
 
 ---
 
-## 🧩 Build Photos
+## 🌟 Showcase Photos
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: flex-start;">
 
