@@ -107,16 +107,16 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 
 .about-section .about-img {
-  flex: 0 0 180px;
-  height: 180px;
+  flex: 0 0 360px;
+  height: 360px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .about-section .about-img img {
-  width: 180px;
-  height: 180px;
+  width: 360px;
+  height: 360px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
