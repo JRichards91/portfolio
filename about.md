@@ -9,7 +9,7 @@ permalink: /about/
   <!-- 1. Origins & Education -->
   <div class="about-section">
     <div class="about-img">
-      <img src="{{ '/assets/img/headshot.jpg' | relative_url }}" alt="Professional headshot">
+      <img src="{{ '/assets/img/Headshot.png' | relative_url }}" alt="Professional headshot">
     </div>
     <div class="about-text">
       <h2>Born to Tinker, Wired to Explore</h2>
@@ -53,7 +53,7 @@ permalink: /about/
   <!-- 5. Adventures with Pi -->
   <div class="about-section">
     <div class="about-img">
-      <img src="{{ '/assets/img/Pi 2.png' | relative_url }}" alt="Pi playing fetch">
+      <img src="{{ '/assets/img/Pi.png' | relative_url }}" alt="Pi playing fetch">
     </div>
     <div class="about-text">
       <h2>Outside the Lab</h2>
