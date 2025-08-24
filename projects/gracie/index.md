@@ -30,14 +30,14 @@ The platform was designed from the ground up with modularity and customization i
 
   <!-- Photo 1 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./Gracie - Completed.png" alt="Gracie robot view 1" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
-    <p style="text-align: center; margin-top: 10px;">Side view of Gracie with mounted arm and LiDAR</p>
+    <img src="./Gracie 1.png" alt="Gracie robot view 1" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <p style="text-align: center; margin-top: 10px;">Side view of Gracie with Jetson and mounted screen</p>
   </div>
 
   <!-- Photo 2 -->
   <div style="flex: 1 1 48%; max-width: 600px;">
-    <img src="./Gracie - 2.png" alt="Gracie robot view 2" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
-    <p style="text-align: center; margin-top: 10px;">Top-down view showing Jetson and touch interface</p>
+    <img src="./Gracie 2.png" alt="Gracie robot view 2" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" />
+    <p style="text-align: center; margin-top: 10px;">Top-down view of Gracie with mounted arm and LiDAR</p>
   </div>
 
 </div>

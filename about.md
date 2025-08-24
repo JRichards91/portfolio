@@ -31,7 +31,7 @@ permalink: /about/
   <!-- 3. Academic & Technical Passions -->
   <div class="about-section">
     <div class="about-img">
-      <img src="{{ '/assets/img/3d-printed-design.jpg' | relative_url }}" alt="3D printed design">
+      <img src="{{ '/assets/img/Gracie 1.png' | relative_url }}" alt="3D printed design">
     </div>
     <div class="about-text">
       <h2>Designing with Direction</h2>
@@ -42,7 +42,7 @@ permalink: /about/
   <!-- 4. Robotics & Prototyping Milestones -->
   <div class="about-section">
     <div class="about-img">
-      <img src="{{ '/assets/img/Gracie.png' | relative_url }}" alt="Custom ROS2 robot">
+      <img src="{{ '/assets/img/Gracie 2.png' | relative_url }}" alt="Custom ROS2 robot">
     </div>
     <div class="about-text">
       <h2>Giving Robots a Purpose</h2>
