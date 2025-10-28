@@ -55,11 +55,15 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   display:flex; align-items:center; justify-content:space-between;
   padding:0 8px;
 }
+/* Match “Projects Timeline” style */
 .site-current .site-current-text{
   display:inline-block;
   color:var(--nav-tx);
-  font-size:1.125rem;
-  line-height:1; padding:10px 8px;
+  font-size:var(--fs-h3);     /* 1.5rem */
+  font-weight:700;            /* bold */
+  letter-spacing:-0.5px;
+  line-height:1.1;
+  padding:10px 8px;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
 
@@ -69,6 +73,7 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   display:inline-flex; flex-direction:column; justify-content:center; align-items:center;
   width:44px; height:44px; border:0; background:transparent; cursor:pointer;
   position:relative;
+  z-index:999; /* ensure visible above drawer */
 }
 .burger-line{
   width:var(--line-w); height:var(--line-h); background:var(--nav-tx);
@@ -85,44 +90,39 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   transform:translateY(calc(-1 * (var(--line-h) + var(--gap)))) rotate(-45deg);
 }
 
-/* ============ 5) Drawer & Backdrop (Slide & Blur) ============ */
+/* ============ 5) Drawer & Backdrop (Slide & Blur; drawer under header) ============ */
 .drawer-backdrop{
   position:fixed; inset:0; z-index:998;
-  background:rgba(0,0,0,0); /* start transparent */
-  backdrop-filter: blur(0px);
+  background:rgba(0,0,0,0);
+  backdrop-filter:blur(0);
   opacity:0;
-  transition: opacity .3s ease, background .3s ease, backdrop-filter .3s ease;
+  transition:opacity .3s ease, background .3s ease, backdrop-filter .3s ease;
 }
 .drawer-backdrop.is-visible{
   background:rgba(0,0,0,.35);
-  backdrop-filter: blur(6px);
+  backdrop-filter:blur(6px);
   opacity:1;
 }
 
 .mobile-drawer{
-  position:fixed; top:0; right:0; height:100dvh; width:min(75vw,360px);
+  position:fixed;
+  top:var(--header-h);                 /* sits below header so burger stays visible */
+  right:0;
+  height:calc(100dvh - var(--header-h));
+  width:min(75vw,360px);
   transform:translateX(100%);
   transition:transform .35s cubic-bezier(0.25, 0.8, 0.25, 1);
-  background:var(--nav-bg); color:var(--nav-tx); z-index:999;
-  padding-top:calc(var(--header-h) + 10px);
+  background:var(--nav-bg); color:var(--nav-tx); z-index:997; /* under header */
+  padding:40px 18px;
   box-shadow:-6px 0 14px rgba(0,0,0,.25);
 }
 .mobile-drawer.is-open{ transform:translateX(0); }
 body.noscroll{ overflow:hidden; }
 
-/* Close “X” inside drawer */
-.drawer-close{
-  position:absolute; top:10px; right:10px;
-  width:40px; height:40px; border:none; border-radius:8px;
-  background:rgba(255,255,255,.12); color:#fff; font-size:24px; line-height:1;
-  display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
-  transition:background .2s ease, transform .1s ease;
-}
-.drawer-close:hover{ background:rgba(255,255,255,.18); }
-.drawer-close:active{ transform:scale(0.98); }
-
 /* Menu list inside drawer */
-.menu-list{ list-style:none; padding:60px 18px 24px; display:flex; flex-direction:column; gap:14px; }
+.menu-list{
+  list-style:none; display:flex; flex-direction:column; gap:14px;
+}
 .menu-list a{ color:var(--nav-tx); font-size:1.125rem; font-weight:600; }
 
 /* ============ 6) Footer ============ */

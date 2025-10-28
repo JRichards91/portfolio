@@ -6,18 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const burger = document.querySelector('.burger');
   const drawer = document.getElementById('mobile-drawer');
   const backdrop = document.querySelector('.drawer-backdrop');
-  const closeBtn = document.querySelector('.drawer-close');
 
   /* ----------------- Drawer helpers ----------------- */
   const showBackdrop = () => {
     if (!backdrop) return;
     backdrop.hidden = false;
-    // force a reflow so transition runs when adding class
+    // force reflow so transition runs when adding class
     // eslint-disable-next-line no-unused-expressions
     backdrop.offsetHeight;
     backdrop.classList.add('is-visible');
   };
-
   const hideBackdrop = () => {
     if (!backdrop) return;
     backdrop.classList.remove('is-visible');
@@ -57,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
       expanded ? closeDrawer() : openDrawer();
     });
   }
-  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
   if (backdrop) backdrop.addEventListener('click', closeDrawer);
   if (drawer) {
     drawer.addEventListener('click', (e) => {
@@ -69,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeDrawer();
   });
   window.addEventListener('resize', () => {
+    // if resized to desktop while open, keep things sane
     if (window.innerWidth >= 992) closeDrawer();
   });
 

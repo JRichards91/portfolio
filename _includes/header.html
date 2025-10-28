@@ -1,16 +1,16 @@
 <header class="site-header">
   <div class="nav-bar container">
-    <!-- Left: current page title (non-clickable) -->
+    <!-- Left: current page title (non-clickable, styled like “Projects Timeline”) -->
     <div class="site-current" role="heading" aria-level="1">
       <span class="site-current-text">
         {{ page.title | default: site.title }}
       </span>
     </div>
 
-    <!-- Right: burger -->
+    <!-- Right: burger / X toggle (stays visible while drawer is open) -->
     <button
       class="burger"
-      aria-label="Open menu"
+      aria-label="Toggle menu"
       aria-controls="mobile-drawer"
       aria-expanded="false"
     >
@@ -20,9 +20,8 @@
     </button>
   </div>
 
-  <!-- Slide-out mobile drawer -->
+  <!-- Slide-out drawer (under header so burger/X remains visible) -->
   <nav id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
-    <button class="drawer-close" aria-label="Close menu" title="Close">×</button>
     <ul class="menu-list">
       <li><a href="{{ '/'            | relative_url }}">Home</a></li>
       <li><a href="{{ '/about/'      | relative_url }}">About</a></li>
@@ -32,6 +31,6 @@
     </ul>
   </nav>
 
-  <!-- Backdrop for drawer -->
+  <!-- Backdrop -->
   <div class="drawer-backdrop" hidden></div>
 </header>
