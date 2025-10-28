@@ -24,10 +24,6 @@
   margin: 0;
   padding: 0;
 }
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
 body {
   background: var(--bg);
   color: var(--text);
@@ -50,28 +46,14 @@ a {
   font-weight: bold;
   font-size: var(--fs-lg);
 }
-a:hover { text-decoration: underline; }
+a:hover {
+  text-decoration: underline;
+}
 
-/* 5. Header */
-.site-header {
+/* 5. Header (Top-left nav) */
+header {
   background: var(--nav-bg);
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 12px 16px;
-}
-.site-logo {
-  color: var(--nav-tx);
-  font-weight: 800;
-  text-decoration: none;
-  font-size: 1.1rem;
 }
 .nav-list {
   display: flex;
@@ -88,26 +70,6 @@ a:hover { text-decoration: underline; }
   font-size: var(--fs-base);
 }
 
-/* Burger button */
-.nav-toggle {
-  display: none;
-  background: transparent;
-  border: 0;
-  padding: 8px;
-  cursor: pointer;
-}
-.nav-toggle-bar {
-  display: block;
-  width: 26px;
-  height: 3px;
-  background: #fff;
-  margin: 5px 0;
-  border-radius: 2px;
-}
-
-/* Mobile menu panel (hidden on desktop) */
-.mobile-menu { display: none; }
-
 /* 6. Footer */
 footer {
   background: var(--nav-bg);
@@ -121,7 +83,7 @@ h1 { font-size: var(--fs-h1); margin: 0.5em 0; }
 h2 { font-size: var(--fs-h2); margin: 0.75em 0; }
 h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 
-/* 8. Hero */
+/* 8. Hero Section */
 .hero {
   text-align: center;
   padding: 40px 20px;
@@ -133,7 +95,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   margin: 0 auto;
 }
 
-/* 9. About */
+/* 9. About Page Layout */
 .about-section {
   display: flex;
   justify-content: center;
@@ -143,6 +105,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   margin-bottom: 60px;
   text-align: left;
 }
+
 .about-section .about-img {
   flex: 0 0 360px;
   height: 360px;
@@ -150,6 +113,7 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   justify-content: center;
   align-items: center;
 }
+
 .about-section .about-img img {
   width: 360px;
   height: 360px;
@@ -157,14 +121,29 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
+
 .about-section .about-text {
   flex: 1 1 500px;
   max-width: 600px;
   padding-left: 20px;
 }
 
-/* 10. Timeline */
-.timeline-section { padding: 40px 0; }
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-section .about-img,
+  .about-section .about-text {
+    flex: 1 1 100%;
+    padding-left: 0;
+  }
+}
+
+/* 10. Timeline Section (Vertical Layout with Thumbnails) */
+.timeline-section {
+  padding: 40px 0;
+}
 .timeline {
   display: flex;
   flex-direction: column;
@@ -200,11 +179,15 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   opacity: 0.85;
 }
 
-/* 11. Projects */
+/* 11. Projects Grid */
+.projects-list {
+  padding: 40px 0;
+}
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
+  align-items: stretch;
 }
 .project-card {
   background: rgba(255,255,255,0.1);
@@ -212,24 +195,42 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .project-card img {
   width: 100%;
   aspect-ratio: 1.01 / 1;
   object-fit: contain;
+  background-color: transparent;
+  display: block;
+  border: none;
+}
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
 }
 .project-card h3 {
   font-size: var(--fs-base);
   margin: 15px 20px 10px;
+  text-align: left;
 }
 .project-card p {
   font-size: var(--fs-base);
   margin: 0 20px 20px;
+  text-align: left;
   flex-grow: 1;
 }
 .project-card .read-more {
+  margin-top: auto;
+  padding: 0 20px 15px 20px;
   text-align: center;
-  padding-bottom: 15px;
+  width: 100%;
+}
+.project-card .read-more a {
+  font-size: var(--fs-base);
+  display: inline-block;
 }
 
 /* 12. Contact Form */
@@ -238,16 +239,77 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 }
 .contact-form form {
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto 60px;
   background: rgba(255,255,255,0.1);
   padding: 30px;
   border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-base);
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  background: #f9f9f9;
+  color: #333;
+  font-size: var(--fs-base);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--link);
+}
+.contact-form button {
+  align-self: flex-start;
+  background: var(--link);
+  color: var(--nav-bg);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: var(--fs-base);
+  cursor: pointer;
+}
 
-/* 13. Page Banner */
+/* 13. Resume Embed Styling */
+.resume-embed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+.resume-embed h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.resume-embed .resume-container {
+  width: 80vw;
+  max-width: 1600px;
+  height: 110vh;
+  margin: 0 auto 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+.resume-embed .resume-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* 14. Page Banner */
 .page-banner {
   background: rgba(255, 255, 255, 0.15);
   padding: 40px 20px;
@@ -260,87 +322,22 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   margin: 0;
 }
 
-/* 14. Responsive Tweaks */
+/* 15. Responsive Tweaks */
 @media (max-width: 768px) {
-  .about-section { flex-direction: column; text-align: center; }
-  .about-section .about-text { padding-left: 0; }
-  .timeline-item { flex-direction: column; align-items: flex-start; }
-  .page-banner, .banner, .page-title-banner { display: none !important; }
-  .hero h1 { font-size: 2.25rem; }
-  .hero p { font-size: var(--fs-base); }
-  .site-nav { display: none; }
-  .nav-toggle { display: inline-flex; }
-}
-
-/* 15. Mobile menu slide-down animation */
-@media (max-width: 768px) {
-  .mobile-menu {
-    display: block;
-    position: fixed;
-    top: 56px;
-    left: 0;
-    right: 0;
-    background: var(--nav-bg);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-8px);
-    transition:
-      max-height 240ms ease,
-      opacity 200ms ease,
-      transform 240ms ease;
-    pointer-events: none;
+  .hero h1 {
+    font-size: 2.25rem;
   }
-  .mobile-menu.open {
-    max-height: 70vh;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  .hero p {
+    font-size: var(--fs-base);
   }
-  .mobile-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 8px 12px 16px;
+  .page-banner h1 {
+    font-size: 2rem;
   }
-  .mobile-menu li { border-top: 1px solid rgba(255,255,255,0.18); }
-  .mobile-menu a {
-    display: block;
-    padding: 12px 8px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 15px;
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
   }
-
-  /* Burger → X animation */
-  .nav-toggle {
-    position: relative;
-    width: 40px; height: 40px;
-  }
-  .nav-toggle-bar {
-    width: 24px; height: 3px; background: #fff; border-radius: 2px;
-    position: absolute; left: 8px;
-    transition: transform 200ms ease, opacity 200ms ease, top 200ms ease;
-  }
-  .nav-toggle-bar:nth-child(1) { top: 12px; }
-  .nav-toggle-bar:nth-child(2) { top: 18px; }
-  .nav-toggle-bar:nth-child(3) { top: 24px; }
-
-  body.menu-open .nav-toggle-bar:nth-child(1) { top: 18px; transform: rotate(45deg); }
-  body.menu-open .nav-toggle-bar:nth-child(2) { opacity: 0; }
-  body.menu-open .nav-toggle-bar:nth-child(3) { top: 18px; transform: rotate(-45deg); }
-
-  /* Accessibility: reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .mobile-menu, .mobile-menu.open,
-    .mobile-menu a, .mobile-menu.open a,
-    .nav-toggle-bar {
-      transition: none !important;
-      transform: none !important;
-    }
+  .timeline-date {
+    margin-left: 0;
   }
 }
-
-/* lock body scroll when mobile menu open */
-body.menu-open { overflow: hidden; }
