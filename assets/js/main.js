@@ -42,3 +42,40 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(console.error);
 });
+
+// --- Mobile nav toggle + overlay (phones only) ---
+(function () {
+  const toggle  = document.querySelector('.nav-toggle');
+  const panel   = document.getElementById('mobile-menu');
+  const overlay = document.querySelector('.mobile-overlay');
+  if (!toggle || !panel) return;
+
+  function closeMenu() {
+    panel.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+  function openMenu() {
+    panel.classList.add('open');
+    document.body.classList.add('menu-open');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = panel.classList.contains('open');
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Close when tapping a link or the overlay
+  panel.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(); });
+  if (overlay) overlay.addEventListener('click', closeMenu);
+
+  // ESC key closes
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+  // On resize to desktop, ensure menu is closed
+  window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+
+  // Desktop guard on first load (if user refreshed while open)
+  if (window.innerWidth > 768) closeMenu();
+})();
