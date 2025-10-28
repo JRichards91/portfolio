@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const showBackdrop = () => {
     if (!backdrop) return;
     backdrop.hidden = false;
-    // force reflow so transition runs when adding class
+    // force reflow so transition starts
     // eslint-disable-next-line no-unused-expressions
     backdrop.offsetHeight;
     backdrop.classList.add('is-visible');
@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     hideBackdrop();
   };
 
-  /* Backdrop hide after transition completes */
   if (backdrop) {
     backdrop.addEventListener('transitionend', () => {
       if (!backdrop.classList.contains('is-visible')) {
@@ -48,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ----------------- Events ----------------- */
   if (burger) {
     burger.addEventListener('click', () => {
       const expanded = burger.getAttribute('aria-expanded') === 'true';
@@ -59,18 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (drawer) {
     drawer.addEventListener('click', (e) => {
       const a = e.target.closest('a');
-      if (a) closeDrawer(); // close on menu link click
+      if (a) closeDrawer();
     });
   }
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeDrawer();
   });
   window.addEventListener('resize', () => {
-    // if resized to desktop while open, keep things sane
     if (window.innerWidth >= 992) closeDrawer();
   });
 
-  /* ----------------- Load projects/timeline from JSON ----------------- */
+  /* ----------------- Projects/Timeline loader ----------------- */
   fetch(`${baseurl}/projects.json`)
     .then(res => res.json())
     .then(data => {
@@ -80,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return db - da;
       });
 
-      // Timeline (index.md)
+      // Timeline
       const timeline = document.querySelector('.timeline');
       if (timeline) {
         timeline.innerHTML = '';
@@ -103,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Projects Grid (projects.md)
+      // Projects Grid
       const grid = document.querySelector('.projects-grid');
       if (grid) {
         grid.innerHTML = '';
