@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       data.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-      // Timeline (index.md)
+      // Timeline
       const timeline = document.querySelector('.timeline');
       if (timeline) {
         timeline.innerHTML = '';
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Projects Grid (projects.md)
+      // Projects grid
       const grid = document.querySelector('.projects-grid');
       if (grid) {
         grid.innerHTML = '';
@@ -43,10 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(console.error);
 });
 
-// --- Mobile nav toggle (phones only) ---
+// --- Mobile nav toggle + overlay ---
 (function () {
   const toggle = document.querySelector('.nav-toggle');
   const panel  = document.getElementById('mobile-menu');
+  const overlay = document.querySelector('.mobile-overlay');
   if (!toggle || !panel) return;
 
   function closeMenu() {
@@ -54,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('menu-open');
     toggle.setAttribute('aria-expanded', 'false');
   }
-
   function openMenu() {
     panel.classList.add('open');
     document.body.classList.add('menu-open');
@@ -66,18 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
     isOpen ? closeMenu() : openMenu();
   });
 
-  // Close when tapping a link
-  panel.addEventListener('click', (e) => {
-    if (e.target.closest('a')) closeMenu();
-  });
+  // Close when clicking a link or overlay
+  panel.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(); });
+  if (overlay) overlay.addEventListener('click', closeMenu);
 
-  // ESC key closes menu
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
-  });
-
-  // Resize back to desktop
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) closeMenu();
-  });
+  // ESC closes menu
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  // Resize closes menu
+  window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
 })();
