@@ -4,9 +4,9 @@
   "date": "Coming Soon",
   "image": "/assets/img/timeline/TerraPing_Thumbnail.png",
   "thumbnail": "/assets/img/projects/TerraPing.png",
-  "blurb": "A wireless soil moisture sensor that communicates via ESP‑NOW and integrates with HomeKit. Built for low-power deployment and seamless garden automation.",
+  "blurb": "A battery-powered smart soil sensor prototyped on the nRF54L15-DK. Designed for low-power operation and native integration with Apple HomeKit, Google Home, and Alexa using Matter.",
   "url": "/projects/terra-ping/"
-  },
+},
   {
     "title": "Gracie",
     "date": "2025-07-28",
