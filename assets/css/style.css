@@ -19,8 +19,15 @@
 }
 
 /* 2. Reset & Base */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { max-width: 100%; overflow-x: hidden; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 body {
   background: var(--bg);
   color: var(--text);
@@ -29,7 +36,7 @@ body {
   line-height: var(--lh);
 }
 
-/* 3. Container */
+/* 3. Main container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -37,7 +44,12 @@ body {
 }
 
 /* 4. Links */
-a { color: var(--link); text-decoration: none; font-weight: bold; font-size: var(--fs-lg); }
+a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: var(--fs-lg);
+}
 a:hover { text-decoration: underline; }
 
 /* 5. Header */
@@ -64,12 +76,17 @@ a:hover { text-decoration: underline; }
 .nav-list {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   gap: 30px;
-  list-style: none;
   margin: 0;
   padding: 20px 40px;
+  list-style: none;
 }
-.nav-list a { color: var(--nav-tx); font-size: var(--fs-base); }
+.nav-list a {
+  color: var(--nav-tx);
+  font-size: var(--fs-base);
+}
 
 /* Burger button */
 .nav-toggle {
@@ -88,12 +105,7 @@ a:hover { text-decoration: underline; }
   border-radius: 2px;
 }
 
-/* Overlay for mobile menu */
-.mobile-overlay {
-  display: none;
-}
-
-/* Mobile menu */
+/* Mobile menu panel (hidden on desktop) */
 .mobile-menu { display: none; }
 
 /* 6. Footer */
@@ -110,35 +122,54 @@ h2 { font-size: var(--fs-h2); margin: 0.75em 0; }
 h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 
 /* 8. Hero */
-.hero { text-align: center; padding: 40px 20px; }
-.hero p { font-size: var(--fs-lg); max-width: 700px; margin: 0 auto; }
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+}
+.hero h1 { margin-bottom: 10px; }
+.hero p {
+  font-size: var(--fs-lg);
+  max-width: 700px;
+  margin: 0 auto;
+}
 
-/* 9. About Page */
+/* 9. About */
 .about-section {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 40px;
-  margin: 60px auto;
-  text-align: center;             /* ✅ center text */
-  max-width: 1000px;              /* ✅ constrain width */
+  margin-bottom: 60px;
+  text-align: left;
+}
+.about-section .about-img {
+  flex: 0 0 360px;
+  height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .about-section .about-img img {
-  width: 320px;
-  height: 320px;
+  width: 360px;
+  height: 360px;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 .about-section .about-text {
+  flex: 1 1 500px;
   max-width: 600px;
-  margin: 0 auto;
-  padding: 0 10px;
+  padding-left: 20px;
 }
 
 /* 10. Timeline */
-.timeline { display: flex; flex-direction: column; gap: 20px; }
+.timeline-section { padding: 40px 0; }
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .timeline-item {
   background: rgba(255,255,255,0.1);
   border-radius: 8px;
@@ -147,6 +178,27 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   align-items: center;
   gap: 20px;
 }
+.timeline-icon-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.timeline-icon-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.timeline-content a {
+  font-size: var(--fs-lg);
+  color: var(--link);
+}
+.timeline-date {
+  margin-left: auto;
+  font-size: var(--fs-sm);
+  opacity: 0.85;
+}
 
 /* 11. Projects */
 .projects-grid {
@@ -154,8 +206,36 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
 }
+.project-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.project-card img {
+  width: 100%;
+  aspect-ratio: 1.01 / 1;
+  object-fit: contain;
+}
+.project-card h3 {
+  font-size: var(--fs-base);
+  margin: 15px 20px 10px;
+}
+.project-card p {
+  font-size: var(--fs-base);
+  margin: 0 20px 20px;
+  flex-grow: 1;
+}
+.project-card .read-more {
+  text-align: center;
+  padding-bottom: 15px;
+}
 
-/* 12. Contact */
+/* 12. Contact Form */
+.contact-form {
+  padding: 60px 0;
+}
 .contact-form form {
   max-width: 500px;
   margin: 0 auto;
@@ -169,23 +249,31 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
 
 /* 13. Page Banner */
 .page-banner {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   padding: 40px 20px;
   text-align: center;
-  border-bottom: 2px solid rgba(255,255,255,0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 40px;
 }
-.page-banner h1 { font-size: var(--fs-h1); margin: 0; }
+.page-banner h1 {
+  font-size: var(--fs-h1);
+  margin: 0;
+}
 
-/* ======================= */
-/* 14. MOBILE ONLY STYLES  */
-/* ======================= */
+/* 14. Responsive Tweaks */
 @media (max-width: 768px) {
-  /* Swap nav */
+  .about-section { flex-direction: column; text-align: center; }
+  .about-section .about-text { padding-left: 0; }
+  .timeline-item { flex-direction: column; align-items: flex-start; }
+  .page-banner, .banner, .page-title-banner { display: none !important; }
+  .hero h1 { font-size: 2.25rem; }
+  .hero p { font-size: var(--fs-base); }
   .site-nav { display: none; }
   .nav-toggle { display: inline-flex; }
+}
 
-  /* Slide-down mobile menu */
+/* 15. Mobile menu slide-down animation */
+@media (max-width: 768px) {
   .mobile-menu {
     display: block;
     position: fixed;
@@ -203,7 +291,6 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
       opacity 200ms ease,
       transform 240ms ease;
     pointer-events: none;
-    z-index: 2000;
   }
   .mobile-menu.open {
     max-height: 70vh;
@@ -211,8 +298,11 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
     transform: translateY(0);
     pointer-events: auto;
   }
-
-  .mobile-menu ul { list-style: none; margin: 0; padding: 8px 12px 16px; }
+  .mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 8px 12px 16px;
+  }
   .mobile-menu li { border-top: 1px solid rgba(255,255,255,0.18); }
   .mobile-menu a {
     display: block;
@@ -223,51 +313,34 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
     font-size: 15px;
   }
 
-  /* Overlay for background */
-  .mobile-overlay {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 250ms ease;
-    z-index: 1500;
-  }
-  body.menu-open .mobile-overlay {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* Burger → X */
+  /* Burger → X animation */
   .nav-toggle {
     position: relative;
     width: 40px; height: 40px;
   }
   .nav-toggle-bar {
-    width: 24px; height: 3px; background: #fff;
+    width: 24px; height: 3px; background: #fff; border-radius: 2px;
     position: absolute; left: 8px;
     transition: transform 200ms ease, opacity 200ms ease, top 200ms ease;
   }
   .nav-toggle-bar:nth-child(1) { top: 12px; }
   .nav-toggle-bar:nth-child(2) { top: 18px; }
   .nav-toggle-bar:nth-child(3) { top: 24px; }
+
   body.menu-open .nav-toggle-bar:nth-child(1) { top: 18px; transform: rotate(45deg); }
   body.menu-open .nav-toggle-bar:nth-child(2) { opacity: 0; }
   body.menu-open .nav-toggle-bar:nth-child(3) { top: 18px; transform: rotate(-45deg); }
 
-  /* Typography scaling */
-  h1 { font-size: clamp(28px, 7vw, 40px); }
-  h2 { font-size: clamp(22px, 5.8vw, 32px); }
-  h3 { font-size: clamp(18px, 4.8vw, 24px); }
-  p, li { font-size: 16px; line-height: 1.55; }
-
-  /* Hide banners on phones */
-  .page-banner, .banner, .page-title-banner { display: none !important; }
-
-  /* Prevent scroll when menu open */
-  body.menu-open { overflow: hidden; }
+  /* Accessibility: reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu, .mobile-menu.open,
+    .mobile-menu a, .mobile-menu.open a,
+    .nav-toggle-bar {
+      transition: none !important;
+      transform: none !important;
+    }
+  }
 }
+
+/* lock body scroll when mobile menu open */
+body.menu-open { overflow: hidden; }

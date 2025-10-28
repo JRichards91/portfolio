@@ -2,7 +2,7 @@
   <div class="container nav-container">
     <a class="site-logo" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
-    <!-- Desktop nav -->
+    <!-- Desktop nav (unchanged for desktop) -->
     <nav class="site-nav" aria-label="Primary">
       <ul class="nav-list">
         <li><a href="{{ '/'            | relative_url }}">Home</a></li>
@@ -13,7 +13,7 @@
       </ul>
     </nav>
 
-    <!-- Burger (only visible on phones) -->
+    <!-- Burger button (only visible on phones via CSS) -->
     <button class="nav-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
       <span class="nav-toggle-bar"></span>
       <span class="nav-toggle-bar"></span>
@@ -21,10 +21,7 @@
     </button>
   </div>
 
-  <!-- Overlay for mobile menu -->
-  <div class="mobile-overlay"></div>
-
-  <!-- Mobile menu panel -->
+  <!-- Mobile menu panel (hidden on desktop; toggled on phones) -->
   <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile">
     <ul>
       <li><a href="{{ '/'            | relative_url }}">Home</a></li>
