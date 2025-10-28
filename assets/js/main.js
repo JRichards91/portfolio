@@ -2,38 +2,63 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ----------------- Base URL helper ----------------- */
   const baseurl = document.documentElement.getAttribute('data-baseurl') || '';
 
-  /* ----------------- Burger / Drawer logic ----------------- */
+  /* ----------------- Elements ----------------- */
   const burger = document.querySelector('.burger');
   const drawer = document.getElementById('mobile-drawer');
   const backdrop = document.querySelector('.drawer-backdrop');
+  const closeBtn = document.querySelector('.drawer-close');
+
+  /* ----------------- Drawer helpers ----------------- */
+  const showBackdrop = () => {
+    if (!backdrop) return;
+    backdrop.hidden = false;
+    // force a reflow so transition runs when adding class
+    // eslint-disable-next-line no-unused-expressions
+    backdrop.offsetHeight;
+    backdrop.classList.add('is-visible');
+  };
+
+  const hideBackdrop = () => {
+    if (!backdrop) return;
+    backdrop.classList.remove('is-visible');
+  };
 
   const openDrawer = () => {
-    if (!burger || !drawer || !backdrop) return;
+    if (!burger || !drawer) return;
     burger.setAttribute('aria-expanded', 'true');
     drawer.classList.add('is-open');
     drawer.setAttribute('aria-hidden', 'false');
-    backdrop.hidden = false;
     document.body.classList.add('noscroll');
+    showBackdrop();
   };
 
   const closeDrawer = () => {
-    if (!burger || !drawer || !backdrop) return;
+    if (!burger || !drawer) return;
     burger.setAttribute('aria-expanded', 'false');
     drawer.classList.remove('is-open');
     drawer.setAttribute('aria-hidden', 'true');
-    backdrop.hidden = true;
     document.body.classList.remove('noscroll');
+    hideBackdrop();
   };
 
+  /* Backdrop hide after transition completes */
+  if (backdrop) {
+    backdrop.addEventListener('transitionend', () => {
+      if (!backdrop.classList.contains('is-visible')) {
+        backdrop.hidden = true;
+      }
+    });
+  }
+
+  /* ----------------- Events ----------------- */
   if (burger) {
     burger.addEventListener('click', () => {
       const expanded = burger.getAttribute('aria-expanded') === 'true';
       expanded ? closeDrawer() : openDrawer();
     });
   }
-  if (backdrop) {
-    backdrop.addEventListener('click', closeDrawer);
-  }
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (backdrop) backdrop.addEventListener('click', closeDrawer);
   if (drawer) {
     drawer.addEventListener('click', (e) => {
       const a = e.target.closest('a');
@@ -44,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeDrawer();
   });
   window.addEventListener('resize', () => {
-    // if resized to desktop while open, keep things sane
     if (window.innerWidth >= 992) closeDrawer();
   });
 

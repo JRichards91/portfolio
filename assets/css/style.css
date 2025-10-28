@@ -55,7 +55,7 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   display:flex; align-items:center; justify-content:space-between;
   padding:0 8px;
 }
-.site-current .site-current-link{
+.site-current .site-current-text{
   display:inline-block;
   color:var(--nav-tx);
   font-size:1.125rem;
@@ -76,7 +76,7 @@ main{ padding-top:calc(var(--header-h) + 12px); }
 }
 .burger-line + .burger-line{ margin-top:var(--gap); }
 
-/* X animation */
+/* Morph to X */
 .burger[aria-expanded="true"] .burger-line:nth-child(1){
   transform:translateY(calc(var(--line-h) + var(--gap))) rotate(45deg);
 }
@@ -85,13 +85,24 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   transform:translateY(calc(-1 * (var(--line-h) + var(--gap)))) rotate(-45deg);
 }
 
-/* Drawer & Backdrop */
+/* ============ 5) Drawer & Backdrop (Slide & Blur) ============ */
 .drawer-backdrop{
-  position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:998;
+  position:fixed; inset:0; z-index:998;
+  background:rgba(0,0,0,0); /* start transparent */
+  backdrop-filter: blur(0px);
+  opacity:0;
+  transition: opacity .3s ease, background .3s ease, backdrop-filter .3s ease;
 }
+.drawer-backdrop.is-visible{
+  background:rgba(0,0,0,.35);
+  backdrop-filter: blur(6px);
+  opacity:1;
+}
+
 .mobile-drawer{
   position:fixed; top:0; right:0; height:100dvh; width:min(75vw,360px);
-  transform:translateX(100%); transition:transform .28s ease;
+  transform:translateX(100%);
+  transition:transform .35s cubic-bezier(0.25, 0.8, 0.25, 1);
   background:var(--nav-bg); color:var(--nav-tx); z-index:999;
   padding-top:calc(var(--header-h) + 10px);
   box-shadow:-6px 0 14px rgba(0,0,0,.25);
@@ -99,24 +110,35 @@ main{ padding-top:calc(var(--header-h) + 12px); }
 .mobile-drawer.is-open{ transform:translateX(0); }
 body.noscroll{ overflow:hidden; }
 
+/* Close “X” inside drawer */
+.drawer-close{
+  position:absolute; top:10px; right:10px;
+  width:40px; height:40px; border:none; border-radius:8px;
+  background:rgba(255,255,255,.12); color:#fff; font-size:24px; line-height:1;
+  display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+  transition:background .2s ease, transform .1s ease;
+}
+.drawer-close:hover{ background:rgba(255,255,255,.18); }
+.drawer-close:active{ transform:scale(0.98); }
+
 /* Menu list inside drawer */
-.menu-list{ list-style:none; padding:12px 18px 24px; display:flex; flex-direction:column; gap:14px; }
+.menu-list{ list-style:none; padding:60px 18px 24px; display:flex; flex-direction:column; gap:14px; }
 .menu-list a{ color:var(--nav-tx); font-size:1.125rem; font-weight:600; }
 
-/* ============ 5) Footer ============ */
+/* ============ 6) Footer ============ */
 footer{ background:var(--nav-bg); padding:15px 0; text-align:center; font-size:var(--fs-sm); }
 
-/* ============ 6) Headings ============ */
+/* ============ 7) Headings ============ */
 h1{ font-size:var(--fs-h1); margin:.5em 0; }
 h2{ font-size:var(--fs-h2); margin:.75em 0; }
 h3{ font-size:var(--fs-h3); margin:.75em 0; }
 
-/* ============ 7) Hero ============ */
+/* ============ 8) Hero ============ */
 .hero{ text-align:center; padding:40px 20px; }
 .hero h1{ margin-bottom:10px; }
 .hero p{ font-size:var(--fs-lg); max-width:700px; margin:0 auto; }
 
-/* ============ 8) About Layout (centered & responsive) ============ */
+/* ============ 9) About Layout (centered & responsive) ============ */
 .about-section{
   display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
   gap:40px; margin-bottom:60px; text-align:left;
@@ -134,7 +156,7 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
   .about-section .about-img img{ width:min(90vw,360px); height:min(90vw,360px); }
 }
 
-/* ============ 9) Timeline (vertical) ============ */
+/* ============ 10) Timeline (vertical) ============ */
 .timeline-section{ padding:40px 0; }
 .timeline{ display:flex; flex-direction:column; gap:20px; }
 .timeline-item{
@@ -146,7 +168,7 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
 .timeline-content a{ font-size:var(--fs-lg); color:var(--link); }
 .timeline-date{ margin-left:auto; font-size:var(--fs-sm); opacity:.85; }
 
-/* ============ 10) Projects Grid ============ */
+/* ============ 11) Projects Grid ============ */
 .projects-list{ padding:40px 0; }
 .projects-grid{
   display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
@@ -165,7 +187,7 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
 .project-card .read-more{ margin-top:auto; padding:0 20px 15px; text-align:center; width:100%; }
 .project-card .read-more a{ font-size:var(--fs-base); display:inline-block; }
 
-/* ============ 11) Contact Form ============ */
+/* ============ 12) Contact Form ============ */
 .contact-form{ padding:60px 0; }
 .contact-form form{
   max-width:500px; margin:0 auto 60px; background:rgba(255,255,255,.1);
@@ -181,16 +203,16 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
   padding:12px 24px; border:none; border-radius:4px; font-size:var(--fs-base); cursor:pointer;
 }
 
-/* ============ 12) Resume Embed ============ */
+/* ============ 13) Resume Embed ============ */
 .resume-embed{ display:flex; justify-content:center; align-items:center; min-height:100vh; padding:40px 0; }
 .resume-embed h2{ text-align:center; margin-bottom:30px; }
 .resume-embed .resume-container{
   width:90vw; max-width:1600px; height:90vh; margin:0 auto 60px; display:flex; justify-content:center; align-items:center;
-  box-shadow:0 4px 12px rgba(0,0,0,.15); border-radius:8px; overflow:hidden; background:#fff;
+  box-shadow:0 4px 12px rgba(0, 0, 0, .15); border-radius:8px; overflow:hidden; background:#fff;
 }
 .resume-embed .resume-container iframe{ width:100%; height:100%; border:none; }
 
-/* ============ 13) Small-screen tweaks ============ */
+/* ============ 14) Small-screen tweaks ============ */
 @media (max-width:768px){
   .hero h1{ font-size:2.25rem; }
   .hero p{ font-size:var(--fs-base); }
