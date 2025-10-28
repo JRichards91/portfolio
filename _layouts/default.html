@@ -1,33 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-baseurl="{{ site.baseurl }}">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>{{ page.title }} | {{ site.title }}</title>
 
-  <!-- 1) Explicitly use baseurl so the CSS is fetched from the right place -->
-  <link
-    rel="stylesheet"
-    href="{{ site.baseurl }}/assets/css/style.css"
-  />
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
 
-  <!-- 2) Quick inline fallback so you can see the new background immediately -->
+  <!-- Ensure background paints even if CSS fails -->
   <style>
-    body {
-      background-color: #00AEEF !important;
-      background: #00AEEF !important;
-    }
+    body { background-color:#00AEEF !important; background:#00AEEF !important; }
   </style>
 </head>
 <body>
   {% include header.html %}
-  {% include banner.html %}
-  <main>
+
+  <!-- Removed banner include to ditch banners on ALL pages -->
+  <!-- {% include banner.html %} -->
+
+  <main id="main-content" tabindex="-1">
     <div class="container">
       {{ content }}
     </div>
   </main>
+
   {% include footer.html %}
-  <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+
+  <script src="{{ site.baseurl }}/assets/js/main.js" defer></script>
 </body>
 </html>

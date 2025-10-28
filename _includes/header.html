@@ -1,6 +1,28 @@
-<header>
-  <nav>
-    <ul class="nav-list">
+<header class="site-header">
+  <div class="nav-bar container">
+    <!-- Left: current page title -->
+    <div class="site-current">
+      <a class="site-current-link" href="{{ '/' | relative_url }}" aria-label="Go to Home">
+        {{ page.title | default: site.title }}
+      </a>
+    </div>
+
+    <!-- Right: burger -->
+    <button
+      class="burger"
+      aria-label="Open menu"
+      aria-controls="mobile-drawer"
+      aria-expanded="false"
+    >
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+  </div>
+
+  <!-- Slide-out mobile drawer -->
+  <nav id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <ul class="menu-list">
       <li><a href="{{ '/'            | relative_url }}">Home</a></li>
       <li><a href="{{ '/about/'      | relative_url }}">About</a></li>
       <li><a href="{{ '/projects/'   | relative_url }}">Projects</a></li>
@@ -8,4 +30,7 @@
       <li><a href="{{ '/contact/'    | relative_url }}">Contact</a></li>
     </ul>
   </nav>
+
+  <!-- Backdrop for drawer -->
+  <div class="drawer-backdrop" hidden></div>
 </header>

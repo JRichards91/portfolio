@@ -1,343 +1,199 @@
-/* 1. Color & Typography Variables */
-:root {
-  --bg:         #00AEEF;
-  --text:       #FFFFFF;
-  --link:       #000000;
-  --nav-bg:     #008FC5;
-  --nav-tx:     #FFFFFF;
+/* ============ 1) Color & Typography Variables ============ */
+:root{
+  --bg:#00AEEF;
+  --text:#FFFFFF;
+  --link:#000000;
+  --nav-bg:#008FC5;
+  --nav-tx:#FFFFFF;
 
-  --font:       "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font:"Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --fs-base:    1.125rem;
-  --fs-lg:      1.25rem;
-  --fs-sm:      1rem;
-  --fs-h1:      3rem;
-  --fs-h2:      2rem;
-  --fs-h3:      1.5rem;
+  --fs-base:1.125rem;
+  --fs-lg:1.25rem;
+  --fs-sm:1rem;
+  --fs-h1:3rem;
+  --fs-h2:2rem;
+  --fs-h3:1.5rem;
 
-  --lh:         1.6;
-}
+  --lh:1.6;
 
-/* 2. Reset & Base */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font);
-  font-size: var(--fs-base);
-  line-height: var(--lh);
+  /* layout */
+  --header-h:64px;
+  --radius:12px;
+  --shadow:0 2px 6px rgba(0,0,0,.2);
 }
 
-/* 3. Main container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px 20px;
+/* ============ 2) Reset & Base ============ */
+*{ box-sizing:border-box; margin:0; padding:0; }
+html, body{ max-width:100%; overflow-x:hidden; }
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font);
+  font-size:var(--fs-base);
+  line-height:var(--lh);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img, video, iframe, canvas{ max-width:100%; height:auto; }
+a{ color:var(--link); text-decoration:none; font-weight:bold; font-size:var(--fs-lg); }
+a:hover{ text-decoration:underline; }
+:focus-visible{ outline:3px solid #fff; outline-offset:2px; }
+
+/* ============ 3) Main container ============ */
+.container{ width:100%; max-width:1200px; margin:0 auto; padding:0 20px 20px; }
+main{ padding-top:calc(var(--header-h) + 12px); }
+
+/* ============ 4) Header / Nav (title left, burger right) ============ */
+.site-header{
+  position:sticky; top:0; z-index:1000;
+  background:var(--nav-bg);
+  box-shadow:var(--shadow);
+}
+.nav-bar{
+  height:var(--header-h);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 8px;
+}
+.site-current .site-current-link{
+  display:inline-block;
+  color:var(--nav-tx);
+  font-size:1.125rem;
+  line-height:1; padding:10px 8px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
 
-/* 4. Links */
-a {
-  color: var(--link);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: var(--fs-lg);
+/* Burger */
+.burger{
+  --line-w:26px; --line-h:3px; --gap:5px;
+  display:inline-flex; flex-direction:column; justify-content:center; align-items:center;
+  width:44px; height:44px; border:0; background:transparent; cursor:pointer;
+  position:relative;
 }
-a:hover {
-  text-decoration: underline;
+.burger-line{
+  width:var(--line-w); height:var(--line-h); background:var(--nav-tx);
+  border-radius:2px; transition:transform .25s ease, opacity .2s ease, width .2s ease;
+}
+.burger-line + .burger-line{ margin-top:var(--gap); }
+
+/* X animation */
+.burger[aria-expanded="true"] .burger-line:nth-child(1){
+  transform:translateY(calc(var(--line-h) + var(--gap))) rotate(45deg);
+}
+.burger[aria-expanded="true"] .burger-line:nth-child(2){ opacity:0; }
+.burger[aria-expanded="true"] .burger-line:nth-child(3){
+  transform:translateY(calc(-1 * (var(--line-h) + var(--gap)))) rotate(-45deg);
 }
 
-/* 5. Header (Top-left nav) */
-header {
-  background: var(--nav-bg);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+/* Drawer & Backdrop */
+.drawer-backdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:998;
 }
-.nav-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  gap: 30px;
-  margin: 0;
-  padding: 20px 40px;
-  list-style: none;
+.mobile-drawer{
+  position:fixed; top:0; right:0; height:100dvh; width:min(75vw,360px);
+  transform:translateX(100%); transition:transform .28s ease;
+  background:var(--nav-bg); color:var(--nav-tx); z-index:999;
+  padding-top:calc(var(--header-h) + 10px);
+  box-shadow:-6px 0 14px rgba(0,0,0,.25);
 }
-.nav-list a {
-  color: var(--nav-tx);
-  font-size: var(--fs-base);
+.mobile-drawer.is-open{ transform:translateX(0); }
+body.noscroll{ overflow:hidden; }
+
+/* Menu list inside drawer */
+.menu-list{ list-style:none; padding:12px 18px 24px; display:flex; flex-direction:column; gap:14px; }
+.menu-list a{ color:var(--nav-tx); font-size:1.125rem; font-weight:600; }
+
+/* ============ 5) Footer ============ */
+footer{ background:var(--nav-bg); padding:15px 0; text-align:center; font-size:var(--fs-sm); }
+
+/* ============ 6) Headings ============ */
+h1{ font-size:var(--fs-h1); margin:.5em 0; }
+h2{ font-size:var(--fs-h2); margin:.75em 0; }
+h3{ font-size:var(--fs-h3); margin:.75em 0; }
+
+/* ============ 7) Hero ============ */
+.hero{ text-align:center; padding:40px 20px; }
+.hero h1{ margin-bottom:10px; }
+.hero p{ font-size:var(--fs-lg); max-width:700px; margin:0 auto; }
+
+/* ============ 8) About Layout (centered & responsive) ============ */
+.about-section{
+  display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
+  gap:40px; margin-bottom:60px; text-align:left;
+}
+.about-section .about-img{
+  flex:0 0 360px; height:auto; display:flex; justify-content:center; align-items:center;
+}
+.about-section .about-img img{
+  width:360px; height:360px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow);
+}
+.about-section .about-text{ flex:1 1 500px; max-width:600px; padding-left:20px; }
+@media (max-width:768px){
+  .about-section{ flex-direction:column; text-align:center; }
+  .about-section .about-img, .about-section .about-text{ flex:1 1 100%; padding-left:0; }
+  .about-section .about-img img{ width:min(90vw,360px); height:min(90vw,360px); }
 }
 
-/* 6. Footer */
-footer {
-  background: var(--nav-bg);
-  padding: 15px 0;
-  text-align: center;
-  font-size: var(--fs-sm);
+/* ============ 9) Timeline (vertical) ============ */
+.timeline-section{ padding:40px 0; }
+.timeline{ display:flex; flex-direction:column; gap:20px; }
+.timeline-item{
+  background:rgba(255,255,255,.1); border-radius:8px; padding:20px;
+  display:flex; align-items:center; gap:20px;
+}
+.timeline-icon-img{ width:50px; height:50px; border-radius:50%; overflow:hidden; flex-shrink:0; }
+.timeline-icon-img img{ width:100%; height:100%; object-fit:cover; }
+.timeline-content a{ font-size:var(--fs-lg); color:var(--link); }
+.timeline-date{ margin-left:auto; font-size:var(--fs-sm); opacity:.85; }
+
+/* ============ 10) Projects Grid ============ */
+.projects-list{ padding:40px 0; }
+.projects-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  gap:30px; align-items:stretch;
+}
+.project-card{
+  background:rgba(255,255,255,.1); border-radius:8px; overflow:hidden;
+  display:flex; flex-direction:column; height:100%;
+}
+.project-card img{
+  width:100%; aspect-ratio:1.01/1; object-fit:contain; background-color:transparent; display:block; border:none;
+}
+.project-card-body{ display:flex; flex-direction:column; flex-grow:1; justify-content:flex-start; }
+.project-card h3{ font-size:var(--fs-base); margin:15px 20px 10px; text-align:left; }
+.project-card p{ font-size:var(--fs-base); margin:0 20px 20px; text-align:left; flex-grow:1; }
+.project-card .read-more{ margin-top:auto; padding:0 20px 15px; text-align:center; width:100%; }
+.project-card .read-more a{ font-size:var(--fs-base); display:inline-block; }
+
+/* ============ 11) Contact Form ============ */
+.contact-form{ padding:60px 0; }
+.contact-form form{
+  max-width:500px; margin:0 auto 60px; background:rgba(255,255,255,.1);
+  padding:30px; border-radius:8px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:20px;
+}
+.contact-form label{ display:flex; flex-direction:column; font-size:var(--fs-base); }
+.contact-form input, .contact-form textarea{
+  padding:12px; border:2px solid #ddd; border-radius:4px; background:#f9f9f9; color:#333; font-size:var(--fs-base);
+}
+.contact-form input:focus, .contact-form textarea:focus{ outline:none; border-color:var(--link); }
+.contact-form button{
+  align-self:flex-start; background:var(--link); color:var(--nav-bg);
+  padding:12px 24px; border:none; border-radius:4px; font-size:var(--fs-base); cursor:pointer;
 }
 
-/* 7. Headings */
-h1 { font-size: var(--fs-h1); margin: 0.5em 0; }
-h2 { font-size: var(--fs-h2); margin: 0.75em 0; }
-h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
+/* ============ 12) Resume Embed ============ */
+.resume-embed{ display:flex; justify-content:center; align-items:center; min-height:100vh; padding:40px 0; }
+.resume-embed h2{ text-align:center; margin-bottom:30px; }
+.resume-embed .resume-container{
+  width:90vw; max-width:1600px; height:90vh; margin:0 auto 60px; display:flex; justify-content:center; align-items:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.15); border-radius:8px; overflow:hidden; background:#fff;
+}
+.resume-embed .resume-container iframe{ width:100%; height:100%; border:none; }
 
-/* 8. Hero Section */
-.hero {
-  text-align: center;
-  padding: 40px 20px;
-}
-.hero h1 { margin-bottom: 10px; }
-.hero p {
-  font-size: var(--fs-lg);
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* 9. About Page Layout */
-.about-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-bottom: 60px;
-  text-align: left;
-}
-
-.about-section .about-img {
-  flex: 0 0 360px;
-  height: 360px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-section .about-img img {
-  width: 360px;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-.about-section .about-text {
-  flex: 1 1 500px;
-  max-width: 600px;
-  padding-left: 20px;
-}
-
-@media (max-width: 768px) {
-  .about-section {
-    flex-direction: column;
-    text-align: center;
-  }
-  .about-section .about-img,
-  .about-section .about-text {
-    flex: 1 1 100%;
-    padding-left: 0;
-  }
-}
-
-/* 10. Timeline Section (Vertical Layout with Thumbnails) */
-.timeline-section {
-  padding: 40px 0;
-}
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.timeline-item {
-  background: rgba(255,255,255,0.1);
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.timeline-icon-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.timeline-icon-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.timeline-content a {
-  font-size: var(--fs-lg);
-  color: var(--link);
-}
-.timeline-date {
-  margin-left: auto;
-  font-size: var(--fs-sm);
-  opacity: 0.85;
-}
-
-/* 11. Projects Grid */
-.projects-list {
-  padding: 40px 0;
-}
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 30px;
-  align-items: stretch;
-}
-.project-card {
-  background: rgba(255,255,255,0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.project-card img {
-  width: 100%;
-  aspect-ratio: 1.01 / 1;
-  object-fit: contain;
-  background-color: transparent;
-  display: block;
-  border: none;
-}
-.project-card-body {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: flex-start;
-}
-.project-card h3 {
-  font-size: var(--fs-base);
-  margin: 15px 20px 10px;
-  text-align: left;
-}
-.project-card p {
-  font-size: var(--fs-base);
-  margin: 0 20px 20px;
-  text-align: left;
-  flex-grow: 1;
-}
-.project-card .read-more {
-  margin-top: auto;
-  padding: 0 20px 15px 20px;
-  text-align: center;
-  width: 100%;
-}
-.project-card .read-more a {
-  font-size: var(--fs-base);
-  display: inline-block;
-}
-
-/* 12. Contact Form */
-.contact-form {
-  padding: 60px 0;
-}
-.contact-form form {
-  max-width: 500px;
-  margin: 0 auto 60px;
-  background: rgba(255,255,255,0.1);
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.contact-form label {
-  display: flex;
-  flex-direction: column;
-  font-size: var(--fs-base);
-}
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  background: #f9f9f9;
-  color: #333;
-  font-size: var(--fs-base);
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--link);
-}
-.contact-form button {
-  align-self: flex-start;
-  background: var(--link);
-  color: var(--nav-bg);
-  padding: 12px 24px;
-  border: none;
-  border-radius: 4px;
-  font-size: var(--fs-base);
-  cursor: pointer;
-}
-
-/* 13. Resume Embed Styling */
-.resume-embed {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 40px 0;
-}
-.resume-embed h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.resume-embed .resume-container {
-  width: 80vw;
-  max-width: 1600px;
-  height: 110vh;
-  margin: 0 auto 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  overflow: hidden;
-  background: #fff;
-}
-.resume-embed .resume-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* 14. Page Banner */
-.page-banner {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 40px 20px;
-  text-align: center;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  margin-bottom: 40px;
-}
-.page-banner h1 {
-  font-size: var(--fs-h1);
-  margin: 0;
-}
-
-/* 15. Responsive Tweaks */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.25rem;
-  }
-  .hero p {
-    font-size: var(--fs-base);
-  }
-  .page-banner h1 {
-    font-size: 2rem;
-  }
-  .timeline-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .timeline-date {
-    margin-left: 0;
-  }
+/* ============ 13) Small-screen tweaks ============ */
+@media (max-width:768px){
+  .hero h1{ font-size:2.25rem; }
+  .hero p{ font-size:var(--fs-base); }
+  .timeline-item{ flex-direction:column; align-items:flex-start; }
+  .timeline-date{ margin-left:0; }
 }
