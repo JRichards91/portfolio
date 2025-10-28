@@ -4,26 +4,48 @@ title: TerraPing
 permalink: /projects/terra-ping/
 ---
 
-# TerraPing: Wireless Smart Soil Sensor
+# TerraPing: Next-Generation Smart Soil Sensor
 
-**TerraPing** is an upcoming soil moisture monitoring system designed to bring modern precision to plant care. Built around an ESP-based microcontroller and leveraging ESP‑Now wireless communication, this sensor will monitor soil conditions in real-time and push data directly to your Apple Home app using HomeBridge integration.
+**TerraPing** is a new battery-powered soil sensor platform I’m developing using the **Nordic nRF54L15-DK**. It’s designed to make precision plant monitoring effortless — blending ultra-low-power wireless operation with seamless integration into modern smart home ecosystems like **Apple HomeKit**, **Google Home**, and **Amazon Alexa**.
 
 ---
 
-## 🚧 Project Status
+## ⚙️ Overview
 
-This project is currently under development. When complete, TerraPing will:
+The goal of TerraPing is to create a **compact, energy-efficient soil sensor** that can be dropped into any pot or garden bed and wirelessly report real-time soil data. Using the **nRF54L15 SoC**, the prototype leverages advanced BLE and Matter connectivity for direct pairing with your favorite smart home assistant — no extra bridges required.
 
-- Measure real-time soil moisture levels
-- Wirelessly transmit data via ESP‑Now
-- Seamlessly integrate with Apple HomeKit through HomeBridge
-- Operate on low-power hardware for long-term monitoring
-- Feature a compact, weather-resistant design
+---
+
+## 🌿 Key Features (Planned)
+
+- **Ultra-Low Power Operation** — optimized for long-term deployment on a single battery  
+- **Precision Capacitive Moisture Sensing** — stable readings independent of soil conductivity  
+- **Matter-Enabled Wireless Connectivity** — compatible with Apple Home, Google Home, and Alexa  
+- **Over-the-Air Updates (OTA)** — supported through Nordic’s SDK and development tools  
+- **Compact, Sealed Design** — engineered for outdoor use with corrosion-resistant sensor pads  
+
+---
+
+## 🔬 Current Development
+
+I’m currently using the **nRF54L15-DK** to prototype the firmware and communication stack before transitioning to a custom PCB design. The firmware development focuses on:
+- Low-power sleep scheduling and wake-on-measurement routines  
+- BLE/Matter service advertisement and pairing for cross-platform home integration  
+- Sensor calibration and analog front-end testing using the DK’s onboard ADC  
+
+---
+
+## 🚀 What’s Next
+
+Upcoming work includes:
+- Designing the **custom probe PCB** with integrated capacitive sensor pads  
+- Implementing **battery voltage monitoring** and power path management  
+- Developing a **HomeKit-native prototype** for seamless testing with iOS devices  
 
 ---
 
 ## 🌱 Stay Tuned
 
-More updates, schematics, and photos will be added soon as the build progresses.
+TerraPing is still in active development — hardware schematics, enclosure renders, and live demos will be published here as the design matures.  
 
-Want to be the first to know when it's live? Follow along on GitHub or check back soon!
+Check back soon for updates!
