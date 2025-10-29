@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(console.error);
 
-  /* ----------------- Résumé: dynamic sizing & mobile no-pan ----------------- */
+  /* ----------------- Résumé: dynamic sizing (desktop iframe) ----------------- */
   const frame = document.querySelector('.resume-container iframe');
   const container = document.querySelector('.resume-container');
 
@@ -163,20 +163,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setPdfSrc() {
     if (!frame) return;
-    const clean = (frame.dataset.src || frame.getAttribute('src')).split('#')[0];
+    const clean = (frame.dataset.src || frame.getAttribute('src') || '').split('#')[0];
+    if (!clean) return;
     frame.dataset.src = clean;
-    // Desktop: page-fit; Mobile: force FitH but we scale the iframe itself
     const hash = isSmall() ? '#zoom=100&view=FitH' : '#zoom=page-fit&view=Fit';
     const want = `${clean}${hash}`;
     if (frame.src !== want) frame.src = want;
   }
 
-  // Scale the iframe on small screens so it fits width perfectly and sets container height
   function applyMobileScale() {
     if (!frame || !container) return;
 
     if (!isSmall()) {
-      // Desktop: fill container without extra transforms
       frame.style.transform = '';
       frame.style.width = '100%';
       frame.style.height = '100%';
@@ -184,17 +182,14 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Width-fit scaling
     const availW = container.clientWidth;
     const scale  = availW / PAGE_W;
 
-    // Give iframe its unscaled page size, then scale it down to fit width
     frame.style.width  = `${PAGE_W}px`;
     frame.style.height = `${PAGE_H}px`;
     frame.style.transform = `scale(${scale})`;
     frame.style.transformOrigin = 'top center';
 
-    // Set container height to scaled page height so there's no inner scroll/pan
     const scaledH = Math.ceil(PAGE_H * scale);
     container.style.height = `${scaledH}px`;
   }
@@ -206,12 +201,109 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (frame && container) {
     applyResumeBehavior();
-    // Keep it responsive to viewport changes & orientation changes
     window.addEventListener('resize', applyResumeBehavior);
     window.addEventListener('orientationchange', applyResumeBehavior);
 
-    // If fonts/UI chrome change the layout after load (iOS), observe size
     const ro = new ResizeObserver(applyResumeBehavior);
     ro.observe(container);
   }
 });
+
+/* ---------- Résumé: use PDF.js on iOS / small screens so it fits with no panning ---------- */
+(function(){
+  const iframeWrap = document.querySelector('.resume-container');
+  const iframe = iframeWrap && iframeWrap.querySelector('iframe');
+  const pdfView = document.getElementById('pdfjs-view');
+  if (!iframe || !pdfView) return;
+
+  const isIOS = () => {
+    const ua = navigator.userAgent;
+    const iOS = /iPad|iPhone|iPod/.test(ua);
+    const isMacTouch = /Macintosh/.test(ua) && 'ontouchend' in document;
+    return iOS || isMacTouch;
+  };
+  const isSmall = () => matchMedia('(max-width: 768px)').matches;
+
+  const shouldUsePdfJS = () => isIOS() || isSmall();
+
+  async function renderWithPdfJS() {
+    if (!shouldUsePdfJS()) return false;
+
+    iframeWrap.hidden = true;
+    pdfView.hidden = false;
+
+    const pdfUrl = pdfView.getAttribute('data-pdf');
+    const container = pdfView.querySelector('.pdfjs-pages');
+
+    if (container.dataset.rendered === '1') {
+      sizeToWidth();
+      return true;
+    }
+
+    const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+
+    for (let p = 1; p <= pdf.numPages; p++) {
+      const page = await pdf.getPage(p);
+      const viewport = page.getViewport({ scale: 1 });
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      const targetWidth = Math.min(1100, document.documentElement.clientWidth);
+      const scale = targetWidth / viewport.width;
+      const scaled = page.getViewport({ scale });
+
+      canvas.width = Math.floor(scaled.width);
+      canvas.height = Math.floor(scaled.height);
+
+      await page.render({ canvasContext: ctx, viewport: scaled }).promise;
+      container.appendChild(canvas);
+    }
+
+    container.dataset.rendered = '1';
+    sizeToWidth();
+    return true;
+  }
+
+  function sizeToWidth() {
+    if (pdfView.hidden) return;
+    const canvases = pdfView.querySelectorAll('canvas');
+    if (!canvases.length) return;
+    // CSS handles fluid width; forcing reflow keeps height in sync on iOS chrome changes
+    // eslint-disable-next-line no-unused-expressions
+    pdfView.offsetHeight;
+  }
+
+  function useIframeDesktop() {
+    if (!shouldUsePdfJS()) {
+      iframeWrap.hidden = false;
+      pdfView.hidden = true;
+
+      const src = (iframe.dataset.src || iframe.getAttribute('src') || '').split('#')[0];
+      if (src) {
+        iframe.dataset.src = src;
+        const hash = '#zoom=page-fit&view=Fit';
+        const want = `${src}${hash}`;
+        if (iframe.src !== want) iframe.src = want;
+      }
+    }
+  }
+
+  (async () => {
+    const usedPdf = await renderWithPdfJS();
+    if (!usedPdf) useIframeDesktop();
+  })();
+
+  let resizeRAF = null;
+  const onResize = () => {
+    if (resizeRAF) cancelAnimationFrame(resizeRAF);
+    resizeRAF = requestAnimationFrame(async () => {
+      if (shouldUsePdfJS()) {
+        await renderWithPdfJS();
+      } else {
+        useIframeDesktop();
+      }
+    });
+  };
+  window.addEventListener('resize', onResize);
+  window.addEventListener('orientationchange', onResize);
+})();

@@ -109,11 +109,10 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.28);
   transform-origin:top right; transform:scaleY(0); opacity:0;
   transition:transform .18s ease, opacity .18s ease;
-  /* Auto width to content; fallbacks for broad browser coverage */
   width:fit-content; width:-moz-fit-content; width:max-content;
   max-width:90vw;
   max-height:calc(100svh - var(--dd-top) - 12px);
-  overflow:auto;            /* scroll only if needed */
+  overflow:auto;
   will-change:transform, opacity;
 }
 .mobile-drawer.is-open{ transform:scaleY(1); opacity:1; }
@@ -121,7 +120,7 @@ main{ padding-top:calc(var(--header-h) + 12px); }
 .mobile-drawer .menu-list{
   list-style:none;
   display:flex; flex-direction:column; gap:8px;
-  padding:8px 12px;         /* minimal, keeps popover tight to content */
+  padding:8px 12px;
 }
 .mobile-drawer .menu-list a{
   color:var(--nav-tx);
@@ -226,7 +225,6 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
 .resume-embed{ padding:8px 0 12px; display:block; }
 .resume-container{
   width:min(1100px,96vw);
-  /* Use small viewport units so mobile browser UI changes don't crunch the height */
   height:calc(100svh - var(--header-h) - 20px);
   margin:0 auto;
   background:#fff;
@@ -241,11 +239,26 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
   border:0; display:block;
   transform-origin: top center;
 }
-
-/* Mobile: edge-to-edge container; JS sets exact scaled height to avoid inner scrolling */
 @media (max-width:768px){
   .resume-container{
     width:100vw; max-width:100vw;
     border-radius:0; box-shadow:none;
   }
+}
+
+/* === PDF.js mobile viewer === */
+.pdfjs-view{
+  width:min(1100px,96vw);
+  margin:0 auto;
+  padding:0 0 16px;
+}
+@media (max-width:768px){
+  .pdfjs-view{ width:100vw; max-width:100vw; }
+}
+.pdfjs-pages{
+  display:flex; flex-direction:column; align-items:center; gap:12px;
+}
+.pdfjs-pages canvas{
+  width:100%; height:auto; display:block; box-shadow:0 4px 12px rgba(0,0,0,.15);
+  background:#fff; border-radius:8px;
 }
