@@ -2,7 +2,7 @@
 layout: default
 title: Resume
 permalink: /resume/
-resume_pdf: /assets/resume/Justin_Richards_Resume_Redacted.pdf
+resume_pdf: /assets/files/Justin_Richards_Résumé.pdf
 ---
 
 <section class="resume-embed">
