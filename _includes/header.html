@@ -1,13 +1,13 @@
 <header class="site-header">
   <div class="nav-bar container">
-    <!-- Left: current page title (non-clickable, matches section heading weight) -->
+    <!-- Left: current page title (non-clickable) -->
     <div class="site-current" role="heading" aria-level="1">
       <span class="site-current-text">
         {{ page.title | default: site.title }}
       </span>
     </div>
 
-    <!-- Right: burger / X toggle -->
+    <!-- Right: burger / X toggle (stays visible) -->
     <button
       class="burger"
       aria-label="Toggle menu"
@@ -20,7 +20,7 @@
     </button>
   </div>
 
-  <!-- Drawer (the CSS chooses the animation/placement by mode) -->
+  <!-- Compact dropdown (popover) anchored to burger -->
   <nav id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
     <ul class="menu-list">
       <li><a href="{{ '/'            | relative_url }}">Home</a></li>
@@ -31,6 +31,6 @@
     </ul>
   </nav>
 
-  <!-- Backdrop (blur; CSS varies by mode) -->
+  <!-- Backdrop for outside-click close (no blur for dropdown) -->
   <div class="drawer-backdrop" hidden></div>
 </header>

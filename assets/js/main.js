@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* ------------ Choose ONE mode: 'compact-right' | 'bottom-sheet' | 'fullscreen' | 'dropdown' ------------ */
-  const DRAWER_MODE = 'dropdown'; // <— change this value to try another mode
-  document.body.dataset.drawer = DRAWER_MODE;
+  /* --------- Mode: dropdown popover anchored to burger --------- */
+  document.body.dataset.drawer = 'dropdown-popover';
 
   /* ----------------- Base URL helper ----------------- */
   const baseurl = document.documentElement.getAttribute('data-baseurl') || '';
@@ -11,7 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const drawer = document.getElementById('mobile-drawer');
   const backdrop = document.querySelector('.drawer-backdrop');
 
-  /* ----------------- Drawer helpers ----------------- */
+  /* ----------------- Positioning ----------------- */
+  function positionPopover() {
+    if (!burger || !drawer) return;
+    const r = burger.getBoundingClientRect();
+    // 8px offset under the burger, align to burger’s right edge
+    const top = r.bottom + window.scrollY + 8;
+    const right = Math.max(8, window.innerWidth - r.right + 8);
+    drawer.style.setProperty('--dd-top', `${top}px`);
+    drawer.style.setProperty('--dd-right', `${right}px`);
+  }
+
+  /* ----------------- Backdrop helpers ----------------- */
   const showBackdrop = () => {
     if (!backdrop) return;
     backdrop.hidden = false;
@@ -25,21 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
     backdrop.classList.remove('is-visible');
   };
 
+  /* ----------------- Drawer helpers ----------------- */
   const openDrawer = () => {
     if (!burger || !drawer) return;
+    positionPopover();
     burger.setAttribute('aria-expanded', 'true');
     drawer.classList.add('is-open');
     drawer.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('noscroll');
     showBackdrop();
   };
-
   const closeDrawer = () => {
     if (!burger || !drawer) return;
     burger.setAttribute('aria-expanded', 'false');
     drawer.classList.remove('is-open');
     drawer.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('noscroll');
     hideBackdrop();
   };
 
@@ -49,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ----------------- Events ----------------- */
   if (burger) {
     burger.addEventListener('click', () => {
       const expanded = burger.getAttribute('aria-expanded') === 'true';
@@ -66,8 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeDrawer();
   });
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 992) closeDrawer();
+    if (drawer.classList.contains('is-open')) {
+      positionPopover();
+    }
   });
+  window.addEventListener('scroll', () => {
+    if (drawer.classList.contains('is-open')) {
+      positionPopover();
+    }
+  }, { passive: true });
 
   /* ----------------- Load projects/timeline from JSON ----------------- */
   fetch(`${baseurl}/projects.json`)

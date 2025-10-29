@@ -1,4 +1,4 @@
-/* ============ 1) Variables ============ */
+/* ===================== 1) Variables ===================== */
 :root{
   --bg:#00AEEF;
   --text:#FFFFFF;
@@ -21,22 +21,18 @@
   --radius:12px;
   --shadow:0 2px 6px rgba(0,0,0,.2);
 
-  /* Drawer sizing defaults (overridden by modes) */
-  --drawer-w: min(66vw, 320px); /* compact-right default */
-  --sheet-h: 60vh;
+  /* Popover dynamic anchors (set by JS) */
+  --dd-top: calc(var(--header-h) + 6px);
+  --dd-right: 8px;
 }
 
-/* ============ 2) Reset & Base ============ */
+/* ===================== 2) Reset & Base ===================== */
 *{ box-sizing:border-box; margin:0; padding:0; }
 html,body{ max-width:100%; overflow-x:hidden; }
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--font);
-  font-size:var(--fs-base);
-  line-height:var(--lh);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+  background:var(--bg); color:var(--text);
+  font-family:var(--font); font-size:var(--fs-base); line-height:var(--lh);
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 img,video,iframe,canvas{ max-width:100%; height:auto; }
 a{ color:var(--link); text-decoration:none; font-weight:bold; font-size:var(--fs-lg); }
@@ -46,7 +42,7 @@ a:hover{ text-decoration:underline; }
 .container{ width:100%; max-width:1200px; margin:0 auto; padding:0 20px 20px; }
 main{ padding-top:calc(var(--header-h) + 12px); }
 
-/* ============ 3) Header ============ */
+/* ===================== 3) Header ===================== */
 .site-header{
   position:sticky; top:0; z-index:1002;
   background:var(--nav-bg); box-shadow:var(--shadow);
@@ -62,7 +58,7 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   padding:10px 8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
 
-/* Burger */
+/* Burger / X */
 .burger{
   --line-w:26px; --line-h:3px; --gap:5px;
   display:inline-flex; flex-direction:column; justify-content:center; align-items:center;
@@ -82,88 +78,49 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   transform:translateY(calc(-1 * (var(--line-h) + var(--gap)))) rotate(-45deg);
 }
 
-/* ============ 4) Backdrop (shared) ============ */
+/* ===================== 4) Backdrop (no blur for dropdown) ===================== */
 .drawer-backdrop{
-  position:fixed; inset:0;
-  z-index:1000; /* below drawer (1001), above page */
-  background:rgba(0,0,0,0);
-  backdrop-filter:blur(0);
-  opacity:0;
-  transition:opacity .3s ease, background .3s ease, backdrop-filter .3s ease, visibility 0s linear .3s;
+  position:fixed; inset:0; z-index:1000;
+  background:rgba(0,0,0,0); opacity:0;
+  transition:opacity .2s ease, background .2s ease;
   pointer-events:auto;
 }
 .drawer-backdrop.is-visible{
-  background:rgba(0,0,0,.35);
-  backdrop-filter:blur(6px);
+  background:rgba(0,0,0,.12);
   opacity:1;
-  transition:opacity .3s ease, background .3s ease, backdrop-filter .3s ease;
 }
 
-/* ============ 5) Drawer base ============ */
+/* ===================== 5) Dropdown Popover (compact, anchored to burger) ===================== */
 .mobile-drawer{
-  position:fixed; z-index:1001; /* between header/burger and backdrop */
+  position:fixed; z-index:1001;
+  top:var(--dd-top);
+  right:var(--dd-right);
   color:var(--nav-tx); background:var(--nav-bg);
-  box-shadow:-6px 0 14px rgba(0,0,0,.25);
+  border-radius:12px;
+  box-shadow:0 10px 20px rgba(0,0,0,.28);
+  transform-origin:top right;
+  transform:scaleY(0); opacity:0;
+  transition:transform .18s ease, opacity .18s ease;
+  /* size is only as big as content */
+  width:max-content; max-width:90vw;
+  /* prevent layout shift while scaling */
   will-change:transform, opacity;
 }
+.mobile-drawer.is-open{
+  transform:scaleY(1); opacity:1;
+}
 .mobile-drawer .menu-list{
-  list-style:none; display:flex; flex-direction:column; gap:14px;
-  padding:24px 18px;
+  list-style:none; display:flex; flex-direction:column; gap:12px;
+  padding:12px 16px; /* compact padding */
 }
-.mobile-drawer .menu-list a{ color:var(--nav-tx); font-size:1.125rem; font-weight:600; }
+.mobile-drawer .menu-list a{
+  color:var(--nav-tx);
+  font-size:1.0625rem; /* slightly smaller to suit compact menu */
+  font-weight:600;
+  white-space:nowrap;
+}
 
-/* ============ 6) MODES ============ */
-
-/* MODE: compact-right (narrow right drawer) */
-body[data-drawer="compact-right"] .mobile-drawer{
-  top:var(--header-h); right:0;
-  height:calc(100dvh - var(--header-h));
-  width:var(--drawer-w);
-  transform:translateX(100%);
-  transition:transform .35s cubic-bezier(0.25,0.8,0.25,1);
-}
-body[data-drawer="compact-right"] .mobile-drawer.is-open{ transform:translateX(0); }
-
-/* MODE: bottom-sheet */
-body[data-drawer="bottom-sheet"] .mobile-drawer{
-  left:0; right:0; bottom:0;
-  height:var(--sheet-h); width:100%;
-  border-radius:16px 16px 0 0;
-  transform:translateY(100%);
-  transition:transform .35s cubic-bezier(0.25,0.8,0.25,1);
-  box-shadow:0 -8px 20px rgba(0,0,0,.25);
-}
-body[data-drawer="bottom-sheet"] .mobile-drawer.is-open{ transform:translateY(0); }
-
-/* MODE: fullscreen (under header, fills viewport width) */
-body[data-drawer="fullscreen"] .mobile-drawer{
-  top:var(--header-h); left:0; right:0;
-  height:calc(100dvh - var(--header-h));
-  transform:scale(.98); opacity:0;
-  transition:transform .28s ease, opacity .28s ease;
-  box-shadow:none;
-}
-body[data-drawer="fullscreen"] .mobile-drawer.is-open{ transform:scale(1); opacity:1; }
-body[data-drawer="fullscreen"] .mobile-drawer .menu-list{
-  height:100%; justify-content:center; align-items:center; gap:22px;
-}
-body[data-drawer="fullscreen"] .mobile-drawer .menu-list a{ font-size:1.35rem; }
-
-/* MODE: dropdown (slides down under the header; lightest option) */
-body[data-drawer="dropdown"] .drawer-backdrop{
-  background:rgba(0,0,0,.15); backdrop-filter:none;
-}
-body[data-drawer="dropdown"] .mobile-drawer{
-  top:var(--header-h); left:0; right:0;
-  max-height:80vh; overflow:auto;
-  transform-origin:top center;
-  transform:scaleY(0); opacity:0;
-  transition:transform .22s ease, opacity .22s ease;
-  box-shadow:0 10px 20px rgba(0,0,0,.2);
-}
-body[data-drawer="dropdown"] .mobile-drawer.is-open{ transform:scaleY(1); opacity:1; }
-
-/* ============ 7) Footer & Content Styles (unchanged) ============ */
+/* ===================== 6) Footer & Content (unchanged) ===================== */
 footer{ background:var(--nav-bg); padding:15px 0; text-align:center; font-size:var(--fs-sm); }
 
 h1{ font-size:var(--fs-h1); margin:.5em 0; }
