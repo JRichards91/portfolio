@@ -21,7 +21,6 @@
   --radius:12px;
   --shadow:0 2px 6px rgba(0,0,0,.2);
 
-  /* Popover dynamic anchors (used by JS for dropdown) */
   --dd-top: calc(var(--header-h) + 6px);
   --dd-right: 8px;
 }
@@ -58,7 +57,6 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   display:flex; align-items:center; justify-content:space-between;
   padding:0 8px;
 }
-/* Title matches section heading weight */
 .site-current .site-current-text{
   display:inline-block;
   color:var(--nav-tx);
@@ -70,7 +68,7 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
 
-/* Burger / X */
+/* ===================== 5) Burger / X ===================== */
 .burger{
   --line-w:26px; --line-h:3px; --gap:5px;
   display:inline-flex; flex-direction:column; justify-content:center; align-items:center;
@@ -90,21 +88,20 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   transform:translateY(calc(-1 * (var(--line-h) + var(--gap)))) rotate(-45deg);
 }
 
-/* ===================== 5) Dropdown Popover Menu (compact) ===================== */
+/* ===================== 6) Dropdown Popover Menu ===================== */
 .drawer-backdrop{
   position:fixed; inset:0; z-index:1000;
   background:rgba(0,0,0,0);
   opacity:0;
   transition:opacity .2s ease, background .2s ease;
-  pointer-events:auto; /* capture outside clicks to close */
+  pointer-events:auto;
 }
 .drawer-backdrop.is-visible{
   background:rgba(0,0,0,.12);
   opacity:1;
 }
-
 .mobile-drawer{
-  position:fixed; z-index:1001; /* under header/burger, above page */
+  position:fixed; z-index:1001;
   top:var(--dd-top);
   right:var(--dd-right);
   color:var(--nav-tx);
@@ -115,7 +112,7 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   transform:scaleY(0);
   opacity:0;
   transition:transform .18s ease, opacity .18s ease;
-  width:max-content;            /* only as wide as the links */
+  width:max-content;
   max-width:90vw;
   will-change:transform, opacity;
 }
@@ -132,7 +129,7 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   white-space:nowrap;
 }
 
-/* ===================== 6) Footer ===================== */
+/* ===================== 7) Footer ===================== */
 footer{
   background:var(--nav-bg);
   padding:15px 0;
@@ -140,12 +137,12 @@ footer{
   font-size:var(--fs-sm);
 }
 
-/* ===================== 7) Headings ===================== */
+/* ===================== 8) Headings ===================== */
 h1{ font-size:var(--fs-h1); margin:.5em 0; }
 h2{ font-size:var(--fs-h2); margin:.75em 0; }
 h3{ font-size:var(--fs-h3); margin:.75em 0; }
 
-/* ===================== 8) Hero ===================== */
+/* ===================== 9) Hero ===================== */
 .hero{
   text-align:center;
   padding:40px 20px;
@@ -157,7 +154,7 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
   margin:0 auto;
 }
 
-/* ===================== 9) About ===================== */
+/* ===================== 10) About ===================== */
 .about-section{
   display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
   gap:40px; margin-bottom:60px; text-align:left;
@@ -179,7 +176,7 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
   .about-section .about-img img{ width:min(90vw,360px); height:min(90vw,360px); }
 }
 
-/* ===================== 10) Timeline ===================== */
+/* ===================== 11) Timeline ===================== */
 .timeline-section{ padding:40px 0; }
 .timeline{
   display:flex; flex-direction:column; gap:20px;
@@ -200,7 +197,7 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
   margin-left:auto; font-size:var(--fs-sm); opacity:.85;
 }
 
-/* ===================== 11) Projects Grid ===================== */
+/* ===================== 12) Projects Grid ===================== */
 .projects-list{ padding:40px 0; }
 .projects-grid{
   display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
@@ -234,7 +231,7 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
 }
 .project-card .read-more a{ font-size:var(--fs-base); display:inline-block; }
 
-/* ===================== 12) Contact Form ===================== */
+/* ===================== 13) Contact Form ===================== */
 .contact-form{ padding:60px 0; }
 .contact-form form{
   max-width:500px; margin:0 auto 60px;
@@ -257,31 +254,28 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
   font-size:var(--fs-base); cursor:pointer;
 }
 
-/* ===================== 13) Resume Embed (Centered + Proper Size) ===================== */
+/* ===================== 14) Resume Embed (Full Document Fit) ===================== */
 .resume-embed{
-  display:flex; flex-direction:column;
-  align-items:center; justify-content:flex-start;
-  padding:40px 0 60px; width:100%; text-align:center;
+  padding:8px 0 12px;
+  display:block;
 }
-.resume-embed h2{ font-size:var(--fs-h2); color:var(--text); margin-bottom:16px; }
-
 .resume-container{
-  display:flex; justify-content:center; align-items:center;
-  width:100%; max-width:1100px;           /* keeps PDF nicely centered on large screens */
-  height:calc(100vh - var(--header-h) - 160px); /* visible without cramping */
+  width:min(1100px,96vw);
+  height:calc(100dvh - var(--header-h) - 20px);
   margin:0 auto;
-  background:#fff; border-radius:8px; overflow:hidden;
+  background:#fff;
+  border-radius:8px;
+  overflow:hidden;
   box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
 .resume-container iframe{
-  width:100%; height:100%; border:none; margin:0 auto; display:block;
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
 }
 
-/* Optional small centered download note under the embed */
-.resume-download{ margin-top:16px; font-size:var(--fs-base); }
-.resume-download a{ color:#fff; text-decoration:underline; font-weight:600; margin-right:8px; }
-
-/* ===================== 14) Responsive Tweaks ===================== */
+/* ===================== 15) Responsive Tweaks ===================== */
 @media (max-width:768px){
   .hero h1{ font-size:2.25rem; }
   .hero p{ font-size:var(--fs-base); }
@@ -290,6 +284,6 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
 
   .about-section .about-img img{ width:min(90vw,360px); height:min(90vw,360px); }
 
-  .resume-embed{ padding:24px 0 40px; }
-  .resume-container{ width:94vw; height:80dvh; }
+  .resume-embed{ padding:6px 0 8px; }
+  .resume-container{ width:98vw; height:calc(100dvh - var(--header-h) - 8px); }
 }
