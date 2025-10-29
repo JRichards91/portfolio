@@ -7,7 +7,7 @@ resume_pdf: /assets/files/Justin Richards Résumé.pdf
 
 <section class="resume-embed">
   <div class="resume-container">
-    <!-- Base src only; JS appends the correct zoom fragment for desktop/mobile -->
+    <!-- Base src; JS adds proper hash and applies mobile scaling/centering -->
     <iframe
       title="Justin Richards — Resume (Redacted)"
       src="{{ page.resume_pdf | relative_url }}"

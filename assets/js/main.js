@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* ------------ Dropdown popover positioning for burger ------------ */
+  /* ------------ Dropdown (burger) ------------ */
   const baseurl = document.documentElement.getAttribute('data-baseurl') || '';
   const burger = document.querySelector('.burger');
   const drawer = document.getElementById('mobile-drawer');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const showBackdrop = () => {
     if (!backdrop) return;
     backdrop.hidden = false;
-    backdrop.offsetHeight; // reflow
+    backdrop.offsetHeight;
     backdrop.classList.add('is-visible');
   };
   const hideBackdrop = () => { if (backdrop) backdrop.classList.remove('is-visible'); };
@@ -109,24 +109,61 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(console.error);
 
-  /* ----------------- PDF: auto-fit desktop vs mobile ----------------- */
-  const resumeIframe = document.querySelector('.resume-container iframe');
-  if (resumeIframe) {
-    // store clean src without hash once
-    const initialSrc = resumeIframe.getAttribute('src').split('#')[0];
-    resumeIframe.dataset.src = initialSrc;
+  /* ----------------- RESUME: Mobile centering & scaling polyfill ----------------- */
+  const frame = document.querySelector('.resume-container iframe');
+  const container = document.querySelector('.resume-container');
 
-    const applyPdfFit = () => {
-      const small = window.matchMedia('(max-width: 768px)').matches;
-      // On mobile, browsers (esp. iOS Safari) ignore page-fit; use page-width to auto-scale and center.
-      const hash = small ? '#zoom=page-width&view=FitH' : '#zoom=page-fit&view=Fit';
-      // Only change if needed to avoid reload loops
-      const want = `${resumeIframe.dataset.src}${hash}`;
-      if (resumeIframe.src !== want) resumeIframe.src = want;
-    };
+  function isSmall() { return window.matchMedia('(max-width: 768px)').matches; }
 
-    applyPdfFit();
-    window.addEventListener('resize', applyPdfFit);
-    window.addEventListener('orientationchange', applyPdfFit);
+  function setPdfSrc() {
+    if (!frame) return;
+    const clean = (frame.dataset.src || frame.getAttribute('src')).split('#')[0];
+    frame.dataset.src = clean;
+    // Desktop uses page-fit; mobile we’ll scale the iframe ourselves (native zoom ignored)
+    const hash = isSmall() ? '#zoom=100&view=FitH' : '#zoom=page-fit&view=Fit';
+    const want = `${clean}${hash}`;
+    if (frame.src !== want) frame.src = want;
+  }
+
+  // Scale the iframe itself on mobile to fit width & center
+  function scaleIframeForMobile() {
+    if (!frame || !container) return;
+    if (!isSmall()) {
+      // reset on desktop
+      frame.style.transform = '';
+      frame.style.width = '100%';
+      frame.style.height = '100%';
+      container.style.height = `calc(100dvh - var(--header-h) - 20px)`;
+      return;
+    }
+
+    // Assume US Letter page about 816x1056 CSS px at ~96dpi (good approximation)
+    const baseW = 816;   // px
+    const baseH = 1056;  // px
+    const pad = 0;
+
+    const availW = container.clientWidth - pad;
+    const scale = availW / baseW;
+
+    // Size the iframe to the unscaled page, then scale down to fit device width
+    frame.style.width = `${baseW}px`;
+    frame.style.height = `${baseH}px`;
+    frame.style.transform = `scale(${scale})`;
+    frame.style.transformOrigin = 'top center';
+
+    // Set container height to the scaled height so no clipping occurs
+    const scaledH = Math.ceil(baseH * scale);
+    container.style.height = `${scaledH}px`;
+  }
+
+  function applyPdfBehavior() {
+    setPdfSrc();
+    scaleIframeForMobile();
+  }
+
+  if (frame && container) {
+    applyPdfBehavior();
+    window.addEventListener('resize', applyPdfBehavior);
+    window.addEventListener('orientationchange', applyPdfBehavior);
   }
 });

@@ -255,7 +255,7 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
   font-size:var(--fs-base); cursor:pointer;
 }
 
-/* ===================== 14) Resume Embed (Desktop + Mobile) ===================== */
+/* ===================== 14) Resume Embed (Desktop + Mobile Polyfill) ===================== */
 .resume-embed{
   padding:8px 0 12px;
   display:block;
@@ -263,35 +263,30 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
 .resume-container{
   width:min(1100px,96vw);
   height:calc(100dvh - var(--header-h) - 20px);
-  margin:0 auto;             /* centers horizontally */
+  margin:0 auto;             /* center horizontally */
   background:#fff;
   border-radius:8px;
   overflow:hidden;
   box-shadow:0 4px 12px rgba(0,0,0,.15);
+  position:relative;
+  display:flex;
+  justify-content:center;     /* fallback centering */
 }
 .resume-container iframe{
   width:100%;
   height:100%;
   border:0;
   display:block;
+  transform-origin: top center;     /* crucial for mobile scale */
 }
 
-/* Mobile: true viewport fill and centered */
+/* Mobile: full width; remove radius to avoid iOS clipping; container height fits scaled content set by JS */
 @media (max-width:768px){
   .resume-container{
-    width:100vw;                     /* fill width */
+    width:100vw;
     max-width:100vw;
-    height:calc(100dvh - var(--header-h)); /* fill under header */
-    margin-left:auto; margin-right:auto;   /* ensure centering */
-    border-radius:0;                        /* avoid odd iOS inset clipping */
+    margin-left:auto; margin-right:auto;
+    border-radius:0;
+    box-shadow:none;
   }
-}
-
-/* ===================== 15) Responsive Tweaks ===================== */
-@media (max-width:768px){
-  .hero h1{ font-size:2.25rem; }
-  .hero p{ font-size:var(--fs-base); }
-  .timeline-item{ flex-direction:column; align-items:flex-start; }
-  .timeline-date{ margin-left:0; }
-  .about-section .about-img img{ width:min(90vw,360px); height:min(90vw,360px); }
 }
