@@ -30,32 +30,44 @@
 *{ box-sizing:border-box; margin:0; padding:0; }
 html,body{ max-width:100%; overflow-x:hidden; }
 body{
-  background:var(--bg); color:var(--text);
-  font-family:var(--font); font-size:var(--fs-base); line-height:var(--lh);
-  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font);
+  font-size:var(--fs-base);
+  line-height:var(--lh);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
-img,video,iframe,canvas{ max-width:100%; height:auto; }
+img,video,iframe,canvas{ max-width:100%; height:auto; display:block; }
 a{ color:var(--link); text-decoration:none; font-weight:bold; font-size:var(--fs-lg); }
 a:hover{ text-decoration:underline; }
 :focus-visible{ outline:3px solid #fff; outline-offset:2px; }
 
+/* ===================== 3) Layout ===================== */
 .container{ width:100%; max-width:1200px; margin:0 auto; padding:0 20px 20px; }
 main{ padding-top:calc(var(--header-h) + 12px); }
 
-/* ===================== 3) Header ===================== */
+/* ===================== 4) Header ===================== */
 .site-header{
   position:sticky; top:0; z-index:1002;
-  background:var(--nav-bg); box-shadow:var(--shadow);
+  background:var(--nav-bg);
+  box-shadow:var(--shadow);
 }
 .nav-bar{
   height:var(--header-h);
   display:flex; align-items:center; justify-content:space-between;
   padding:0 8px;
 }
+/* Title matches section heading weight */
 .site-current .site-current-text{
-  display:inline-block; color:var(--nav-tx);
-  font-size:var(--fs-h3); font-weight:700; letter-spacing:-0.5px; line-height:1.1;
-  padding:10px 8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  display:inline-block;
+  color:var(--nav-tx);
+  font-size:var(--fs-h3);
+  font-weight:700;
+  letter-spacing:-0.5px;
+  line-height:1.1;
+  padding:10px 8px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
 
 /* Burger / X */
@@ -78,12 +90,13 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   transform:translateY(calc(-1 * (var(--line-h) + var(--gap)))) rotate(-45deg);
 }
 
-/* ===================== 4) Dropdown popover (compact) ===================== */
+/* ===================== 5) Dropdown Popover Menu (compact) ===================== */
 .drawer-backdrop{
   position:fixed; inset:0; z-index:1000;
-  background:rgba(0,0,0,0); opacity:0;
+  background:rgba(0,0,0,0);
+  opacity:0;
   transition:opacity .2s ease, background .2s ease;
-  pointer-events:auto;
+  pointer-events:auto; /* capture outside clicks to close */
 }
 .drawer-backdrop.is-visible{
   background:rgba(0,0,0,.12);
@@ -91,128 +104,192 @@ main{ padding-top:calc(var(--header-h) + 12px); }
 }
 
 .mobile-drawer{
-  position:fixed; z-index:1001;
+  position:fixed; z-index:1001; /* under header/burger, above page */
   top:var(--dd-top);
   right:var(--dd-right);
-  color:var(--nav-tx); background:var(--nav-bg);
+  color:var(--nav-tx);
+  background:var(--nav-bg);
   border-radius:12px;
   box-shadow:0 10px 20px rgba(0,0,0,.28);
   transform-origin:top right;
-  transform:scaleY(0); opacity:0;
+  transform:scaleY(0);
+  opacity:0;
   transition:transform .18s ease, opacity .18s ease;
-  width:max-content; max-width:90vw;
+  width:max-content;            /* only as wide as the links */
+  max-width:90vw;
   will-change:transform, opacity;
 }
 .mobile-drawer.is-open{ transform:scaleY(1); opacity:1; }
 .mobile-drawer .menu-list{
-  list-style:none; display:flex; flex-direction:column; gap:12px;
+  list-style:none;
+  display:flex; flex-direction:column; gap:12px;
   padding:12px 16px;
 }
 .mobile-drawer .menu-list a{
   color:var(--nav-tx);
-  font-size:1.0625rem;
   font-weight:600;
+  font-size:1.0625rem;
   white-space:nowrap;
 }
 
-/* ===================== 5) Footer & Content ===================== */
-footer{ background:var(--nav-bg); padding:15px 0; text-align:center; font-size:var(--fs-sm); }
+/* ===================== 6) Footer ===================== */
+footer{
+  background:var(--nav-bg);
+  padding:15px 0;
+  text-align:center;
+  font-size:var(--fs-sm);
+}
 
+/* ===================== 7) Headings ===================== */
 h1{ font-size:var(--fs-h1); margin:.5em 0; }
 h2{ font-size:var(--fs-h2); margin:.75em 0; }
 h3{ font-size:var(--fs-h3); margin:.75em 0; }
 
-.hero{ text-align:center; padding:40px 20px; }
+/* ===================== 8) Hero ===================== */
+.hero{
+  text-align:center;
+  padding:40px 20px;
+}
 .hero h1{ margin-bottom:10px; }
-.hero p{ font-size:var(--fs-lg); max-width:700px; margin:0 auto; }
+.hero p{
+  font-size:var(--fs-lg);
+  max-width:700px;
+  margin:0 auto;
+}
 
+/* ===================== 9) About ===================== */
 .about-section{
   display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
   gap:40px; margin-bottom:60px; text-align:left;
 }
-.about-section .about-img{ flex:0 0 360px; height:auto; display:flex; justify-content:center; align-items:center; }
-.about-section .about-img img{ width:360px; height:360px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow); }
-.about-section .about-text{ flex:1 1 500px; max-width:600px; padding-left:20px; }
+.about-section .about-img{
+  flex:0 0 360px; height:auto;
+  display:flex; justify-content:center; align-items:center;
+}
+.about-section .about-img img{
+  width:360px; height:360px; object-fit:cover;
+  border-radius:12px; box-shadow:var(--shadow);
+}
+.about-section .about-text{
+  flex:1 1 500px; max-width:600px; padding-left:20px;
+}
 @media (max-width:768px){
   .about-section{ flex-direction:column; text-align:center; }
   .about-section .about-img, .about-section .about-text{ flex:1 1 100%; padding-left:0; }
   .about-section .about-img img{ width:min(90vw,360px); height:min(90vw,360px); }
 }
 
+/* ===================== 10) Timeline ===================== */
 .timeline-section{ padding:40px 0; }
-.timeline{ display:flex; flex-direction:column; gap:20px; }
+.timeline{
+  display:flex; flex-direction:column; gap:20px;
+}
 .timeline-item{
-  background:rgba(255,255,255,.1); border-radius:8px; padding:20px;
+  background:rgba(255,255,255,.1);
+  border-radius:8px;
+  padding:20px;
   display:flex; align-items:center; gap:20px;
 }
-.timeline-icon-img{ width:50px; height:50px; border-radius:50%; overflow:hidden; flex-shrink:0; }
+.timeline-icon-img{
+  width:50px; height:50px; border-radius:50%;
+  overflow:hidden; flex-shrink:0;
+}
 .timeline-icon-img img{ width:100%; height:100%; object-fit:cover; }
 .timeline-content a{ font-size:var(--fs-lg); color:var(--link); }
-.timeline-date{ margin-left:auto; font-size:var(--fs-sm); opacity:.85; }
+.timeline-date{
+  margin-left:auto; font-size:var(--fs-sm); opacity:.85;
+}
 
+/* ===================== 11) Projects Grid ===================== */
 .projects-list{ padding:40px 0; }
 .projects-grid{
   display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
   gap:30px; align-items:stretch;
 }
 .project-card{
-  background:rgba(255,255,255,.1); border-radius:8px; overflow:hidden;
+  background:rgba(255,255,255,.1);
+  border-radius:8px; overflow:hidden;
   display:flex; flex-direction:column; height:100%;
 }
 .project-card img{
-  width:100%; aspect-ratio:1.01/1; object-fit:contain; background-color:transparent; display:block; border:none;
+  width:100%;
+  aspect-ratio:1.01/1;
+  object-fit:contain;
+  background-color:transparent;
+  border:none;
 }
-.project-card h3{ font-size:var(--fs-base); margin:15px 20px 10px; text-align:left; }
-.project-card p{ font-size:var(--fs-base); margin:0 20px 20px; text-align:left; flex-grow:1; }
-.project-card .read-more{ margin-top:auto; padding:0 20px 15px; text-align:center; width:100%; }
+.project-card-body{
+  display:flex; flex-direction:column; flex-grow:1; justify-content:flex-start;
+}
+.project-card h3{
+  font-size:var(--fs-base);
+  margin:15px 20px 10px; text-align:left;
+}
+.project-card p{
+  font-size:var(--fs-base);
+  margin:0 20px 20px; text-align:left; flex-grow:1;
+}
+.project-card .read-more{
+  margin-top:auto; padding:0 20px 15px; text-align:center; width:100%;
+}
 .project-card .read-more a{ font-size:var(--fs-base); display:inline-block; }
 
+/* ===================== 12) Contact Form ===================== */
 .contact-form{ padding:60px 0; }
 .contact-form form{
-  max-width:500px; margin:0 auto 60px; background:rgba(255,255,255,.1);
-  padding:30px; border-radius:8px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:20px;
+  max-width:500px; margin:0 auto 60px;
+  background:rgba(255,255,255,.1);
+  padding:30px; border-radius:8px; box-shadow:var(--shadow);
+  display:flex; flex-direction:column; gap:20px;
 }
+.contact-form label{ display:flex; flex-direction:column; font-size:var(--fs-base); }
 .contact-form input, .contact-form textarea{
-  padding:12px; border:2px solid #ddd; border-radius:4px; background:#f9f9f9; color:#333; font-size:var(--fs-base);
+  padding:12px; border:2px solid #ddd; border-radius:4px;
+  background:#f9f9f9; color:#333; font-size:var(--fs-base);
 }
-.contact-form input:focus, .contact-form textarea:focus{ outline:none; border-color:var(--link); }
+.contact-form input:focus, .contact-form textarea:focus{
+  outline:none; border-color:var(--link);
+}
 .contact-form button{
-  align-self:flex-start; background:var(--link); color:var(--nav-bg);
-  padding:12px 24px; border:none; border-radius:4px; font-size:var(--fs-base); cursor:pointer;
+  align-self:flex-start;
+  background:var(--link); color:var(--nav-bg);
+  padding:12px 24px; border:none; border-radius:4px;
+  font-size:var(--fs-base); cursor:pointer;
 }
 
-/* ===================== 6) Resume Embed (FIXED DIMENSIONS) ===================== */
+/* ===================== 13) Resume Embed (Centered + Proper Size) ===================== */
 .resume-embed{
-  padding:24px 0 40px;
-  display:block;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:flex-start;
+  padding:40px 0 60px; width:100%; text-align:center;
 }
-.resume-embed h2{
-  text-align:center;
-  margin-bottom:16px;
-}
-.resume-embed .resume-container{
-  /* Large, readable viewer centered on the page */
-  width:80vw;                  /* desktop width (original style you liked) */
-  max-width:1600px;
-  height:110vh;                /* slightly taller than viewport to fill nicely */
-  margin:0 auto;               /* centered */
-  border-radius:8px;
-  overflow:hidden;
-  background:#fff;
+.resume-embed h2{ font-size:var(--fs-h2); color:var(--text); margin-bottom:16px; }
+
+.resume-container{
+  display:flex; justify-content:center; align-items:center;
+  width:100%; max-width:1100px;           /* keeps PDF nicely centered on large screens */
+  height:calc(100vh - var(--header-h) - 160px); /* visible without cramping */
+  margin:0 auto;
+  background:#fff; border-radius:8px; overflow:hidden;
   box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
-.resume-embed .resume-container iframe{
-  width:100%;
-  height:100%;
-  border:0;
-  display:block;
+.resume-container iframe{
+  width:100%; height:100%; border:none; margin:0 auto; display:block;
 }
 
-/* Make it nearly full-screen on phones */
+/* Optional small centered download note under the embed */
+.resume-download{ margin-top:16px; font-size:var(--fs-base); }
+.resume-download a{ color:#fff; text-decoration:underline; font-weight:600; margin-right:8px; }
+
+/* ===================== 14) Responsive Tweaks ===================== */
 @media (max-width:768px){
-  .resume-embed{ padding:12px 0 24px; }
-  .resume-embed .resume-container{
-    width:95vw;
-    height:88dvh;             /* fills the screen under header on mobile */
-  }
+  .hero h1{ font-size:2.25rem; }
+  .hero p{ font-size:var(--fs-base); }
+  .timeline-item{ flex-direction:column; align-items:flex-start; }
+  .timeline-date{ margin-left:0; }
+
+  .about-section .about-img img{ width:min(90vw,360px); height:min(90vw,360px); }
+
+  .resume-embed{ padding:24px 0 40px; }
+  .resume-container{ width:94vw; height:80dvh; }
 }

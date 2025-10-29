@@ -6,14 +6,16 @@ resume_pdf: /assets/files/Résumé.pdf
 ---
 
 <section class="resume-embed">
+  <h2 style="text-align:center; margin-bottom:16px;">My Resume (Redacted)</h2>
   <div class="resume-container">
     <iframe
       title="Justin Richards — Resume (Redacted)"
-      src="{{ page.resume_pdf | relative_url }}#view=FitH"
+      src="{{ page.resume_pdf | relative_url }}#zoom=100&view=FitH"
+      loading="lazy"
     ></iframe>
   </div>
-  <p style="text-align:center; margin-top:14px;">
+  <p class="resume-download">
     <a href="{{ page.resume_pdf | relative_url }}" download>Download PDF</a>
-    <span style="opacity:.85; font-size:.95rem;">(public redacted version)</span>
+    <span>(Public redacted version)</span>
   </p>
 </section>
