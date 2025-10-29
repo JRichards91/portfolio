@@ -2,12 +2,18 @@
 layout: default
 title: Resume
 permalink: /resume/
+resume_pdf: /assets/resume/Justin_Richards_Resume_Redacted.pdf
 ---
 
 <section class="resume-embed">
   <div class="resume-container">
     <iframe
-      src="{{ '/assets/files/Justin Richards Résumé.pdf' | relative_url }}#zoom=100"
+      title="Justin Richards — Resume (Redacted)"
+      src="{{ page.resume_pdf | relative_url }}#view=FitH"
     ></iframe>
   </div>
+  <p style="text-align:center; margin-top:14px;">
+    <a href="{{ page.resume_pdf | relative_url }}" download>Download PDF</a>
+    <span style="opacity:.85; font-size:.95rem;">(public redacted version)</span>
+  </p>
 </section>

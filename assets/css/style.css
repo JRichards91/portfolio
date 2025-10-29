@@ -21,7 +21,7 @@
   --radius:12px;
   --shadow:0 2px 6px rgba(0,0,0,.2);
 
-  /* Popover dynamic anchors (set by JS) */
+  /* Popover dynamic anchors (used by JS for dropdown) */
   --dd-top: calc(var(--header-h) + 6px);
   --dd-right: 8px;
 }
@@ -78,7 +78,7 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   transform:translateY(calc(-1 * (var(--line-h) + var(--gap)))) rotate(-45deg);
 }
 
-/* ===================== 4) Backdrop (no blur for dropdown) ===================== */
+/* ===================== 4) Dropdown popover (compact) ===================== */
 .drawer-backdrop{
   position:fixed; inset:0; z-index:1000;
   background:rgba(0,0,0,0); opacity:0;
@@ -90,7 +90,6 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   opacity:1;
 }
 
-/* ===================== 5) Dropdown Popover (compact, anchored to burger) ===================== */
 .mobile-drawer{
   position:fixed; z-index:1001;
   top:var(--dd-top);
@@ -101,26 +100,22 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   transform-origin:top right;
   transform:scaleY(0); opacity:0;
   transition:transform .18s ease, opacity .18s ease;
-  /* size is only as big as content */
   width:max-content; max-width:90vw;
-  /* prevent layout shift while scaling */
   will-change:transform, opacity;
 }
-.mobile-drawer.is-open{
-  transform:scaleY(1); opacity:1;
-}
+.mobile-drawer.is-open{ transform:scaleY(1); opacity:1; }
 .mobile-drawer .menu-list{
   list-style:none; display:flex; flex-direction:column; gap:12px;
-  padding:12px 16px; /* compact padding */
+  padding:12px 16px;
 }
 .mobile-drawer .menu-list a{
   color:var(--nav-tx);
-  font-size:1.0625rem; /* slightly smaller to suit compact menu */
+  font-size:1.0625rem;
   font-weight:600;
   white-space:nowrap;
 }
 
-/* ===================== 6) Footer & Content (unchanged) ===================== */
+/* ===================== 5) Footer & Content ===================== */
 footer{ background:var(--nav-bg); padding:15px 0; text-align:center; font-size:var(--fs-sm); }
 
 h1{ font-size:var(--fs-h1); margin:.5em 0; }
@@ -186,10 +181,38 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
   padding:12px 24px; border:none; border-radius:4px; font-size:var(--fs-base); cursor:pointer;
 }
 
-/* Small screens */
+/* ===================== 6) Resume Embed (FIXED DIMENSIONS) ===================== */
+.resume-embed{
+  padding:24px 0 40px;
+  display:block;
+}
+.resume-embed h2{
+  text-align:center;
+  margin-bottom:16px;
+}
+.resume-embed .resume-container{
+  /* Large, readable viewer centered on the page */
+  width:80vw;                  /* desktop width (original style you liked) */
+  max-width:1600px;
+  height:110vh;                /* slightly taller than viewport to fill nicely */
+  margin:0 auto;               /* centered */
+  border-radius:8px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+.resume-embed .resume-container iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+}
+
+/* Make it nearly full-screen on phones */
 @media (max-width:768px){
-  .hero h1{ font-size:2.25rem; }
-  .hero p{ font-size:var(--fs-base); }
-  .timeline-item{ flex-direction:column; align-items:flex-start; }
-  .timeline-date{ margin-left:0; }
+  .resume-embed{ padding:12px 0 24px; }
+  .resume-embed .resume-container{
+    width:95vw;
+    height:88dvh;             /* fills the screen under header on mobile */
+  }
 }
