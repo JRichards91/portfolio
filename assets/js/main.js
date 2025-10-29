@@ -1,41 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* --------- Mode: dropdown popover anchored to burger --------- */
-  document.body.dataset.drawer = 'dropdown-popover';
-
-  /* ----------------- Base URL helper ----------------- */
+  /* ------------ Dropdown popover positioning for burger ------------ */
   const baseurl = document.documentElement.getAttribute('data-baseurl') || '';
-
-  /* ----------------- Elements ----------------- */
   const burger = document.querySelector('.burger');
   const drawer = document.getElementById('mobile-drawer');
   const backdrop = document.querySelector('.drawer-backdrop');
 
-  /* ----------------- Positioning ----------------- */
   function positionPopover() {
     if (!burger || !drawer) return;
     const r = burger.getBoundingClientRect();
-    // 8px offset under the burger, align to burger’s right edge
     const top = r.bottom + window.scrollY + 8;
     const right = Math.max(8, window.innerWidth - r.right + 8);
     drawer.style.setProperty('--dd-top', `${top}px`);
     drawer.style.setProperty('--dd-right', `${right}px`);
   }
 
-  /* ----------------- Backdrop helpers ----------------- */
   const showBackdrop = () => {
     if (!backdrop) return;
     backdrop.hidden = false;
-    // force reflow so transition starts
-    // eslint-disable-next-line no-unused-expressions
-    backdrop.offsetHeight;
+    backdrop.offsetHeight; // reflow
     backdrop.classList.add('is-visible');
   };
-  const hideBackdrop = () => {
-    if (!backdrop) return;
-    backdrop.classList.remove('is-visible');
-  };
+  const hideBackdrop = () => { if (backdrop) backdrop.classList.remove('is-visible'); };
 
-  /* ----------------- Drawer helpers ----------------- */
   const openDrawer = () => {
     if (!burger || !drawer) return;
     positionPopover();
@@ -57,8 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!backdrop.classList.contains('is-visible')) backdrop.hidden = true;
     });
   }
-
-  /* ----------------- Events ----------------- */
   if (burger) {
     burger.addEventListener('click', () => {
       const expanded = burger.getAttribute('aria-expanded') === 'true';
@@ -69,24 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (drawer) {
     drawer.addEventListener('click', (e) => {
       const a = e.target.closest('a');
-      if (a) closeDrawer(); // close on nav click
+      if (a) closeDrawer();
     });
   }
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeDrawer();
-  });
-  window.addEventListener('resize', () => {
-    if (drawer.classList.contains('is-open')) {
-      positionPopover();
-    }
-  });
-  window.addEventListener('scroll', () => {
-    if (drawer.classList.contains('is-open')) {
-      positionPopover();
-    }
-  }, { passive: true });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+  window.addEventListener('resize', () => { positionPopover(); });
+  window.addEventListener('scroll', () => { positionPopover(); }, { passive: true });
 
-  /* ----------------- Load projects/timeline from JSON ----------------- */
+  /* ----------------- Projects/Timeline loader ----------------- */
   fetch(`${baseurl}/projects.json`)
     .then(res => res.json())
     .then(data => {
@@ -96,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return db - da;
       });
 
-      // Timeline
       const timeline = document.querySelector('.timeline');
       if (timeline) {
         timeline.innerHTML = '';
@@ -119,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Projects Grid
       const grid = document.querySelector('.projects-grid');
       if (grid) {
         grid.innerHTML = '';
@@ -136,4 +108,25 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
     .catch(console.error);
+
+  /* ----------------- PDF: auto-fit desktop vs mobile ----------------- */
+  const resumeIframe = document.querySelector('.resume-container iframe');
+  if (resumeIframe) {
+    // store clean src without hash once
+    const initialSrc = resumeIframe.getAttribute('src').split('#')[0];
+    resumeIframe.dataset.src = initialSrc;
+
+    const applyPdfFit = () => {
+      const small = window.matchMedia('(max-width: 768px)').matches;
+      // On mobile, browsers (esp. iOS Safari) ignore page-fit; use page-width to auto-scale and center.
+      const hash = small ? '#zoom=page-width&view=FitH' : '#zoom=page-fit&view=Fit';
+      // Only change if needed to avoid reload loops
+      const want = `${resumeIframe.dataset.src}${hash}`;
+      if (resumeIframe.src !== want) resumeIframe.src = want;
+    };
+
+    applyPdfFit();
+    window.addEventListener('resize', applyPdfFit);
+    window.addEventListener('orientationchange', applyPdfFit);
+  }
 });
