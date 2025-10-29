@@ -21,7 +21,7 @@
   --radius:12px;
   --shadow:0 2px 6px rgba(0,0,0,.2);
 
-  /* dropdown anchor (set by JS) */
+  /* popover anchor (set by JS) */
   --dd-top: calc(var(--header-h) + 6px);
   --dd-right: 8px;
 }
@@ -89,39 +89,39 @@ main{ padding-top:calc(var(--header-h) + 12px); }
   transform:translateY(calc(-1 * (var(--line-h) + var(--gap)))) rotate(-45deg);
 }
 
-/* ===================== 6) Dropdown Popover Menu ===================== */
+/* ===================== 6) Popover Menu (auto-size, minimal padding) ===================== */
 .drawer-backdrop{
   position:fixed; inset:0; z-index:1000;
   background:rgba(0,0,0,0);
   opacity:0;
-  transition:opacity .2s ease, background .2s ease;
+  transition:opacity .18s ease, background .18s ease;
   pointer-events:auto;
 }
 .drawer-backdrop.is-visible{
   background:rgba(0,0,0,.12);
   opacity:1;
 }
+
 .mobile-drawer{
   position:fixed; z-index:1001;
-  top:var(--dd-top);
-  right:var(--dd-right);
-  color:var(--nav-tx);
-  background:var(--nav-bg);
-  border-radius:12px;
-  box-shadow:0 10px 20px rgba(0,0,0,.28);
-  transform-origin:top right;
-  transform:scaleY(0);
-  opacity:0;
+  top:var(--dd-top); right:var(--dd-right);
+  color:var(--nav-tx); background:var(--nav-bg);
+  border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.28);
+  transform-origin:top right; transform:scaleY(0); opacity:0;
   transition:transform .18s ease, opacity .18s ease;
-  width:max-content;
+  /* Auto width to content; fallbacks for broad browser coverage */
+  width:fit-content; width:-moz-fit-content; width:max-content;
   max-width:90vw;
+  max-height:calc(100svh - var(--dd-top) - 12px);
+  overflow:auto;            /* scroll only if needed */
   will-change:transform, opacity;
 }
 .mobile-drawer.is-open{ transform:scaleY(1); opacity:1; }
+
 .mobile-drawer .menu-list{
   list-style:none;
-  display:flex; flex-direction:column; gap:12px;
-  padding:12px 16px;
+  display:flex; flex-direction:column; gap:8px;
+  padding:8px 12px;         /* minimal, keeps popover tight to content */
 }
 .mobile-drawer .menu-list a{
   color:var(--nav-tx);
@@ -144,33 +144,21 @@ h2{ font-size:var(--fs-h2); margin:.75em 0; }
 h3{ font-size:var(--fs-h3); margin:.75em 0; }
 
 /* ===================== 9) Hero ===================== */
-.hero{
-  text-align:center;
-  padding:40px 20px;
-}
+.hero{ text-align:center; padding:40px 20px; }
 .hero h1{ margin-bottom:10px; }
-.hero p{
-  font-size:var(--fs-lg);
-  max-width:700px;
-  margin:0 auto;
-}
+.hero p{ font-size:var(--fs-lg); max-width:700px; margin:0 auto; }
 
 /* ===================== 10) About ===================== */
 .about-section{
   display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
   gap:40px; margin-bottom:60px; text-align:left;
 }
-.about-section .about-img{
-  flex:0 0 360px; height:auto;
-  display:flex; justify-content:center; align-items:center;
-}
+.about-section .about-img{ flex:0 0 360px; display:flex; justify-content:center; align-items:center; }
 .about-section .about-img img{
   width:360px; height:360px; object-fit:cover;
   border-radius:12px; box-shadow:var(--shadow);
 }
-.about-section .about-text{
-  flex:1 1 500px; max-width:600px; padding-left:20px;
-}
+.about-section .about-text{ flex:1 1 500px; max-width:600px; padding-left:20px; }
 @media (max-width:768px){
   .about-section{ flex-direction:column; text-align:center; }
   .about-section .about-img, .about-section .about-text{ flex:1 1 100%; padding-left:0; }
@@ -179,24 +167,18 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
 
 /* ===================== 11) Timeline ===================== */
 .timeline-section{ padding:40px 0; }
-.timeline{
-  display:flex; flex-direction:column; gap:20px;
-}
+.timeline{ display:flex; flex-direction:column; gap:20px; }
 .timeline-item{
   background:rgba(255,255,255,.1);
-  border-radius:8px;
-  padding:20px;
+  border-radius:8px; padding:20px;
   display:flex; align-items:center; gap:20px;
 }
 .timeline-icon-img{
-  width:50px; height:50px; border-radius:50%;
-  overflow:hidden; flex-shrink:0;
+  width:50px; height:50px; border-radius:50%; overflow:hidden; flex-shrink:0;
 }
 .timeline-icon-img img{ width:100%; height:100%; object-fit:cover; }
 .timeline-content a{ font-size:var(--fs-lg); color:var(--link); }
-.timeline-date{
-  margin-left:auto; font-size:var(--fs-sm); opacity:.85;
-}
+.timeline-date{ margin-left:auto; font-size:var(--fs-sm); opacity:.85; }
 
 /* ===================== 12) Projects Grid ===================== */
 .projects-list{ padding:40px 0; }
@@ -213,23 +195,12 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
   width:100%;
   aspect-ratio:1.01/1;
   object-fit:contain;
-  background-color:transparent;
-  border:none;
+  background-color:transparent; border:none;
 }
-.project-card-body{
-  display:flex; flex-direction:column; flex-grow:1; justify-content:flex-start;
-}
-.project-card h3{
-  font-size:var(--fs-base);
-  margin:15px 20px 10px; text-align:left;
-}
-.project-card p{
-  font-size:var(--fs-base);
-  margin:0 20px 20px; text-align:left; flex-grow:1;
-}
-.project-card .read-more{
-  margin-top:auto; padding:0 20px 15px; text-align:center; width:100%;
-}
+.project-card-body{ display:flex; flex-direction:column; flex-grow:1; justify-content:flex-start; }
+.project-card h3{ font-size:var(--fs-base); margin:15px 20px 10px; text-align:left; }
+.project-card p{ font-size:var(--fs-base); margin:0 20px 20px; text-align:left; flex-grow:1; }
+.project-card .read-more{ margin-top:auto; padding:0 20px 15px; text-align:center; width:100%; }
 .project-card .read-more a{ font-size:var(--fs-base); display:inline-block; }
 
 /* ===================== 13) Contact Form ===================== */
@@ -245,48 +216,36 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
   padding:12px; border:2px solid #ddd; border-radius:4px;
   background:#f9f9f9; color:#333; font-size:var(--fs-base);
 }
-.contact-form input:focus, .contact-form textarea:focus{
-  outline:none; border-color:var(--link);
-}
+.contact-form input:focus, .contact-form textarea:focus{ outline:none; border-color:var(--link); }
 .contact-form button{
-  align-self:flex-start;
-  background:var(--link); color:var(--nav-bg);
-  padding:12px 24px; border:none; border-radius:4px;
-  font-size:var(--fs-base); cursor:pointer;
+  align-self:flex-start; background:var(--link); color:var(--nav-bg);
+  padding:12px 24px; border:none; border-radius:4px; font-size:var(--fs-base); cursor:pointer;
 }
 
 /* ===================== 14) Resume Embed (Desktop + Mobile Polyfill) ===================== */
-.resume-embed{
-  padding:8px 0 12px;
-  display:block;
-}
+.resume-embed{ padding:8px 0 12px; display:block; }
 .resume-container{
   width:min(1100px,96vw);
-  height:calc(100dvh - var(--header-h) - 20px);
-  margin:0 auto;             /* center horizontally */
+  /* Use small viewport units so mobile browser UI changes don't crunch the height */
+  height:calc(100svh - var(--header-h) - 20px);
+  margin:0 auto;
   background:#fff;
   border-radius:8px;
   overflow:hidden;
   box-shadow:0 4px 12px rgba(0,0,0,.15);
   position:relative;
-  display:flex;
-  justify-content:center;     /* fallback centering */
+  display:flex; justify-content:center;
 }
 .resume-container iframe{
-  width:100%;
-  height:100%;
-  border:0;
-  display:block;
-  transform-origin: top center;     /* crucial for mobile scale */
+  width:100%; height:100%;
+  border:0; display:block;
+  transform-origin: top center;
 }
 
-/* Mobile: full width; remove radius to avoid iOS clipping; container height fits scaled content set by JS */
+/* Mobile: edge-to-edge container; JS sets exact scaled height to avoid inner scrolling */
 @media (max-width:768px){
   .resume-container{
-    width:100vw;
-    max-width:100vw;
-    margin-left:auto; margin-right:auto;
-    border-radius:0;
-    box-shadow:none;
+    width:100vw; max-width:100vw;
+    border-radius:0; box-shadow:none;
   }
 }

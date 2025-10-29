@@ -11,9 +11,6 @@
 <body>
   {% include header.html %}
 
-  <!-- Banners removed on ALL pages -->
-  <!-- {% include banner.html %} -->
-
   {%- assign use_full_bleed = page.full_bleed | default: false -%}
   <main id="main-content" tabindex="-1" class="{% if use_full_bleed %}main--bleed{% endif %}">
     <div class="{% if use_full_bleed %}container-bleed{% else %}container{% endif %}">
