@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+  /* ------------ Choose ONE mode: 'compact-right' | 'bottom-sheet' | 'fullscreen' | 'dropdown' ------------ */
+  const DRAWER_MODE = 'dropdown'; // <— change this value to try another mode
+  document.body.dataset.drawer = DRAWER_MODE;
+
   /* ----------------- Base URL helper ----------------- */
   const baseurl = document.documentElement.getAttribute('data-baseurl') || '';
 
@@ -41,9 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (backdrop) {
     backdrop.addEventListener('transitionend', () => {
-      if (!backdrop.classList.contains('is-visible')) {
-        backdrop.hidden = true;
-      }
+      if (!backdrop.classList.contains('is-visible')) backdrop.hidden = true;
     });
   }
 
@@ -57,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (drawer) {
     drawer.addEventListener('click', (e) => {
       const a = e.target.closest('a');
-      if (a) closeDrawer();
+      if (a) closeDrawer(); // close on nav click
     });
   }
   document.addEventListener('keydown', (e) => {
@@ -67,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth >= 992) closeDrawer();
   });
 
-  /* ----------------- Projects/Timeline loader ----------------- */
+  /* ----------------- Load projects/timeline from JSON ----------------- */
   fetch(`${baseurl}/projects.json`)
     .then(res => res.json())
     .then(data => {
