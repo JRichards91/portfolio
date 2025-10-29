@@ -265,52 +265,38 @@ h3 { font-size: var(--fs-h3); margin: 0.75em 0; }
   cursor: pointer;
 }
 
-/* 13. Resume Embed — 100% Adaptive, Full-Bleed, Centered */
+/* 13. Resume Embed Styling (conservative & responsive; won’t break layout) */
 .resume-embed {
-  /* break out of the site .container to go edge-to-edge */
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  padding: 0;
+  padding: 20px 0;
 }
 .resume-embed .resume-container {
-  /* always fill available width on any screen */
-  width: 100vw;
-  max-width: 100vw;
-  /* keep a natural paper ratio; height derives from width */
+  /* Fill the content area on desktop, 100% width on mobile */
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  /* Keep a page-like proportion so the iframe gets a usable height */
   aspect-ratio: 8.5 / 11;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: #fff;
   border-radius: 8px;
   overflow: hidden;
-  /* subtle depth on large screens only */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 .resume-embed .resume-container iframe {
   width: 100%;
   height: 100%;
   border: none;
-  display: block;
-  transform-origin: center center;
 }
 
-/* Tighter layout and safe viewport heights on small screens */
-@media (max-width: 1024px) {
-  .resume-embed .resume-container {
-    border-radius: 0;
-    box-shadow: none;
-  }
-}
+/* Mobile tweaks: use full content width, no clipping */
 @media (max-width: 768px) {
-  .resume-embed .resume-container {
-    /* ensure usable height even when browser UI is visible */
-    aspect-ratio: auto;
-    height: 100svh;
+  .resume-embed {
+    padding: 10px 0 20px;
   }
-  .resume-embed .resume-container iframe {
-    height: 100%;
+  .resume-embed .resume-container {
+    max-width: 100%;
+    aspect-ratio: 8.5 / 11; /* maintains full-page view at phone width */
+    box-shadow: none;
+    border-radius: 0;
   }
 }
 
