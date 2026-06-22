@@ -1,4 +1,5 @@
 <header class="site-header">
+  {%- assign nav_items = "/|Home,/about/|About,/projects/|Projects,/resume/|Resume,/contact/|Contact" | split: "," -%}
   <div class="nav-bar container">
     <!-- Left: current page title (non-clickable) -->
     <div class="site-current" role="heading" aria-level="1">
@@ -7,17 +8,30 @@
       </span>
     </div>
 
-    <!-- Right: burger / X toggle -->
-    <button
-      class="burger"
-      aria-label="Toggle menu"
-      aria-controls="mobile-drawer"
-      aria-expanded="false"
-    >
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-      <span class="burger-line"></span>
-    </button>
+    <div class="nav-actions">
+      <!-- Desktop: full nav row -->
+      <ul class="nav-links" role="menubar">
+        {%- for item in nav_items -%}
+          {%- assign parts = item | split: "|" -%}
+          {%- assign href = parts[0] | relative_url -%}
+          <li role="none">
+            <a role="menuitem" href="{{ href }}" {% if page.url == parts[0] %}class="is-active" aria-current="page"{% endif %}>{{ parts[1] }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      <!-- Mobile: burger / X toggle -->
+      <button
+        class="burger"
+        aria-label="Toggle menu"
+        aria-controls="mobile-drawer"
+        aria-expanded="false"
+      >
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
   </div>
 
   <!-- Compact popover menu (auto-sizes to links) -->

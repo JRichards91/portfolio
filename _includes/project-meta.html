@@ -1,0 +1,18 @@
+{%- assign proj = nil -%}
+{%- for p in site.data.projects -%}
+  {%- if p.title == page.title -%}
+    {%- assign proj = p -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<a class="back-link" href="{{ '/projects/' | relative_url }}">&larr; Back to Projects</a>
+
+{%- if proj -%}
+  {%- assign status_slug = proj.status | downcase | replace: " ", "-" -%}
+  <div class="project-meta">
+    <span class="badge badge-status-{{ status_slug }}">{{ proj.status }}</span>
+    {%- for tag in proj.tags -%}
+      <span class="badge badge-tag">{{ tag }}</span>
+    {%- endfor -%}
+  </div>
+{%- endif -%}

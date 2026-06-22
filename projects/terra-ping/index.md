@@ -4,19 +4,21 @@ title: TerraPing
 permalink: /projects/terra-ping/
 ---
 
+{% include project-meta.html %}
+
 # TerraPing: Next-Generation Smart Soil Sensor
 
 **TerraPing** is a new battery-powered soil sensor platform I’m developing using the **Nordic nRF54L15-DK**. It’s designed to make precision plant monitoring effortless — blending ultra-low-power wireless operation with seamless integration into modern smart home ecosystems like **Apple HomeKit**, **Google Home**, and **Amazon Alexa**.
 
 ---
 
-## ⚙️ Overview
+## Overview
 
 The goal of TerraPing is to create a **compact, energy-efficient soil sensor** that can be dropped into any pot or garden bed and wirelessly report real-time soil data. Using the **nRF54L15 SoC**, the prototype leverages advanced BLE and Matter connectivity for direct pairing with your favorite smart home assistant — no extra bridges required.
 
 ---
 
-## 🌿 Key Features (Planned)
+## Key Features (Planned)
 
 - **Ultra-Low Power Operation** — optimized for long-term deployment on a single battery  
 - **Precision Capacitive Moisture Sensing** — stable readings independent of soil conductivity  
@@ -26,7 +28,7 @@ The goal of TerraPing is to create a **compact, energy-efficient soil sensor** t
 
 ---
 
-## 🔬 Current Development
+## Current Development
 
 I’m currently using the **nRF54L15-DK** to prototype the firmware and communication stack before transitioning to a custom PCB design. The firmware development focuses on:
 - Low-power sleep scheduling and wake-on-measurement routines  
@@ -35,7 +37,7 @@ I’m currently using the **nRF54L15-DK** to prototype the firmware and communic
 
 ---
 
-## 🚀 What’s Next
+## What’s Next
 
 Upcoming work includes:
 - Designing the **custom probe PCB** with integrated capacitive sensor pads  
@@ -44,7 +46,7 @@ Upcoming work includes:
 
 ---
 
-## 🌱 Stay Tuned
+## Stay Tuned
 
 TerraPing is still in active development — hardware schematics, enclosure renders, and live demos will be published here as the design matures.  
 

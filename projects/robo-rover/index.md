@@ -4,13 +4,15 @@ title: RoboRover
 permalink: /projects/robo-rover/
 ---
 
+{% include project-meta.html %}
+
 # RoboRover: Autonomous ROS2 Jetson Robot
 
 **RoboRover** is a custom-built autonomous robot platform powered by the Jetson Orin Nano and ROS2. Built entirely from sourced components (not a kit), this robot was designed to explore SLAM, autonomous navigation, and teleoperation techniques. It was completed as part of a six-lab experience and directly inspired the creation of *Gracie*, my personal follow-up robot.
 
 ---
 
-## 🔧 About the Project
+## About the Project
 
 The robot runs Ubuntu and ROS2 on a Jetson Orin Nano, flashed via NVMe using Jetpack 6.2. The main development efforts involved:
 
@@ -23,27 +25,27 @@ This project formed the foundation for my interest in mobile manipulation and AI
 
 ---
 
-## 🖼️ Build Photos
+## Build Photos
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-  <img src="./Top Down - Chassis.png" style="width: 45%; border-radius: 8px;" alt="Robot view 1">
-  <img src="./Top Down - 3D Mounts.png" style="width: 45%; border-radius: 8px;" alt="Robot view 2">
-  <img src="./Top Down - Components.png" style="width: 45%; border-radius: 8px;" alt="Robot view 3">
-  <img src="./Side View - Jetson.png" style="width: 45%; border-radius: 8px;" alt="Robot view 4">
+<div class="project-gallery">
+  <figure><img src="./Top Down - Chassis.png" alt="Robot view 1"></figure>
+  <figure><img src="./Top Down - 3D Mounts.png" alt="Robot view 2"></figure>
+  <figure><img src="./Top Down - Components.png" alt="Robot view 3"></figure>
+  <figure><img src="./Side View - Jetson.png" alt="Robot view 4"></figure>
 </div>
 
 ---
 
-## 🌟 Showcase Photos
+## Showcase Photos
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-  <img src="./Top Down - Done.png" style="width: 45%; border-radius: 8px;" alt="RoboRover assembled">
-  <img src="./Front View - Done.png" style="width: 45%; border-radius: 8px;" alt="Close-up wiring">
+<div class="project-gallery">
+  <figure><img src="./Top Down - Done.png" alt="RoboRover assembled"></figure>
+  <figure><img src="./Front View - Done.png" alt="Close-up wiring"></figure>
 </div>
 
 ---
 
-## 🎥 Demo Videos
+## Demo Videos
 
 <div style="display: flex; flex-direction: column; gap: 20px;">
 
@@ -61,7 +63,7 @@ This project formed the foundation for my interest in mobile manipulation and AI
 
 ---
 
-## 📦 3D Printed Components
+## 3D Printed Components
 
 <div style="display: flex; flex-direction: column; gap: 10px; font-size: 1rem;">
   <p>Want to reuse or remix the mechanical design?</p>
@@ -74,7 +76,7 @@ This project formed the foundation for my interest in mobile manipulation and AI
 
 ---
 
-## 🔩 System Summary
+## System Summary
 
 - **Main Board:** Jetson Orin Nano (8GB)
 - **OS / SDK:** Jetpack 6.2 w/ ROS2
@@ -84,7 +86,7 @@ This project formed the foundation for my interest in mobile manipulation and AI
 
 ---
 
-## 🧠 Next Steps
+## Next Steps
 
 - Upgrade to full 3D Depth Sense Camera
 - Integrate object recognition and grasp planning

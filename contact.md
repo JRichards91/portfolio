@@ -4,13 +4,10 @@ title: Contact
 permalink: /contact/
 ---
 
-<section class="contact-form container">
+<section class="contact-form container reveal">
   <form action="https://formspree.io/f/xpwlrobv" method="POST">
     <!-- honeypot to deter spam -->
     <input type="text" name="_gotcha" style="display:none">
-
-    <!-- where replies should go -->
-    <input type="hidden" name="_replyto" value="you@yourdomain.com">
 
     <label>
       Name  

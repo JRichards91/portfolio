@@ -7,7 +7,7 @@ permalink: /about/
 <section class="about-me container">
 
   <!-- 1. Origins & Education -->
-  <div class="about-section">
+  <div class="about-section reveal">
     <div class="about-img">
       <img src="{{ '/assets/img/Headshot.png' | relative_url }}" alt="Professional headshot">
     </div>
@@ -18,7 +18,7 @@ permalink: /about/
   </div>
 
   <!-- 2. Childhood Curiosity & First “Aha” Moments -->
-  <div class="about-section">
+  <div class="about-section reveal">
     <div class="about-img">
       <img src="{{ '/assets/img/Justin&Mom.png' | relative_url }}" alt="Justin and Mom">
     </div>
@@ -29,7 +29,7 @@ permalink: /about/
   </div>
 
   <!-- 3. Academic & Technical Passions -->
-  <div class="about-section">
+  <div class="about-section reveal">
     <div class="about-img">
       <img src="{{ '/assets/img/Gracie 1.png' | relative_url }}" alt="3D printed design">
     </div>
@@ -40,7 +40,7 @@ permalink: /about/
   </div>
 
   <!-- 4. Robotics & Prototyping Milestones -->
-  <div class="about-section">
+  <div class="about-section reveal">
     <div class="about-img">
       <img src="{{ '/assets/img/Gracie 2.png' | relative_url }}" alt="Custom ROS2 robot">
     </div>
@@ -51,7 +51,7 @@ permalink: /about/
   </div>
 
   <!-- 5. Adventures with Pi -->
-  <div class="about-section">
+  <div class="about-section reveal">
     <div class="about-img">
       <img src="{{ '/assets/img/Pi.png' | relative_url }}" alt="Pi playing fetch">
     </div>
@@ -62,7 +62,7 @@ permalink: /about/
   </div>
 
   <!-- 6. Travels & Future Vision -->
-  <div class="about-section">
+  <div class="about-section reveal">
     <div class="about-img">
       <img src="{{ '/assets/img/Pet Parade.png' | relative_url }}" alt="At the beach with Pi">
     </div>

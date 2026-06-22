@@ -102,54 +102,36 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lastFocused) { lastFocused.focus({ preventScroll: true }); lastFocused = null; }
   }
 
-  /* ----------------- Projects/Timeline loader ----------------- */
-  fetch(`${baseurl}/projects.json`)
-    .then(res => res.json())
-    .then(data => {
-      data.sort((a, b) => {
-        const da = a.date === 'Coming Soon' ? -Infinity : new Date(a.date);
-        const db = b.date === 'Coming Soon' ? -Infinity : new Date(b.date);
-        return db - da;
+  /* ----------------- Copy-to-clipboard for project code blocks ----------------- */
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-copy-code]');
+    if (!btn) return;
+    const codeBlock = btn.nextElementSibling;
+    if (!codeBlock) return;
+    navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
+    }).catch(() => {
+      btn.textContent = 'Failed!';
+    });
+  });
+
+  /* ----------------- Scroll reveal ----------------- */
+  const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length && !prefersReducedMotion && 'IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
       });
-
-      const timeline = document.querySelector('.timeline');
-      if (timeline) {
-        timeline.innerHTML = '';
-        data.forEach(proj => {
-          const li = document.createElement('li');
-          li.className = 'timeline-item';
-          li.innerHTML = `
-            <div class="timeline-icon-img">
-              <img src="${proj.image}" alt="${proj.title}" />
-            </div>
-            <div class="timeline-content">
-              <a href="${proj.url}">${proj.title}</a>
-            </div>
-            <span class="timeline-date">${
-              proj.date === 'Coming Soon'
-                ? 'Coming Soon'
-                : new Date(proj.date).toLocaleDateString()
-            }</span>`;
-          timeline.appendChild(li);
-        });
-      }
-
-      const grid = document.querySelector('.projects-grid');
-      if (grid) {
-        grid.innerHTML = '';
-        data.forEach(proj => {
-          const card = document.createElement('div');
-          card.className = 'project-card';
-          card.innerHTML = `
-            <img src="${proj.thumbnail || proj.image}" alt="${proj.title}">
-            <h3>${proj.title}</h3>
-            <p>${proj.blurb}</p>
-            <div class="read-more"><a href="${proj.url}">Read More</a></div>`;
-          grid.appendChild(card);
-        });
-      }
-    })
-    .catch(console.error);
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
 
   /* ----------------- Résumé: dynamic sizing (desktop iframe) ----------------- */
   const frame = document.querySelector('.resume-container iframe');

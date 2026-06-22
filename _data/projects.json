@@ -1,66 +1,82 @@
 [
   {
-  "title": "TerraPing",
-  "date": "Coming Soon",
-  "image": "/assets/img/timeline/TerraPing_Thumbnail.png",
-  "thumbnail": "/assets/img/projects/TerraPing.png",
-  "blurb": "A battery-powered smart soil sensor prototyped on the nRF54L15-DK. Designed for low-power operation and native integration with Apple HomeKit, Google Home, and Alexa using Matter.",
-  "url": "/projects/terra-ping/"
-},
+    "title": "TerraPing",
+    "date": "Coming Soon",
+    "status": "In Progress",
+    "image": "/assets/img/timeline/TerraPing_Thumbnail.png",
+    "thumbnail": "/assets/img/projects/TerraPing.png",
+    "blurb": "A battery-powered smart soil sensor prototyped on the nRF54L15-DK. Designed for low-power operation and native integration with Apple HomeKit, Google Home, and Alexa using Matter.",
+    "url": "/projects/terra-ping/",
+    "tags": ["nRF54L15", "BLE/Matter", "Low Power", "Embedded C"]
+  },
   {
     "title": "Gracie",
     "date": "2025-07-28",
+    "status": "In Progress",
     "image": "/assets/img/timeline/Gracie_Thumbnail.png",
     "thumbnail": "/assets/img/projects/Gracie.png",
     "blurb": "A robotic arm and camera system powered by ROS2, designed for precise manipulation tasks. Features depth sensing, object tracking, and autonomous pick-and-place routines.",
-    "url": "/projects/gracie/"
+    "url": "/projects/gracie/",
+    "tags": ["ROS2", "Jetson Orin Nano", "Robotics", "3D Printing"]
   },
-    {
+  {
     "title": "FloraByte",
     "date": "2025-06-04",
+    "status": "Completed",
     "image": "/assets/img/timeline/FloraByte_Thumbnail.png",
     "thumbnail": "/assets/img/projects/FloraByte.png",
     "blurb": "An intelligent countertop garden system that monitors plant health and growth. Designed for smart homes with Wi-Fi connectivity and nutrient automation.",
-    "url": "/projects/flora-byte/"
+    "url": "/projects/flora-byte/",
+    "tags": ["Raspberry Pi CM5", "IoT", "Home Assistant", "Sensors"]
   },
   {
     "title": "RoboRover",
     "date": "2025-04-07",
+    "status": "Completed",
     "image": "/assets/img/timeline/RoboRover_Thumbnail.png",
     "thumbnail": "/assets/img/projects/RoboRover.png",
     "blurb": "An autonomous mobile robot using ROS2 for navigation, SLAM, and obstacle avoidance. Ideal for autonomous exploration and mapping challenges.",
-    "url": "/projects/robo-rover/"
+    "url": "/projects/robo-rover/",
+    "tags": ["ROS2", "Jetson Orin Nano", "SLAM", "Python/C++"]
   },
   {
     "title": "AquaCore",
     "date": "2025-03-12",
+    "status": "Completed",
     "image": "/assets/img/timeline/AquaCore_Thumbnail.png",
     "thumbnail": "/assets/img/projects/AquaCore.png",
     "blurb": "A proof-of-concept hydroponics system with real-time environmental sensing. Compact, efficient, and perfect for testing smart agriculture ideas.",
-    "url": "/projects/aqua-core/"
+    "url": "/projects/aqua-core/",
+    "tags": ["TM4C123", "Embedded C", "Automation", "3D Printing"]
   },
   {
     "title": "HiveMind",
     "date": "2024-06-05",
+    "status": "Completed",
     "image": "/assets/img/timeline/HiveMind_Thumbnail.png",
     "thumbnail": "/assets/img/projects/HiveMind.png",
     "blurb": "A custom solver for the multiple traveling salesmen problem (mTSP). Optimizes routing for teams of agents in delivery, robotics, and logistics scenarios.",
-    "url": "/projects/hive-mind/"
+    "url": "/projects/hive-mind/",
+    "tags": ["Python", "PyTorch", "Optimization", "Multi-Agent"]
   },
   {
     "title": "VaporIQ",
     "date": "2023-03-21",
+    "status": "Completed",
     "image": "/assets/img/timeline/VaporIQ_Thumbnail.png",
     "thumbnail": "/assets/img/projects/VaporIQ.png",
     "blurb": "A precision gas density sensor with onboard data logging. Developed for SF6 analysis and environmental monitoring applications.",
-    "url": "/projects/vapor-iq/"
+    "url": "/projects/vapor-iq/",
+    "tags": ["TM4C123", "Embedded C", "Sensors"]
   },
   {
     "title": "EchoLux",
     "date": "2021-12-02",
+    "status": "Completed",
     "image": "/assets/img/timeline/EchoLux_Thumbnail.png",
     "thumbnail": "/assets/img/projects/EchoLux.png",
     "blurb": "An LED matrix that dances in real-time to live audio input. Merges sound and light for interactive installations and music-reactive displays.",
-    "url": "/projects/echo-lux/"
+    "url": "/projects/echo-lux/",
+    "tags": ["MicroPython", "PyBoard", "LED Control", "Signal Processing"]
   }
 ]
