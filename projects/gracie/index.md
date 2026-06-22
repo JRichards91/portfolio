@@ -8,21 +8,21 @@ permalink: /projects/gracie/
 
 # Gracie: Omnidirectional Autonomous Robot with Pick-and-Place Precision
 
-I'm building Gracie to pick up where RoboRover left off — a mecanum-wheel robot that can move in any direction and use a robotic arm to find and grab objects.
+**Gracie** is an advanced mobile robot platform designed to navigate dynamic environments, identify and retrieve objects, and interact with its surroundings. Built on a mecanum wheel chassis for full holonomic movement, Gracie combines precision mobility with intelligent manipulation through an integrated robotic arm.
 
 ---
 
 ## About the Project
 
-Gracie is built around:
+Gracie was engineered as a versatile robotics platform capable of:
 
 - Room mapping using LiDAR and depth sensing
 - Fully omnidirectional locomotion via mecanum wheels
 - Autonomous pick-and-place with a robotic arm
-- Local and remote control through a 7” touch screen
-- Onboard processing on a Jetson Orin Nano
+- Local and remote control interface using a 7” touch screen
+- Onboard processing powered by the Jetson Orin Nano
 
-I designed it to be modular — every major component mounts using custom 3D-printed hardware, so I can swap parts out as I go instead of rebuilding from scratch.
+The platform was designed from the ground up with modularity and customization in mind — all major components are securely mounted using custom 3D-printed hardware.
 
 ---
 
@@ -54,11 +54,11 @@ All mechanical mounts were custom designed for this project. Download them below
 
 ## Software Development in Progress
 
-The hardware's done. What's left is software:
+Gracie’s hardware is complete, and the software is actively being developed. Key tasks include:
 
 - Navigation and obstacle avoidance
 - Object detection and pick-up algorithms
 - Touch interface control panel
-- ROS-based integration across all subsystems
+- ROS-based integration for all subsystems
 
-I'll update this page as it comes together.
+Stay tuned as this robotic platform comes to life!

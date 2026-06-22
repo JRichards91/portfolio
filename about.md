@@ -13,7 +13,7 @@ permalink: /about/
     </div>
     <div class="about-text">
       <h2>Born to Tinker, Wired to Explore</h2>
-      <p>I grew up moving around — Oregon, Connecticut, and Washington — and stayed busy the whole time: soccer, lacrosse, mountain biking. I picked up lacrosse in Connecticut and kept playing after we moved to Washington, where I made varsity by sophomore year and got recruited to a top-tier summer camp. Off the field I was just as curious about how things worked — if it beeped, blinked, or flew, I wanted to take it apart and figure out why.</p>
+      <p>Growing up across Oregon, Connecticut, and Washington, I was always in motion—on a soccer field, behind a lacrosse stick, or tearing down a trail on my mountain bike. My curiosity didn’t stop at the finish line. If something beeped, blinked, or flew, I had to know how it worked. While living in Connecticut, I discovered lacrosse and fell in love with the game. After moving to Washington, I earned a varsity spot by sophomore year and was recruited to a top-tier summer camp. That same competitive spirit now drives my engineering work.</p>
     </div>
   </div>
 
@@ -24,7 +24,7 @@ permalink: /about/
     </div>
     <div class="about-text">
       <h2>Hands-On Learning, From Trails to Tech</h2>
-      <p>A lot of my mechanical instincts came from the trails as much as the garage. I spent weekends on Black Diamond's mountain bike network and rode the Hiawatha Trail in Montana with my mom in 2022. On the tech side, I taught myself to solder in 2018 while fixing micro drones — that's what got me hooked. I've been comfortable with a soldering iron in hand ever since.</p>
+      <p>My love for mechanics was shaped just as much on the trails as in the garage. I spent countless weekends exploring Black Diamond’s network of mountain bike paths and rode the Hiawatha Trail in Montana with my mom in 2022—a ride I’ll never forget. In 2018, I taught myself to solder while fixing micro drones, and that hands-on experience lit the fuse. Now I’m right at home with a soldering iron, prototyping new ideas with confidence and precision.</p>
     </div>
   </div>
 
@@ -35,7 +35,7 @@ permalink: /about/
     </div>
     <div class="about-text">
       <h2>Designing with Direction</h2>
-      <p>I studied Electrical & Computer Engineering at Eastern Washington University because I wanted to understand systems well enough to build them, not just use them. While I was in school I also worked as an electrical engineering technician and drafter, which forced me to apply what I was learning in class to actual hardware. Python and C are my go-to languages, usually on embedded targets like the Tiva C dev kit, Raspberry Pi, and Pico. I plan before I build — schematics and simulation first — which is how my 2025 hydroponics prototype went from a sketch to a working system.</p>
+      <p>Driven by a passion for problem-solving, I pursued a BS in Electrical & Computer Engineering at Eastern Washington University. While balancing a full course load, I interned as an electrical engineering technician and drafter—translating classroom theory into real-world insight. My go‑to tools are Python and C, especially on embedded systems like the Tiva C dev kit, Raspberry Pi, and Pico. Every project starts with research, schematics, simulations, and careful prototyping. That rigor helped bring my 2025 hydroponics concept from sketch to working system.</p>
     </div>
   </div>
 
@@ -46,7 +46,7 @@ permalink: /about/
     </div>
     <div class="about-text">
       <h2>Giving Robots a Purpose</h2>
-      <p>Robotics is where I get to use everything at once — mechanical design, embedded code, and control systems in a single project. I built a ROS2-powered mobile robot with a 3D camera and a robotic arm, running on a Jetson Orin Nano, that handles everything from SLAM navigation to pick-and-place. Watching a robot you built make its own decisions still gets me, even after doing this enough times that it probably shouldn't anymore.</p>
+      <p>Robotics is where software meets the physical world. I recently built a ROS2-powered mobile robot with a 3D camera and robotic arm, running on the Jetson Orin Nano. From SLAM navigation to precision pick‑and‑place movements, each step deepened my appreciation for the power of open-source systems. Watching something I built make autonomous decisions never gets old—it’s pure magic backed by code.</p>
     </div>
   </div>
 
@@ -57,7 +57,7 @@ permalink: /about/
     </div>
     <div class="about-text">
       <h2>Outside the Lab</h2>
-      <p>When I'm not soldering or writing code, I'm usually outside with Pi, my English Cream Golden Retriever. We hit SniffSpots near Spokane, explore Central Oregon, or just find a new trail. Pi is curious about literally everything, which is a decent reminder not to take myself too seriously when I'm stuck on a bug.</p>
+      <p>When I’m not soldering or coding, you’ll find me outside with Pi—my English Cream Golden Retriever. We hike SniffSpots near Spokane, wander through Central Oregon, or just explore hidden trails. Pi’s curiosity reminds me to stay playful, stay learning, and stay present. It’s that sense of wonder I try to bring into every prototype, every bug fix, and every new idea.</p>
     </div>
   </div>
 
@@ -68,7 +68,7 @@ permalink: /about/
     </div>
     <div class="about-text">
       <h2>The Road Ahead</h2>
-      <p>I've got a wireless soil moisture sensor, TerraPing, sitting on the bench — custom PCB, 3D-printed enclosure, HomeKit-compatible. It's on hold for now while I focus on other things, but I plan to pick it back up. If any of this overlaps with what you're working on, reach out on <a href="https://www.linkedin.com/in/jrichards91" target="_blank">LinkedIn</a> — I like talking shop.</p>
+      <p>I’m currently designing a smart, wireless soil moisture sensor with a custom PCB and 3D‑printed enclosure—HomeKit‑compatible and built for seamless integration. It’s part of a bigger vision: blending elegant design with embedded intelligence to create tech that supports sustainability and self-sufficiency. If that spark resonates, let’s connect on <a href="https://www.linkedin.com/in/jrichards91" target="_blank">LinkedIn</a>—I’d love to share ideas.</p>
     </div>
   </div>
 

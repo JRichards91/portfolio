@@ -5,9 +5,10 @@ title: Home
 
 <section class="hero reveal">
   <h1>
-    I Build Embedded Systems<br>and Robots That Work
+    Engineering for Tomorrow,<br>
+    One Innovation at a Time
   </h1>
-  <p>I'm Justin Richards, an Electrical & Computer Engineer. I like taking a project from a schematic to a working prototype — soil sensors, hydroponics rigs, robots with arms, whatever's in front of me. Below is a timeline of what I've built, roughly in the order I built it.</p>
+  <p>Hi, I’m Justin Richards, an Electrical & Computer Engineer who brings embedded systems, 3D‑printed devices, and robotics to life. Explore my timeline to see projects from smart gardens to autonomous robots.</p>
   <div class="btn-row">
     <a class="btn btn-primary" href="{{ '/projects/' | relative_url }}">View Projects</a>
     <a class="btn btn-outline" href="{{ '/resume/' | relative_url }}">Résumé</a>

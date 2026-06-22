@@ -8,19 +8,19 @@ permalink: /projects/vapor-iq/
 
 # VaporIQ: SF₆ Gas Density Monitoring System
 
-I built VaporIQ on a TM4C123 LaunchPad to model how electric utilities monitor SF₆ gas density in high-voltage breakers — potentiometers simulate pressure and temperature, the Ideal Gas Law computes density, and the result shows up on a 7-segment readout with a mode switch and alarm system.
+**VaporIQ** is a simplified gas density monitor built using the Tiva C Series TM4C123GH6PM microcontroller. Inspired by real-world applications used by electric utilities, this project simulates pressure and temperature sensing for SF₆ gas using analog potentiometers and computes gas density using the Ideal Gas Law. The result is displayed on a 3-digit 7-segment display, with a mode switch, status LEDs, and an automated alarm system.
 
 ---
 
 ## About the Project
 
-SF₆ is used in high-voltage circuit breakers for its dielectric strength, but it's also a potent greenhouse gas, so utilities monitor it continuously for both safety and environmental reasons.
+SF₆ is widely used in high-voltage circuit breakers for its superior dielectric strength. But due to its high global warming potential and critical role in safety, continuous monitoring is essential.
 
-VaporIQ calculates percent density by comparing measured pressure and temperature against an expected "ideal" pressure value:
+VaporIQ calculates percent density based on measured temperature and pressure, comparing real-time readings to an expected “ideal” pressure value using:
 
 **P = sT**, where `s = 0.17065` and `T` is temperature in Kelvin.
 
-You can switch the display between density, pressure, and temperature with a button. If density drops below a set threshold, an LED alarm triggers automatically.
+The user can switch display modes between **Density**, **Pressure**, and **Temperature**. If density drops below a critical threshold, an LED alarm triggers.
 
 ---
 
@@ -51,6 +51,9 @@ You can switch the display between density, pressure, and temperature with a but
 
 ---
 
-## If I Came Back to This
+## Future Ideas
 
-VaporIQ was a simulation exercise — the potentiometers stand in for real sensors. If I revisited it, swapping those for actual pressure/temperature sensors and adding UART or CAN output would be the obvious next step, along with data logging and a wireless alert option.
+- Add real pressure and temperature sensors instead of pots
+- Transmit data via UART or CAN for real-world integration
+- Add data logging to EEPROM or external storage
+- Integrate wireless alerts or dashboard via Bluetooth or RF
