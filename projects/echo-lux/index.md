@@ -8,15 +8,15 @@ permalink: /projects/echo-lux/
 
 # EchoLux: Real-Time Audio Reactive Light Show
 
-**EchoLux** is an interactive sound-to-light system that transforms live audio input into vibrant LED animations. Designed around a microphone module and a WS2812 LED strip, the system reacts dynamically to sound intensity — clapping, music, or speech — creating a mesmerizing ambient display.
+I built EchoLux for a class final: an LED strip that reacts to live sound in real time, whether that's clapping, music, or just talking near the mic.
 
 ---
 
 ## About the Project
 
-EchoLux was built using an analog microphone breakout and a digital LED strip, controlled by a PyBoard running MicroPython. When sound is detected, the analog signal is amplified and sampled, then mapped to brightness levels and animation patterns on the LED strip.
+I used an analog microphone breakout and a WS2812 LED strip, controlled by a PyBoard running MicroPython. The mic signal gets amplified, sampled, and mapped to brightness and animation patterns on the strip.
 
-This project combines analog signal conditioning, real-time data processing, and visual output — making it ideal for learning about audio signal acquisition, LED control, and embedded systems programming.
+Most of the actual work was in tuning the mic gain and frame timing so the LEDs responded cleanly without flickering — a good first project for analog signal conditioning and real-time embedded control.
 
 ### Features:
 - Real-time analog audio sampling
@@ -77,9 +77,6 @@ This project combines analog signal conditioning, real-time data processing, and
 
 ---
 
-## Future Ideas
+## If I Came Back to This
 
-- Add FFT for frequency-based visualizations
-- Implement beat/tempo detection
-- Design a 3D-printed enclosure with diffusion panel
-- Add remote control via MQTT or BLE
+I'm not planning to revisit EchoLux, but if I did, FFT-based frequency visualization and beat detection would be the obvious next steps, along with a proper 3D-printed enclosure with a diffusion panel.

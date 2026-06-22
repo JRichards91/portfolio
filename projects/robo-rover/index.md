@@ -8,20 +8,20 @@ permalink: /projects/robo-rover/
 
 # RoboRover: Autonomous ROS2 Jetson Robot
 
-**RoboRover** is a custom-built autonomous robot platform powered by the Jetson Orin Nano and ROS2. Built entirely from sourced components (not a kit), this robot was designed to explore SLAM, autonomous navigation, and teleoperation techniques. It was completed as part of a six-lab experience and directly inspired the creation of *Gracie*, my personal follow-up robot.
+I built RoboRover from scratch (not a kit) over a six-lab course sequence, using it to learn SLAM, autonomous navigation, and teleoperation on a Jetson Orin Nano. It's also what convinced me to build *Gracie* next.
 
 ---
 
 ## About the Project
 
-The robot runs Ubuntu and ROS2 on a Jetson Orin Nano, flashed via NVMe using Jetpack 6.2. The main development efforts involved:
+It runs Ubuntu and ROS2 on a Jetson Orin Nano, flashed via NVMe on Jetpack 6.2. The bulk of the work was:
 
 1. Running and adapting ROS2 tutorial nodes  
 2. Building a teleop system to control the robot with a keyboard  
 3. Developing custom ROS2 nodes for line following using computer vision  
 4. Creating obstacle avoidance logic using sensor feedback and SLAM
 
-This project formed the foundation for my interest in mobile manipulation and AI-powered robotics.
+This is the project that got me interested in mobile manipulation, not just navigation.
 
 ---
 
@@ -86,8 +86,6 @@ This project formed the foundation for my interest in mobile manipulation and AI
 
 ---
 
-## Next Steps
+## If I Came Back to This
 
-- Upgrade to full 3D Depth Sense Camera
-- Integrate object recognition and grasp planning
-- Deploy custom-built manipulator arm from Gracie
+RoboRover did what I needed it to do, and I moved on to Gracie instead of continuing this one. If I had kept going, the next steps would've been a real depth camera and basic object recognition for grasp planning.

@@ -8,15 +8,15 @@ permalink: /projects/hive-mind/
 
 # HiveMind: Multi-Agent Route Optimization in Python
 
-**HiveMind** is a Python-based implementation of the Multi-Traveling Salesman Problem (mTSP), designed to optimize the path planning of multiple agents across a shared set of waypoints. This model simulates coordination between autonomous agents tasked with covering distinct routes efficiently — a critical problem in logistics, robotics, and swarm systems.
+I wrote HiveMind to solve the multi-agent traveling salesman problem — splitting a shared set of waypoints across several agents so each one ends up with an efficient route.
 
 ---
 
 ## About the Project
 
-This project solves the multi-agent variant of the classic TSP using custom heuristics, clustering algorithms, and matplotlib-based visualizations. Each agent receives a subset of cities to visit, and the solution aims to minimize both the total travel cost and the workload variance between agents.
+I used k-means clustering to split cities between agents, then 2-opt and greedy heuristics to optimize each agent's route within its cluster. The objective balances two things: total travel cost and how evenly the workload is split across agents.
 
-This system was developed as a foundation for exploring multi-agent coordination and distributed planning.
+It started as a way to get hands-on with multi-agent coordination rather than just reading about it.
 
 ### Features:
 - Random or user-defined city maps
@@ -41,13 +41,9 @@ This system was developed as a foundation for exploring multi-agent coordination
 
 ---
 
-## Future Extensions
+## If I Came Back to This
 
-- Integration with A* or genetic algorithms
-- Real-world map support via GPS coordinates
-- GUI interface for city and agent input
-- Dynamic task reallocation based on agent availability
-- Simulation with physical robots or drone swarms
+I'm not planning to extend HiveMind further, but the natural next steps would be GPS-based real maps, a GUI for setting up agents and cities, and dynamic task reallocation if an agent drops out mid-route.
 
 ---
 

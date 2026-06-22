@@ -8,21 +8,21 @@ permalink: /projects/aqua-core/
 
 # AquaCore: Automated Hydroponic Control System
 
-**AquaCore** is a self-regulating hydroponics controller designed to monitor and maintain critical growing conditions for plants. Using a TM4C123GXL microcontroller, it integrates sensor data with actuator control to adjust lighting and manage water flow — helping plants thrive with minimal oversight.
+I built AquaCore to test whether a TM4C123 microcontroller could run a hydroponics setup on its own — adjusting grow light height and refilling the reservoir without me touching it.
 
-Originally developed as a proof of concept, AquaCore demonstrated reliable embedded coordination between sensors, motors, and valves, and later evolved into the more advanced FloraByte platform.
+It was a proof of concept, not a finished product, but it proved the core idea worked: sensors, motors, and valves all coordinating reliably. That's the foundation FloraByte was built on.
 
 ---
 
 ## About the Project
 
-AquaCore is centered around two primary control loops:
+AquaCore runs on two control loops:
 
-- A **distance sensor** monitors the height between the grow light deck and the plant canopy. Based on this input, a **stepper motor** raises or lowers the lighting system to maintain optimal exposure as the plants grow.
+- A **distance sensor** tracks the gap between the grow light deck and the plant canopy. A **stepper motor** raises or lowers the lighting to keep exposure consistent as the plants grow.
 
-- A **liquid level sensor** monitors the fluid in the reservoir. When the level falls below a threshold, a **solenoid valve** is opened to refill the system. Once it reaches a target level, the valve automatically closes.
+- A **liquid level sensor** watches the reservoir. When it drops below a threshold, a **solenoid valve** opens to refill it, then closes once it hits target level.
 
-An onboard temperature sensor tracks ambient conditions for future expansion. System tasks are synchronized using microcontroller timers and interrupts to ensure responsive and consistent performance.
+There's also an onboard temperature sensor, though I never wired it into the control logic — it just logs ambient conditions. I used microcontroller timers and interrupts to keep everything synchronized instead of polling in a loop.
 
 ### Features:
 - Light deck automatically tracks plant height  
@@ -96,9 +96,6 @@ Want to explore or print the custom 3D enclosure?
 
 ---
 
-## Future Ideas
+## If I Came Back to This
 
-- Add humidity and CO₂ sensing  
-- Integrate remote monitoring via Wi-Fi or cloud  
-- Solar-powered version with battery backup  
-- Upgrade to modular control with machine learning  
+I don't plan on revisiting AquaCore directly — FloraByte is the project that actually moved forward. But if I did, I'd add humidity/CO₂ sensing, hook up remote monitoring over Wi-Fi, and look at a solar-powered version with battery backup.

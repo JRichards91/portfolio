@@ -260,6 +260,7 @@ h3{ font-size:var(--fs-h3); margin:.75em 0; }
 .badge-status-completed{ color:#0B7A3D; background:rgba(11,122,61,.1); border-color:rgba(11,122,61,.35); }
 .badge-status-in-progress{ color:#9A6B00; background:rgba(242,177,52,.15); border-color:rgba(154,107,0,.4); }
 .badge-status-concept{ color:var(--ink-muted); background:rgba(91,107,129,.12); border-color:rgba(91,107,129,.4); }
+.badge-status-on-hold{ color:var(--ink-muted); background:rgba(91,107,129,.12); border-color:rgba(91,107,129,.4); }
 /* badges on dark backgrounds (timeline) need lighter fills */
 .timeline-date .badge{ color:var(--accent); background:rgba(0,174,239,.14); border-color:rgba(0,174,239,.5); }
 

@@ -8,15 +8,15 @@ permalink: /projects/flora-byte/
 
 # FloraByte: IoT Hydroponics System for the Smart Countertop
 
-**FloraByte** is a custom-built smart hydroponics solution that transforms any countertop into a fully autonomous growing environment. Built into a repurposed AeroGarden shell and powered by a Raspberry Pi Compute Module 5, this system integrates sensor-driven logic, cloud access, and Home Assistant dashboards to monitor and maintain optimal plant growth conditions with minimal manual intervention.
+I built FloraByte into an old AeroGarden shell, running on a Raspberry Pi Compute Module 5, to automate pretty much everything about keeping a countertop garden alive.
 
 ---
 
 ## About the Project
 
-This project uses high-precision environmental and water-quality sensors to automate care for plants. With real-time pH, EC, and temperature monitoring from Atlas Scientific sensors, FloraByte intelligently adjusts nutrient levels and pH via micro-dosing peristaltic pumps. A circulation pump ensures even distribution of nutrients through the root zone. The grow light is height-adjustable to optimize photosynthesis, and a smart AI camera enables remote plant health monitoring, including timelapse capture.
+Atlas Scientific sensors handle real-time pH, EC, and temperature monitoring, and peristaltic pumps micro-dose nutrients and pH adjusters based on those readings. A circulation pump keeps nutrients moving through the root zone, the grow light height adjusts on its own as plants grow, and a camera handles remote monitoring and timelapse capture.
 
-All sensor data is logged to Home Assistant and visualized on a custom touchscreen interface. The system supports remote control and is compatible with HomeKit through HomeBridge, making it seamlessly integrated into the smart home ecosystem.
+Sensor data logs to Home Assistant and shows up on a custom touchscreen interface. It also talks to HomeKit through HomeBridge, so I can check on it the same way I'd check any other smart home device.
 
 ### Features:
 - Precision water monitoring: pH, EC, and temperature
@@ -58,13 +58,10 @@ All sensor data is logged to Home Assistant and visualized on a custom touchscre
 
 ## Code Availability
 
-Due to the proprietary nature of FloraByte’s control algorithms and system logic, the source code is not publicly available.
+I'm keeping FloraByte's control code private for now, so there's no public repo for this one.
 
 ---
 
-## Future Development
+## If I Came Back to This
 
-- Add soil sensors to support hybrid soil/hydro systems
-- Integrate AI plant health analytics
-- Enable cloud-based data logging
-- Automate seed germination and lighting cycles
+FloraByte's the most complete of my projects, so it's the one I'd most likely return to, even though I'm not actively working on it right now. If I did, I'd add soil sensors for a hybrid soil/hydro setup, basic plant-health analytics from the camera feed, and automated seed germination.
